@@ -179,3 +179,42 @@
   .table-search { min-width: 0; width: 100%; }
   .table-tools { width: 100%; }
 }
+
+/* ===== Segunda fila de gráficos ===== */
+.chart-grid-2 { margin-top: 0; }
+
+/* Donut */
+.donut-wrap { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.donut-chart { width: 180px; height: 180px; flex-shrink: 0; }
+.donut-seg { transition: opacity 0.2s; cursor: pointer; }
+.donut-seg:hover { opacity: 0.8; }
+.donut-total { fill: var(--text-primary); font-size: 15px; font-weight: 800; }
+.donut-sub { fill: var(--text-muted); font-size: 9px; }
+.donut-legend { flex: 1; min-width: 160px; display: flex; flex-direction: column; gap: 10px; }
+.legend-row { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.legend-dot { width: 11px; height: 11px; border-radius: 3px; flex-shrink: 0; }
+.legend-name { color: var(--text-secondary); flex: 1; }
+.legend-pct { color: var(--text-primary); font-weight: 700; }
+
+/* Embudo */
+.funnel-chart { display: flex; flex-direction: column; gap: 14px; }
+.funnel-row { display: grid; grid-template-columns: 1fr; gap: 6px; }
+.funnel-info { display: flex; justify-content: space-between; align-items: baseline; }
+.funnel-label { font-size: 13px; color: var(--text-secondary); }
+.funnel-value { font-size: 14px; font-weight: 700; }
+.funnel-bar-track { height: 30px; background: var(--surface-2); border-radius: 8px; overflow: hidden; }
+.funnel-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: flex-end;
+  padding-right: 10px;
+  min-width: 36px;
+  transition: width 0.7s var(--ease);
+}
+.funnel-conv { font-size: 11px; font-weight: 700; color: #fff; opacity: 0.9; }
+
+@media (max-width: 980px) {
+  .chart-grid-2 .panel:first-child { margin-bottom: 24px; }
+  .donut-wrap { justify-content: center; }
+}

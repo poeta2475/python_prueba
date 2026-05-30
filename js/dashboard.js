@@ -188,6 +188,84 @@
       .join('');
   }
 
+  // ── Donut de ventas por producto (SVG) ───────────────────────
+  const DONUT_COLORS = ['#6366f1', '#8b5cf6', '#06b6d4', '#10b981', '#f59e0b'];
+  function renderProductDonut(transactions) {
+    const svg = document.getElementById('productDonut');
+    const legend = document.getElementById('donutLegend');
+    if (!svg || !legend) return;
+
+    const totals = {};
+    PRODUCTS.forEach((p) => (totals[p] = 0));
+    transactions.forEach((t) => {
+      if (t.status !== 'Reembolsado') totals[t.product] += t.amount;
+    });
+    const entries = Object.entries(totals).sort((a, b) => b[1] - a[1]);
+    const sum = entries.reduce((a, b) => a + b[1], 0) || 1;
+
+    const cx = 100, cy = 100, r = 70, stroke = 26;
+    const circ = 2 * Math.PI * r;
+    let offset = 0;
+    let arcs = '';
+    entries.forEach(([, val], i) => {
+      const frac = val / sum;
+      const dash = frac * circ;
+      arcs +=
+        '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" ' +
+        'stroke="' + DONUT_COLORS[i % DONUT_COLORS.length] + '" stroke-width="' + stroke + '" ' +
+        'stroke-dasharray="' + dash.toFixed(2) + ' ' + (circ - dash).toFixed(2) + '" ' +
+        'stroke-dashoffset="' + (-offset).toFixed(2) + '" ' +
+        'transform="rotate(-90 ' + cx + ' ' + cy + ')" class="donut-seg"><title>' +
+        entries[i][0] + ': ' + fmtMoney(val) + '</title></circle>';
+      offset += dash;
+    });
+
+    svg.innerHTML =
+      arcs +
+      '<text x="' + cx + '" y="' + (cy - 4) + '" text-anchor="middle" class="donut-total">' + fmtMoney(sum) + '</text>' +
+      '<text x="' + cx + '" y="' + (cy + 16) + '" text-anchor="middle" class="donut-sub">Total ventas</text>';
+
+    legend.innerHTML = entries
+      .map(
+        ([name, val], i) =>
+          '<div class="legend-row"><span class="legend-dot" style="background:' +
+          DONUT_COLORS[i % DONUT_COLORS.length] + '"></span>' +
+          '<span class="legend-name">' + name + '</span>' +
+          '<span class="legend-pct">' + ((val / sum) * 100).toFixed(0) + '%</span></div>'
+      )
+      .join('');
+  }
+
+  // ── Embudo de conversión ─────────────────────────────────────
+  function renderFunnel(series) {
+    const wrap = document.getElementById('funnelChart');
+    if (!wrap) return;
+    const visits = series.reduce((a, b) => a + b.visits, 0);
+    // Etapas con tasas de caída realistas
+    const stages = [
+      { label: 'Visitas', value: visits },
+      { label: 'Registros', value: Math.round(visits * 0.42) },
+      { label: 'Prueba activada', value: Math.round(visits * 0.21) },
+      { label: 'Propuesta enviada', value: Math.round(visits * 0.09) },
+      { label: 'Clientes', value: Math.round(visits * 0.047) },
+    ];
+    const max = stages[0].value || 1;
+    wrap.innerHTML = stages
+      .map((s, i) => {
+        const pct = (s.value / max) * 100;
+        const conv = i === 0 ? 100 : (s.value / stages[i - 1].value) * 100;
+        return (
+          '<div class="funnel-row">' +
+          '<div class="funnel-info"><span class="funnel-label">' + s.label + '</span>' +
+          '<span class="funnel-value">' + fmtNum(s.value) + '</span></div>' +
+          '<div class="funnel-bar-track"><div class="funnel-bar" style="width:' + pct.toFixed(1) + '%">' +
+          (i > 0 ? '<span class="funnel-conv">' + conv.toFixed(0) + '%</span>' : '') +
+          '</div></div></div>'
+        );
+      })
+      .join('');
+  }
+
   // ── Tabla: búsqueda + orden + paginación ─────────────────────
   const TableState = { rows: [], filtered: [], sortKey: 'date', sortDir: -1, page: 1, perPage: 8, query: '' };
 
@@ -260,6 +338,8 @@
     renderKPIs(series);
     renderLineChart(series);
     renderChannelChart(tx);
+    renderProductDonut(tx);
+    renderFunnel(series);
     TableState.rows = tx;
     TableState.page = 1;
     applyTable();

@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recursos | NexaPy Analytics</title>
-  <meta name="description" content="Documentación, tutoriales, blog y webinars de NexaPy Analytics." />
+  <title>Blog | NexaPy Analytics</title>
+  <meta name="description" content="Artículos sobre análisis de datos, KPIs, inteligencia artificial y casos de éxito para empresas colombianas." />
   <meta name="theme-color" content="#0a0b0f" />
+  <link rel="canonical" href="https://poeta2475.github.io/python_prueba/blog.html" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,7 +23,7 @@
       <ul class="nav-links">
         <li><a href="index.html#features">Características</a></li>
         <li><a href="index.html#pricing">Planes</a></li>
-        <li><a href="recursos.html" class="active">Recursos</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
         <li><a href="nosotros.html">Nosotros</a></li>
       </ul>
       <div class="nav-actions">
@@ -41,7 +42,7 @@
   <aside class="mobile-menu" id="mobileMenu" aria-label="Menú de navegación">
     <a href="index.html#features">Características</a>
     <a href="index.html#pricing">Planes</a>
-    <a href="recursos.html">Recursos</a>
+    <a href="blog.html">Blog</a>
     <a href="nosotros.html">Nosotros</a>
     <a href="index.html#contact">Contacto</a>
     <div class="mobile-menu-actions">
@@ -54,33 +55,15 @@
 
   <header class="page-hero" id="main">
     <div class="section-container">
-      <p class="page-breadcrumb"><a href="index.html">Inicio</a> / Recursos</p>
-      <h1>Aprende a sacarle el <span class="gradient-text">máximo a tus datos</span></h1>
-      <p>Guías, tutoriales, artículos y webinars para que domines NexaPy y la analítica de datos, todo en español.</p>
+      <p class="page-breadcrumb"><a href="index.html">Inicio</a> / Blog</p>
+      <h1>El blog de <span class="gradient-text">NexaPy</span></h1>
+      <p>Ideas prácticas sobre datos, KPIs e inteligencia artificial para hacer crecer tu empresa en Colombia.</p>
     </div>
   </header>
 
   <section class="content-section">
     <div class="section-container">
-      <div class="section-header" style="margin-bottom:32px"><span class="section-tag">Blog</span><h2 class="section-title">Artículos recientes</h2></div>
       <div class="blog-grid" id="blogGrid"></div>
-      <div style="text-align:center; margin-top:36px">
-        <a href="blog.html" class="btn-outline btn-lg">Ver todos los artículos</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="content-section" style="padding-top:0">
-    <div class="section-container">
-      <div class="section-header" style="margin-bottom:32px"><span class="section-tag">Centro de ayuda</span><h2 class="section-title">Documentación</h2></div>
-      <div class="resource-grid">
-        <a href="#" class="resource-card"><h3>🚀 Primeros pasos</h3><p>Crea tu cuenta, conecta una fuente y arma tu primer dashboard.</p></a>
-        <a href="#" class="resource-card"><h3>🔌 Integraciones</h3><p>Guías para conectar más de 200 fuentes de datos.</p></a>
-        <a href="#" class="resource-card"><h3>📊 Visualizaciones</h3><p>Todos los tipos de gráficos y cómo personalizarlos.</p></a>
-        <a href="#" class="resource-card"><h3>🤖 IA y predicciones</h3><p>Configura modelos predictivos sin escribir código.</p></a>
-        <a href="#" class="resource-card"><h3>🔐 Seguridad y permisos</h3><p>Roles, SSO y buenas prácticas para tu organización.</p></a>
-        <a href="#" class="resource-card"><h3>💻 API REST / GraphQL</h3><p>Referencia técnica para desarrolladores.</p></a>
-      </div>
     </div>
   </section>
 
@@ -93,25 +76,19 @@
   <script src="js/blog-data.js"></script>
   <script src="js/main.js"></script>
   <script>
-    // Blog real: primeros 6 artículos desde el dataset
     (function () {
       var grid = document.getElementById('blogGrid');
-      if (grid && window.NexaBlog) {
-        grid.innerHTML = window.NexaBlog.all().slice(0, 6).map(function (a) {
-          return '<a class="blog-card" href="articulo.html?post=' + a.slug + '">' +
-            '<div class="blog-thumb">' + a.emoji + '</div>' +
-            '<div class="blog-body"><span class="r-tag">' + a.tag + '</span>' +
-            '<h3>' + a.title + '</h3><p>' + a.excerpt + '</p>' +
-            '<p class="r-meta">' + window.NexaBlog.formatDate(a.date) + ' · ' + a.read + ' min</p></div></a>';
-        }).join('');
-      }
-      // Las tarjetas de documentación son demostrativas: avisan en vez de romper navegación
-      document.querySelectorAll('.resource-card[href="#"]').forEach(function (card) {
-        card.addEventListener('click', function (e) {
-          e.preventDefault();
-          window.NexaUI.toast('Documentación de demostración — disponible próximamente.', 'info');
-        });
-      });
+      if (!grid || !window.NexaBlog) return;
+      grid.innerHTML = window.NexaBlog.all().map(function (a) {
+        return '<a class="blog-card" href="articulo.html?post=' + a.slug + '">' +
+          '<div class="blog-thumb">' + a.emoji + '</div>' +
+          '<div class="blog-body">' +
+          '<span class="r-tag">' + a.tag + '</span>' +
+          '<h3>' + a.title + '</h3>' +
+          '<p>' + a.excerpt + '</p>' +
+          '<p class="r-meta">' + window.NexaBlog.formatDate(a.date) + ' · ' + a.read + ' min · ' + a.author + '</p>' +
+          '</div></a>';
+      }).join('');
     })();
   </script>
 </body>

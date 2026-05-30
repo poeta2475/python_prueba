@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artículo | NexaPy Analytics</title>
+  <meta name="description" content="Artículo del blog de NexaPy Analytics." />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="js/theme.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+  <div class="aurora-bg" aria-hidden="true"><span></span></div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo"><span class="logo-icon">⬡</span><span class="logo-text">NexaPy<span class="logo-accent">Analytics</span></span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Características</a></li>
+        <li><a href="index.html#pricing">Planes</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Cambiar tema"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+        <a href="login.html" class="btn-outline" data-auth="guest">Iniciar sesión</a>
+        <a href="signup.html" class="btn-primary" data-auth="guest">Prueba gratis</a>
+        <a href="dashboard.html" class="btn-primary" data-auth="user">Ir al panel</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Menú de navegación">
+    <a href="index.html#features">Características</a>
+    <a href="index.html#pricing">Planes</a>
+    <a href="blog.html">Blog</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="index.html#contact">Contacto</a>
+    <div class="mobile-menu-actions">
+      <button class="btn-outline btn-full" data-theme-toggle>Cambiar tema 🌗</button>
+      <a href="login.html" class="btn-outline btn-full" data-auth="guest">Iniciar sesión</a>
+      <a href="signup.html" class="btn-primary btn-full" data-auth="guest">Prueba gratis</a>
+      <a href="dashboard.html" class="btn-primary btn-full" data-auth="user">Ir al panel</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <article class="article" id="article">
+      <!-- Renderizado por JS -->
+    </article>
+  </main>
+
+  <footer class="mini-footer">
+    <p>© <span id="year">2025</span> NexaPy Analytics S.A.S. · Bogotá, Colombia · <a href="legal.html">Legal</a> · <a href="blog.html">Volver al blog</a></p>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/blog-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var el = document.getElementById('article');
+      if (!el || !window.NexaBlog) return;
+      var slug = new URLSearchParams(location.search).get('post');
+      var post = slug ? window.NexaBlog.bySlug(slug) : null;
+
+      if (!post) {
+        el.innerHTML =
+          '<div class="article-head"><p class="page-breadcrumb"><a href="blog.html">← Blog</a></p>' +
+          '<h1>Artículo no encontrado</h1>' +
+          '<p class="article-lead">El artículo que buscas no existe o fue movido.</p>' +
+          '<p><a href="blog.html" class="btn-primary btn-lg">Ver todos los artículos</a></p></div>';
+        return;
+      }
+
+      document.title = post.title + ' | NexaPy Analytics';
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', post.excerpt);
+
+      // Artículos relacionados (otros 3 más recientes)
+      var related = window.NexaBlog.all().filter(function (a) { return a.slug !== post.slug; }).slice(0, 3);
+      var relatedHtml = related.map(function (a) {
+        return '<a class="related-card" href="articulo.html?post=' + a.slug + '">' +
+          '<span class="related-emoji">' + a.emoji + '</span>' +
+          '<div><span class="r-tag">' + a.tag + '</span><h4>' + a.title + '</h4></div></a>';
+      }).join('');
+
+      el.innerHTML =
+        '<div class="article-head">' +
+        '<p class="page-breadcrumb"><a href="blog.html">← Blog</a> / ' + post.tag + '</p>' +
+        '<span class="article-emoji">' + post.emoji + '</span>' +
+        '<h1>' + post.title + '</h1>' +
+        '<p class="article-lead">' + post.excerpt + '</p>' +
+        '<div class="article-meta"><span>Por <strong>' + post.author + '</strong></span><span>·</span>' +
+        '<span>' + window.NexaBlog.formatDate(post.date) + '</span><span>·</span>' +
+        '<span>' + post.read + ' min de lectura</span></div>' +
+        '</div>' +
+        '<div class="article-body content-prose">' + post.body + '</div>' +
+        '<div class="article-cta">' +
+        '<h3>¿Te gustó este artículo?</h3>' +
+        '<p>Empieza a aplicar estas ideas con NexaPy. 14 días gratis, sin tarjeta.</p>' +
+        '<a href="signup.html" class="btn-primary btn-lg magnetic">Crear cuenta gratis</a>' +
+        '</div>' +
+        '<div class="article-related"><h3>Sigue leyendo</h3><div class="related-grid">' + relatedHtml + '</div></div>';
+    })();
+  </script>
+</body>
+</html>

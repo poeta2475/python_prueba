@@ -9,11 +9,18 @@ Sitio estático (HTML/CSS/JS puro, sin dependencias) desplegado en GitHub Pages.
 
 | Página | Descripción |
 |---|---|
-| `index.html` | Landing: hero, características, métricas, proceso, precios, testimonios, FAQ, contacto, newsletter |
+| `index.html` | Landing: hero, tabs de características, bento, calculadora ROI, precios, comparativa, integraciones, testimonios, FAQ, contacto |
 | `signup.html` | Registro con validación y medidor de fuerza de contraseña |
 | `login.html` | Inicio de sesión con verificación de credenciales |
-| `dashboard.html` | Panel demo: KPIs, gráficos SVG, tabla con búsqueda/orden/paginación/export CSV |
+| `recuperar.html` | Recuperación de contraseña |
+| `dashboard.html` | Panel demo: KPIs, gráfico de líneas, barras, **donut** y **embudo**, tabla con búsqueda/orden/paginación/export CSV |
+| `blog.html` / `articulo.html` | Blog con 6 artículos reales (datos en `js/blog-data.js`) y lector con relacionados |
+| `nosotros.html` | Historia, hitos, valores y equipo |
+| `recursos.html` | Blog destacado + centro de ayuda |
+| `legal.html` | Términos, privacidad, cookies, Habeas Data, SLA |
 | `404.html` | Página de error personalizada |
+
+Localizado para **Colombia**: precios en COP, contacto y datos colombianos, formato `es-CO`, Ley 1581 de Habeas Data.
 
 ## Lógica real (no es solo maquetación)
 
