@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Panel | NexaPy Analytics</title>
   <meta name="description" content="Tu panel de análisis en tiempo real." />
+  <meta name="theme-color" content="#0a0b0f" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="dashboard.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="js/theme.js"></script>
 </head>
 <body class="dash-body">
 
@@ -20,6 +22,9 @@
     </a>
     <div class="dash-topbar-right">
       <span class="dash-live"><span class="live-dot"></span> Datos en vivo</span>
+      <button class="theme-toggle" data-theme-toggle aria-label="Cambiar tema claro/oscuro">
+        <span class="icon-moon">🌙</span><span class="icon-sun">☀️</span>
+      </button>
       <span id="userGreeting" class="dash-greeting">Hola</span>
       <span id="userAvatar" class="dash-avatar">U</span>
       <button id="logoutBtn" class="btn-outline btn-sm">Salir</button>

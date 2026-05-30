@@ -254,6 +254,166 @@
     sections.forEach((s) => spy.observe(s));
   }
 
+  // ── Barra de progreso de scroll ──────────────────────────────
+  const progress = document.getElementById('scrollProgress');
+  if (progress) {
+    const updateProgress = () => {
+      const h = document.documentElement;
+      const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+      progress.style.width = (scrolled * 100).toFixed(2) + '%';
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  // ── Botón volver arriba ──────────────────────────────────────
+  const toTop = document.getElementById('backToTop');
+  if (toTop) {
+    window.addEventListener('scroll', () => {
+      toTop.classList.toggle('show', window.scrollY > 600);
+    }, { passive: true });
+    toTop.addEventListener('click', () =>
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' })
+    );
+  }
+
+  // ── Reveal de texto por palabras (hero) ──────────────────────
+  if (!reduceMotion) {
+    document.querySelectorAll('[data-words]').forEach((el) => {
+      const html = el.innerHTML;
+      // Solo divide nodos de texto, preserva <br> y <span>
+      const parts = el.textContent.trim().split(/\s+/);
+      if (el.querySelector('br, span')) return; // estructura compleja: no tocar
+      el.innerHTML = parts
+        .map((w, i) => `<span class="word" style="animation-delay:${i * 0.06}s">${w}</span>`)
+        .join(' ');
+    });
+  }
+
+  // ── Tilt 3D ──────────────────────────────────────────────────
+  if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.tilt').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform =
+          `perspective(900px) rotateY(${px * 8}deg) rotateX(${-py * 8}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+
+  // ── Spotlight que sigue el cursor ────────────────────────────
+  document.querySelectorAll('.spotlight').forEach((el) => {
+    el.addEventListener('mousemove', (e) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', e.clientX - r.left + 'px');
+      el.style.setProperty('--my', e.clientY - r.top + 'px');
+    });
+  });
+
+  // ── Botones magnéticos ───────────────────────────────────────
+  if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.magnetic').forEach((btn) => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const x = e.clientX - r.left - r.width / 2;
+        const y = e.clientY - r.top - r.height / 2;
+        btn.style.transform = `translate(${x * 0.25}px, ${y * 0.35}px)`;
+      });
+      btn.addEventListener('mouseleave', () => (btn.style.transform = ''));
+    });
+  }
+
+  // ── Tabs de características ───────────────────────────────────
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  if (tabBtns.length) {
+    tabBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.tab;
+        tabBtns.forEach((b) => b.classList.toggle('active', b === btn));
+        document.querySelectorAll('.tab-panel').forEach((p) =>
+          p.classList.toggle('active', p.dataset.panel === id)
+        );
+      });
+    });
+  }
+
+  // ── Calculadora de ROI ───────────────────────────────────────
+  const roi = document.getElementById('roiCalc');
+  if (roi) {
+    const team = roi.querySelector('#roiTeam');
+    const hours = roi.querySelector('#roiHours');
+    const cost = roi.querySelector('#roiCost');
+    const outTeam = roi.querySelector('#outTeam');
+    const outHours = roi.querySelector('#outHours');
+    const outCost = roi.querySelector('#outCost');
+    const resSaved = roi.querySelector('#roiSaved');
+    const resHours = roi.querySelector('#roiHoursSaved');
+    const resRoi = roi.querySelector('#roiPercent');
+    const PLAN_COST = 79; // Professional/mes por usuario aproximado
+
+    function calcRoi() {
+      const people = +team.value;
+      const hrs = +hours.value;
+      const rate = +cost.value;
+      outTeam.textContent = people;
+      outHours.textContent = hrs + ' h';
+      outCost.textContent = '$' + rate;
+      // NexaPy automatiza ~70% del tiempo dedicado a reportes manuales
+      const hoursSavedWeek = hrs * 0.7 * people;
+      const moneySavedMonth = hoursSavedWeek * 4.33 * rate;
+      const investMonth = people * PLAN_COST;
+      const net = moneySavedMonth - investMonth;
+      const roiPct = investMonth ? (net / investMonth) * 100 : 0;
+      resSaved.textContent = '$' + Math.round(moneySavedMonth).toLocaleString('es-MX');
+      resHours.textContent = Math.round(hoursSavedWeek * 4.33).toLocaleString('es-MX') + ' h/mes';
+      resRoi.textContent = (roiPct >= 0 ? '+' : '') + Math.round(roiPct).toLocaleString('es-MX') + '%';
+    }
+    [team, hours, cost].forEach((s) => s.addEventListener('input', calcRoi));
+    calcRoi();
+  }
+
+  // ── Carrusel de testimonios ──────────────────────────────────
+  const carousel = document.getElementById('testiCarousel');
+  if (carousel) {
+    const track = carousel.querySelector('.testi-track');
+    const slides = carousel.querySelectorAll('.testimonial-card');
+    const dotsWrap = document.getElementById('testiDots');
+    const prev = document.getElementById('testiPrev');
+    const next = document.getElementById('testiNext');
+    let index = 0;
+    let timer;
+
+    // crea dots
+    slides.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'testi-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Ir al testimonio ' + (i + 1));
+      d.addEventListener('click', () => go(i));
+      dotsWrap.appendChild(d);
+    });
+    const dots = dotsWrap.querySelectorAll('.testi-dot');
+
+    function go(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, di) => d.classList.toggle('active', di === index));
+      restart();
+    }
+    function restart() {
+      if (reduceMotion) return;
+      clearInterval(timer);
+      timer = setInterval(() => go(index + 1), 6000);
+    }
+    prev && prev.addEventListener('click', () => go(index - 1));
+    next && next.addEventListener('click', () => go(index + 1));
+    restart();
+  }
+
   // Año dinámico en el footer
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
