@@ -13,6 +13,7 @@
   <script src="js/theme.js"></script>
 </head>
 <body>
+  <a href="#main" class="skip-link">Saltar al contenido</a>
   <div class="aurora-bg" aria-hidden="true"><span></span></div>
 
   <nav class="navbar scrolled" id="navbar">
@@ -30,10 +31,28 @@
         <a href="signup.html" class="btn-primary" data-auth="guest">Prueba gratis</a>
         <a href="dashboard.html" class="btn-primary" data-auth="user">Ir al panel</a>
       </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <header class="page-hero" style="padding-bottom:30px">
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Menú de navegación">
+    <a href="index.html#features">Características</a>
+    <a href="index.html#pricing">Planes</a>
+    <a href="recursos.html">Recursos</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="index.html#contact">Contacto</a>
+    <div class="mobile-menu-actions">
+      <button class="btn-outline btn-full" data-theme-toggle>Cambiar tema 🌗</button>
+      <a href="login.html" class="btn-outline btn-full" data-auth="guest">Iniciar sesión</a>
+      <a href="signup.html" class="btn-primary btn-full" data-auth="guest">Prueba gratis</a>
+      <a href="dashboard.html" class="btn-primary btn-full" data-auth="user">Ir al panel</a>
+    </div>
+  </aside>
+
+  <header class="page-hero" id="main" style="padding-bottom:30px">
     <div class="section-container">
       <p class="page-breadcrumb"><a href="index.html">Inicio</a> / Legal</p>
       <h1>Centro legal</h1>
@@ -128,7 +147,9 @@
     <p>© <span id="year">2025</span> NexaPy Analytics S.A.S. · Bogotá, Colombia · <a href="index.html">Inicio</a></p>
   </footer>
 
-  <script src="js/theme.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
   <script>
     // Tabs legales (con deep-link por hash)
     (function () {

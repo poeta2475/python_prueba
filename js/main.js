@@ -4,13 +4,32 @@
   const { toast, Validate, setFieldError, clearFieldError } = window.NexaUI;
   const Store = window.NexaStore;
 
-  // ── Navbar: estado scrolled ──────────────────────────────────
+  // ── Scroll unificado (navbar + progreso + back-to-top) ───────
+  // Un solo listener con requestAnimationFrame para evitar reflows por frame.
   const navbar = document.getElementById('navbar');
-  if (navbar) {
-    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 40);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+  const progressBar = document.getElementById('scrollProgress');
+  const backTop = document.getElementById('backToTop');
+  let scrollTicking = false;
+
+  function onScrollFrame() {
+    const y = window.scrollY;
+    const doc = document.documentElement;
+    if (navbar) navbar.classList.toggle('scrolled', y > 40);
+    if (progressBar) {
+      const max = doc.scrollHeight - doc.clientHeight;
+      progressBar.style.width = (max > 0 ? (y / max) * 100 : 0).toFixed(2) + '%';
+    }
+    if (backTop) backTop.classList.toggle('show', y > 600);
+    scrollTicking = false;
   }
+  function onScroll() {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(onScrollFrame);
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScrollFrame();
 
   // ── Menú móvil funcional ─────────────────────────────────────
   const hamburger = document.getElementById('hamburger');
@@ -77,8 +96,14 @@
   // ── Contadores animados ──────────────────────────────────────
   function animateCounter(el) {
     const target = +el.dataset.target;
+    const decimals = +(el.dataset.decimals || 0);
+    const fmt = (n) =>
+      n.toLocaleString('es-CO', {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+      });
     if (reduceMotion) {
-      el.textContent = target.toLocaleString('es');
+      el.textContent = fmt(target);
       return;
     }
     const duration = 1600;
@@ -86,9 +111,9 @@
     function tick(now) {
       const p = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
-      el.textContent = Math.floor(eased * target).toLocaleString('es');
+      el.textContent = fmt(eased * target);
       if (p < 1) requestAnimationFrame(tick);
-      else el.textContent = target.toLocaleString('es');
+      else el.textContent = fmt(target);
     }
     requestAnimationFrame(tick);
   }
@@ -123,8 +148,8 @@
         const v = annual ? el.dataset.annual : el.dataset.monthly;
         if (v) el.textContent = '$' + v;
       });
+      // Solo las tarjetas con precio variable tienen .price-period (Enterprise no)
       document.querySelectorAll('.price-period').forEach((p) => {
-        if (p.dataset.lock) return;
         p.textContent = annual ? 'COP/mes · facturado anual' : 'COP/mes';
       });
     });
@@ -254,25 +279,9 @@
     sections.forEach((s) => spy.observe(s));
   }
 
-  // ── Barra de progreso de scroll ──────────────────────────────
-  const progress = document.getElementById('scrollProgress');
-  if (progress) {
-    const updateProgress = () => {
-      const h = document.documentElement;
-      const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
-      progress.style.width = (scrolled * 100).toFixed(2) + '%';
-    };
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    updateProgress();
-  }
-
-  // ── Botón volver arriba ──────────────────────────────────────
-  const toTop = document.getElementById('backToTop');
-  if (toTop) {
-    window.addEventListener('scroll', () => {
-      toTop.classList.toggle('show', window.scrollY > 600);
-    }, { passive: true });
-    toTop.addEventListener('click', () =>
+  // ── Botón volver arriba (el toggle .show se maneja en onScrollFrame) ──
+  if (backTop) {
+    backTop.addEventListener('click', () =>
       window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' })
     );
   }
