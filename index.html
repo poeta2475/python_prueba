@@ -36,10 +36,10 @@
       </a>
       <ul class="nav-links">
         <li><a href="#features">Características</a></li>
-        <li><a href="#stats">Métricas</a></li>
         <li><a href="#roi">ROI</a></li>
         <li><a href="#pricing">Planes</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="recursos.html">Recursos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" data-theme-toggle aria-label="Cambiar tema claro/oscuro">
@@ -61,10 +61,10 @@
   <div class="menu-backdrop" id="menuBackdrop"></div>
   <aside class="mobile-menu" id="mobileMenu" aria-label="Menú de navegación">
     <a href="#features">Características</a>
-    <a href="#stats">Métricas</a>
     <a href="#roi">Calculadora ROI</a>
     <a href="#pricing">Planes</a>
-    <a href="#faq">Preguntas frecuentes</a>
+    <a href="recursos.html">Recursos</a>
+    <a href="nosotros.html">Nosotros</a>
     <a href="#contact">Contacto</a>
     <div class="mobile-menu-actions">
       <button class="btn-outline btn-full" data-theme-toggle>Cambiar tema 🌗</button>
@@ -152,7 +152,7 @@
       <div class="hero-stats">
         <div class="hero-stat"><strong class="stat-number" data-target="3500">0</strong><span>Empresas activas</span></div>
         <div class="hero-stat"><strong>99.98%</strong><span>Uptime</span></div>
-        <div class="hero-stat"><strong class="stat-number" data-target="42">0</strong><span>Países</span></div>
+        <div class="hero-stat"><strong class="stat-number" data-target="32">0</strong><span>Departamentos</span></div>
         <div class="hero-stat"><strong>4.9★</strong><span>8,000+ reseñas</span></div>
       </div>
     </div>
@@ -318,7 +318,7 @@
       <div class="stats-grid">
         <div class="stat-card spotlight">
           <span class="stat-number" data-target="3500">0</span><span class="stat-suffix">+</span>
-          <span class="stat-label">Empresas activas</span><span class="stat-desc">en 42 países del mundo</span>
+          <span class="stat-label">Empresas activas</span><span class="stat-desc">en los 32 departamentos de Colombia</span>
         </div>
         <div class="stat-card spotlight">
           <span class="stat-number" data-target="98">0</span><span class="stat-suffix">%</span>
@@ -395,8 +395,8 @@
             <input type="range" id="roiHours" min="1" max="40" value="12" />
           </div>
           <div class="roi-field">
-            <label>Costo por hora (USD) <output id="outCost">$35</output></label>
-            <input type="range" id="roiCost" min="10" max="150" value="35" />
+            <label>Costo por hora del equipo (COP) <output id="outCost">$35.000</output></label>
+            <input type="range" id="roiCost" min="15000" max="200000" step="5000" value="35000" />
           </div>
         </div>
         <div class="roi-results">
@@ -438,7 +438,7 @@
         <div class="pricing-card spotlight">
           <div class="plan-header">
             <span class="plan-name">Starter</span>
-            <div class="plan-price"><span class="price-amount" data-monthly="29" data-annual="23">$29</span><span class="price-period">/mes</span></div>
+            <div class="plan-price"><span class="price-amount" data-monthly="99.000" data-annual="79.000">$99.000</span><span class="price-period">COP/mes</span></div>
             <p class="plan-desc">Perfecto para emprendedores y equipos pequeños que comienzan con análisis de datos.</p>
           </div>
           <ul class="plan-features">
@@ -456,7 +456,7 @@
           <div class="popular-badge">Más popular</div>
           <div class="plan-header">
             <span class="plan-name">Professional</span>
-            <div class="plan-price"><span class="price-amount" data-monthly="79" data-annual="63">$79</span><span class="price-period">/mes</span></div>
+            <div class="plan-price"><span class="price-amount" data-monthly="279.000" data-annual="223.000">$279.000</span><span class="price-period">COP/mes</span></div>
             <p class="plan-desc">Para equipos en crecimiento que necesitan análisis avanzado y colaboración.</p>
           </div>
           <ul class="plan-features">
@@ -658,9 +658,10 @@
           <h2>Hablemos de tu proyecto</h2>
           <p>Nuestro equipo de expertos está disponible para ayudarte a diseñar la solución perfecta para tu organización.</p>
           <div class="contact-details">
-            <div class="contact-item"><span class="contact-icon">📧</span><div><strong>Email</strong><span><a href="mailto:hola@nexapy.io">hola@nexapy.io</a></span></div></div>
-            <div class="contact-item"><span class="contact-icon">📞</span><div><strong>Teléfono</strong><span><a href="tel:+18006392791">+1 (800) NEXAPY-1</a></span></div></div>
-            <div class="contact-item"><span class="contact-icon">🕐</span><div><strong>Horario de soporte</strong><span>24/7 para Enterprise · Lun–Vie 9h–20h para otros planes</span></div></div>
+            <div class="contact-item"><span class="contact-icon">📧</span><div><strong>Email</strong><span><a href="mailto:hola@nexapy.co">hola@nexapy.co</a></span></div></div>
+            <div class="contact-item"><span class="contact-icon">📞</span><div><strong>Teléfono</strong><span><a href="tel:+576017440000">+57 (601) 744 0000</a></span></div></div>
+            <div class="contact-item"><span class="contact-icon">📍</span><div><strong>Oficina</strong><span>Calle 100 #7-33, Torre 1, Bogotá D.C., Colombia</span></div></div>
+            <div class="contact-item"><span class="contact-icon">🕐</span><div><strong>Horario de soporte</strong><span>24/7 para Enterprise · Lun–Vie 8h–18h (COT) para otros planes</span></div></div>
           </div>
         </div>
         <form class="contact-form" id="contactForm" novalidate>
@@ -672,14 +673,14 @@
           <div class="form-group"><label for="plan">Plan de interés</label>
             <select id="plan" name="plan">
               <option value="">Selecciona un plan</option>
-              <option value="starter">Starter - $29/mes</option>
-              <option value="professional">Professional - $79/mes</option>
+              <option value="starter">Starter - $99.000 COP/mes</option>
+              <option value="professional">Professional - $279.000 COP/mes</option>
               <option value="enterprise">Enterprise - A medida</option>
             </select>
           </div>
           <div class="form-group"><label for="message">Mensaje</label><textarea id="message" name="message" rows="4" placeholder="Cuéntanos sobre tu proyecto y necesidades..." required></textarea></div>
           <button type="submit" class="btn-primary btn-full">Enviar mensaje <span class="btn-arrow">→</span></button>
-          <p class="form-note">Al enviar aceptas nuestra <a href="#">Política de Privacidad</a>. Te respondemos en menos de 2 horas hábiles.</p>
+          <p class="form-note">Al enviar aceptas nuestra <a href="legal.html#privacidad">Política de Privacidad</a>. Te respondemos en menos de 2 horas hábiles.</p>
         </form>
       </div>
     </div>
@@ -706,10 +707,10 @@
           </a>
           <p>La plataforma de análisis de datos más completa para empresas que quieren crecer basándose en información real.</p>
           <div class="social-links">
-            <a href="#" class="social-link" aria-label="X (Twitter)">𝕏</a>
-            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-            <a href="#" class="social-link" aria-label="GitHub">𝔾</a>
-            <a href="#" class="social-link" aria-label="YouTube">YT</a>
+            <a href="https://twitter.com" class="social-link" aria-label="X (Twitter)" target="_blank" rel="noopener">𝕏</a>
+            <a href="https://linkedin.com" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+            <a href="https://github.com" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">𝔾</a>
+            <a href="https://youtube.com" class="social-link" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
           </div>
         </div>
         <div class="footer-links-grid">
@@ -721,31 +722,31 @@
             <li><a href="#faq">FAQ</a></li>
           </ul></div>
           <div class="footer-col"><h4>Recursos</h4><ul>
-            <li><a href="#">Documentación</a></li>
-            <li><a href="#">Tutoriales</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Webinars</a></li>
-            <li><a href="#">Status</a></li>
+            <li><a href="recursos.html">Documentación</a></li>
+            <li><a href="recursos.html">Tutoriales</a></li>
+            <li><a href="recursos.html">Blog</a></li>
+            <li><a href="recursos.html">Webinars</a></li>
+            <li><a href="recursos.html">Centro de ayuda</a></li>
           </ul></div>
           <div class="footer-col"><h4>Empresa</h4><ul>
-            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="nosotros.html">Sobre nosotros</a></li>
             <li><a href="#testimonials">Clientes</a></li>
-            <li><a href="#">Socios</a></li>
-            <li><a href="#">Trabaja con nosotros</a></li>
+            <li><a href="nosotros.html">Nuestro equipo</a></li>
+            <li><a href="nosotros.html">Valores</a></li>
             <li><a href="#contact">Contacto</a></li>
           </ul></div>
           <div class="footer-col"><h4>Legal</h4><ul>
-            <li><a href="#">Términos de uso</a></li>
-            <li><a href="#">Privacidad</a></li>
-            <li><a href="#">Cookies</a></li>
-            <li><a href="#">GDPR</a></li>
-            <li><a href="#">SLA</a></li>
+            <li><a href="legal.html#terminos">Términos de uso</a></li>
+            <li><a href="legal.html#privacidad">Privacidad</a></li>
+            <li><a href="legal.html#cookies">Cookies</a></li>
+            <li><a href="legal.html#gdpr">Habeas Data</a></li>
+            <li><a href="legal.html#sla">SLA</a></li>
           </ul></div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© <span id="year">2025</span> NexaPy Analytics Inc. Todos los derechos reservados.</p>
-        <p>Hecho con ❤️ para equipos data-driven</p>
+        <p>© <span id="year">2025</span> NexaPy Analytics S.A.S. · Bogotá, Colombia. Todos los derechos reservados.</p>
+        <p>Hecho con ❤️ en Colombia para equipos data-driven</p>
       </div>
     </div>
   </footer>

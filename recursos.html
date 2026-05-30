@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recursos | NexaPy Analytics</title>
+  <meta name="description" content="Documentación, tutoriales, blog y webinars de NexaPy Analytics." />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="js/theme.js"></script>
+</head>
+<body>
+  <div class="aurora-bg" aria-hidden="true"><span></span></div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo"><span class="logo-icon">⬡</span><span class="logo-text">NexaPy<span class="logo-accent">Analytics</span></span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Características</a></li>
+        <li><a href="index.html#pricing">Planes</a></li>
+        <li><a href="recursos.html" class="active">Recursos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Cambiar tema"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+        <a href="login.html" class="btn-outline" data-auth="guest">Iniciar sesión</a>
+        <a href="signup.html" class="btn-primary" data-auth="guest">Prueba gratis</a>
+        <a href="dashboard.html" class="btn-primary" data-auth="user">Ir al panel</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="section-container">
+      <p class="page-breadcrumb"><a href="index.html">Inicio</a> / Recursos</p>
+      <h1>Aprende a sacarle el <span class="gradient-text">máximo a tus datos</span></h1>
+      <p>Guías, tutoriales, artículos y webinars para que domines NexaPy y la analítica de datos, todo en español.</p>
+    </div>
+  </header>
+
+  <section class="content-section">
+    <div class="section-container">
+      <div class="section-header" style="margin-bottom:32px"><span class="section-tag">Blog</span><h2 class="section-title">Artículos recientes</h2></div>
+      <div class="resource-grid">
+        <a href="#" class="resource-card"><span class="r-tag">Guía</span><h3>7 KPIs que toda pyme colombiana debería medir</h3><p>Descubre los indicadores clave para hacer crecer tu negocio con datos.</p><p class="r-meta">8 min de lectura · Estrategia</p></a>
+        <a href="#" class="resource-card"><span class="r-tag">Tutorial</span><h3>Conecta tu cuenta de Siigo en 5 minutos</h3><p>Paso a paso para integrar tu software contable con NexaPy.</p><p class="r-meta">5 min de lectura · Integraciones</p></a>
+        <a href="#" class="resource-card"><span class="r-tag">Caso de éxito</span><h3>Cómo RetailPro aumentó sus ventas un 23%</h3><p>La historia de una empresa que transformó su operación con dashboards.</p><p class="r-meta">6 min de lectura · Casos</p></a>
+        <a href="#" class="resource-card"><span class="r-tag">IA</span><h3>Predice tu flujo de caja con IA</h3><p>Aprende a usar los modelos predictivos para anticipar tu liquidez.</p><p class="r-meta">10 min de lectura · IA</p></a>
+        <a href="#" class="resource-card"><span class="r-tag">Producto</span><h3>Novedades de NexaPy: edición de mayo</h3><p>Nuevos gráficos, más velocidad y mejoras en el editor visual.</p><p class="r-meta">4 min de lectura · Changelog</p></a>
+        <a href="#" class="resource-card"><span class="r-tag">Webinar</span><h3>De Excel a dashboards en vivo</h3><p>Grabación de nuestro taller para equipos que empiezan.</p><p class="r-meta">45 min · Video</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" style="padding-top:0">
+    <div class="section-container">
+      <div class="section-header" style="margin-bottom:32px"><span class="section-tag">Centro de ayuda</span><h2 class="section-title">Documentación</h2></div>
+      <div class="resource-grid">
+        <a href="#" class="resource-card"><h3>🚀 Primeros pasos</h3><p>Crea tu cuenta, conecta una fuente y arma tu primer dashboard.</p></a>
+        <a href="#" class="resource-card"><h3>🔌 Integraciones</h3><p>Guías para conectar más de 200 fuentes de datos.</p></a>
+        <a href="#" class="resource-card"><h3>📊 Visualizaciones</h3><p>Todos los tipos de gráficos y cómo personalizarlos.</p></a>
+        <a href="#" class="resource-card"><h3>🤖 IA y predicciones</h3><p>Configura modelos predictivos sin escribir código.</p></a>
+        <a href="#" class="resource-card"><h3>🔐 Seguridad y permisos</h3><p>Roles, SSO y buenas prácticas para tu organización.</p></a>
+        <a href="#" class="resource-card"><h3>💻 API REST / GraphQL</h3><p>Referencia técnica para desarrolladores.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mini-footer">
+    <p>© <span id="year">2025</span> NexaPy Analytics S.A.S. · Bogotá, Colombia · <a href="legal.html">Legal</a> · <a href="index.html">Inicio</a></p>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Las tarjetas de recursos son demostrativas: avisan en vez de romper navegación
+    document.querySelectorAll('.resource-card[href="#"]').forEach(function (card) {
+      card.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.NexaUI.toast('Contenido de demostración — disponible próximamente.', 'info');
+      });
+    });
+  </script>
+</body>
+</html>

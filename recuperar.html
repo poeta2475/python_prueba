@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recuperar contraseña | NexaPy Analytics</title>
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="js/theme.js"></script>
+</head>
+<body class="auth-body">
+  <button class="theme-toggle auth-theme-toggle" data-theme-toggle aria-label="Cambiar tema"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+  <div class="auth-wrap">
+    <div class="auth-aside">
+      <a href="index.html" class="nav-logo"><span class="logo-icon">⬡</span><span class="logo-text">NexaPy<span class="logo-accent">Analytics</span></span></a>
+      <div class="auth-aside-content">
+        <h2>¿Olvidaste tu contraseña?</h2>
+        <p>No te preocupes, le pasa a todos. Te enviaremos un enlace para crear una nueva en segundos.</p>
+        <ul class="auth-points">
+          <li>✓ Proceso seguro y cifrado</li>
+          <li>✓ El enlace expira en 30 minutos</li>
+          <li>✓ Soporte en español si lo necesitas</li>
+        </ul>
+      </div>
+      <p class="auth-aside-foot">Tu seguridad es nuestra prioridad.</p>
+    </div>
+    <div class="auth-main">
+      <div class="auth-card">
+        <h1>Recuperar contraseña</h1>
+        <p class="auth-sub">Te enviaremos instrucciones a tu correo. ¿La recordaste? <a href="login.html">Inicia sesión</a></p>
+        <form id="recoverForm" novalidate>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tu@empresa.com" autocomplete="email" required />
+          </div>
+          <button type="submit" class="btn-primary btn-full btn-lg">Enviar enlace de recuperación</button>
+        </form>
+        <a href="login.html" class="auth-back">← Volver a iniciar sesión</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script>
+    (function () {
+      var form = document.getElementById('recoverForm');
+      var ui = window.NexaUI;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var input = form.querySelector('#email');
+        ui.clearFieldError(input);
+        if (!ui.Validate.email(input.value)) {
+          ui.setFieldError(input, 'Introduce un correo válido.');
+          return;
+        }
+        var btn = form.querySelector('button');
+        btn.textContent = '✓ Enlace enviado';
+        btn.classList.add('btn-success');
+        btn.disabled = true;
+        ui.toast('Si existe una cuenta con ese correo, recibirás el enlace en breve.', 'success');
+        setTimeout(function () { location.href = 'login.html'; }, 2500);
+      });
+    })();
+  </script>
+</body>
+</html>

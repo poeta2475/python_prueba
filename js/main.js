@@ -121,11 +121,11 @@
       annualLabel.classList.toggle('active', annual);
       document.querySelectorAll('.price-amount[data-monthly]').forEach((el) => {
         const v = annual ? el.dataset.annual : el.dataset.monthly;
-        if (v) el.firstChild ? (el.childNodes[0].nodeValue = '$' + v) : (el.textContent = '$' + v);
+        if (v) el.textContent = '$' + v;
       });
       document.querySelectorAll('.price-period').forEach((p) => {
         if (p.dataset.lock) return;
-        p.textContent = annual ? '/mes · facturado anual' : '/mes';
+        p.textContent = annual ? 'COP/mes · facturado anual' : 'COP/mes';
       });
     });
   }
@@ -354,7 +354,11 @@
     const resSaved = roi.querySelector('#roiSaved');
     const resHours = roi.querySelector('#roiHoursSaved');
     const resRoi = roi.querySelector('#roiPercent');
-    const PLAN_COST = 79; // Professional/mes por usuario aproximado
+    const PLAN_COST = 279000; // Professional/mes por usuario en COP
+    const fmtCOP = (n) =>
+      new Intl.NumberFormat('es-CO', {
+        style: 'currency', currency: 'COP', maximumFractionDigits: 0,
+      }).format(n);
 
     function calcRoi() {
       const people = +team.value;
@@ -362,16 +366,16 @@
       const rate = +cost.value;
       outTeam.textContent = people;
       outHours.textContent = hrs + ' h';
-      outCost.textContent = '$' + rate;
+      outCost.textContent = fmtCOP(rate);
       // NexaPy automatiza ~70% del tiempo dedicado a reportes manuales
       const hoursSavedWeek = hrs * 0.7 * people;
       const moneySavedMonth = hoursSavedWeek * 4.33 * rate;
       const investMonth = people * PLAN_COST;
       const net = moneySavedMonth - investMonth;
       const roiPct = investMonth ? (net / investMonth) * 100 : 0;
-      resSaved.textContent = '$' + Math.round(moneySavedMonth).toLocaleString('es-MX');
-      resHours.textContent = Math.round(hoursSavedWeek * 4.33).toLocaleString('es-MX') + ' h/mes';
-      resRoi.textContent = (roiPct >= 0 ? '+' : '') + Math.round(roiPct).toLocaleString('es-MX') + '%';
+      resSaved.textContent = fmtCOP(moneySavedMonth);
+      resHours.textContent = Math.round(hoursSavedWeek * 4.33).toLocaleString('es-CO') + ' h/mes';
+      resRoi.textContent = (roiPct >= 0 ? '+' : '') + Math.round(roiPct).toLocaleString('es-CO') + '%';
     }
     [team, hours, cost].forEach((s) => s.addEventListener('input', calcRoi));
     calcRoi();

@@ -34,7 +34,7 @@
   }
 
   const CHANNELS = ['Búsqueda orgánica', 'Anuncios pagados', 'Email', 'Redes sociales', 'Referidos', 'Directo'];
-  const COUNTRIES = ['México', 'Colombia', 'España', 'Argentina', 'Chile', 'Perú', 'EE. UU.'];
+  const COUNTRIES = ['Bogotá', 'Medellín', 'Cali', 'Barranquilla', 'Cartagena', 'Bucaramanga', 'Pereira'];
   const PRODUCTS = ['Plan Starter', 'Plan Professional', 'Plan Enterprise', 'Add-on IA', 'Soporte Premium'];
 
   // Construye N días de datos hacia atrás desde hoy
@@ -52,7 +52,7 @@
       const visits = Math.round(900 * weekendFactor * trend * noise);
       const conv = 0.03 + rng() * 0.03;
       const orders = Math.round(visits * conv);
-      const aov = 60 + rng() * 90; // ticket promedio
+      const aov = (60 + rng() * 90) * 4000; // ticket promedio en COP
       const revenue = Math.round(orders * aov);
       out.push({ date: d, visits, orders, revenue, conv });
     }
@@ -67,7 +67,7 @@
     series.slice(-14).forEach((day) => {
       const n = Math.max(3, Math.round(day.orders / 6));
       for (let k = 0; k < n; k++) {
-        const amount = Math.round(40 + rng() * 480);
+        const amount = Math.round((40 + rng() * 480) * 4000);
         rows.push({
           id: 'TX-' + ++id,
           date: day.date,
@@ -85,10 +85,11 @@
 
   // ── Estado y formato ─────────────────────────────────────────
   let rangeDays = 30;
-  const fmtMoney = (n) => '$' + Math.round(n).toLocaleString('es-MX');
-  const fmtNum = (n) => Math.round(n).toLocaleString('es-MX');
+  const copFmt = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
+  const fmtMoney = (n) => copFmt.format(Math.round(n));
+  const fmtNum = (n) => Math.round(n).toLocaleString('es-CO');
   const fmtPct = (n) => (n * 100).toFixed(2) + '%';
-  const fmtDate = (d) => d.toLocaleDateString('es-MX', { day: '2-digit', month: 'short' });
+  const fmtDate = (d) => d.toLocaleDateString('es-CO', { day: '2-digit', month: 'short' });
 
   // ── KPIs ─────────────────────────────────────────────────────
   function renderKPIs(series) {
@@ -310,7 +311,7 @@
 
   // Exportar CSV (de la vista filtrada)
   document.getElementById('exportCsv')?.addEventListener('click', () => {
-    const headers = ['ID', 'Fecha', 'Cliente', 'Producto', 'País', 'Importe', 'Estado'];
+    const headers = ['ID', 'Fecha', 'Cliente', 'Producto', 'Ciudad', 'Importe', 'Estado'];
     const lines = [headers.join(',')];
     TableState.filtered.forEach((r) => {
       lines.push([r.id, r.date.toISOString().slice(0, 10), r.customer, r.product, r.country, r.amount, r.status].join(','));
