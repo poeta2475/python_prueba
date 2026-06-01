@@ -1,176 +1,150 @@
-/* NexaPy Analytics — Contenido del blog (datos)
- * Artículos reales servidos client-side. Cada uno tiene cuerpo en HTML simple.
+/* OmarDev — Contenido del blog (datos)
+ * Notas personales sobre código, juegos y proyectos. Cada artículo
+ * tiene su cuerpo en HTML simple y se sirve client-side.
  */
 (function (global) {
   'use strict';
 
   const ARTICLES = [
     {
-      slug: 'kpis-pyme-colombia',
-      tag: 'Estrategia',
-      title: '7 KPIs que toda pyme colombiana debería medir',
+      slug: 'por-que-sin-frameworks',
+      tag: 'Reflexión',
+      title: 'Por qué construí mi portal sin frameworks',
       excerpt:
-        'Si solo miras las ventas, estás manejando a ciegas. Estos son los indicadores que de verdad mueven la aguja de tu negocio.',
-      author: 'Daniela Castaño',
+        'React, Vue, Svelte… todos geniales. Pero para un portal personal decidí volver a lo básico. Esto fue lo que aprendí.',
+      author: 'Omar',
       date: '2026-05-20',
-      read: 8,
-      emoji: '📊',
-      body: `
-        <p>En Colombia, ocho de cada diez pymes cierran antes de los cinco años. Una causa silenciosa: tomar decisiones por intuición en lugar de datos. La buena noticia es que no necesitas un equipo de analistas para empezar — solo medir lo correcto.</p>
-        <h2>1. Margen de contribución</h2>
-        <p>No es lo mismo vender mucho que ganar mucho. El margen de contribución te dice cuánto te queda de cada venta después de los costos variables. Si vendes a $100.000 y te cuesta $70.000 producirlo, tu margen es del 30%. <strong>Mídelo por producto</strong>: te sorprenderá descubrir cuáles te hacen perder dinero.</p>
-        <h2>2. Costo de adquisición de cliente (CAC)</h2>
-        <p>¿Cuánto inviertes en marketing y ventas para conseguir un cliente nuevo? Divide tu gasto comercial mensual entre los clientes ganados. Si gastas $2.000.000 y consigues 20 clientes, tu CAC es de $100.000.</p>
-        <h2>3. Valor de vida del cliente (LTV)</h2>
-        <p>Cuánto te deja un cliente durante toda su relación contigo. La regla de oro: tu LTV debe ser al menos <strong>3 veces tu CAC</strong>. Si gastas más en conseguir clientes de lo que te dejan, el modelo no es sostenible.</p>
-        <h2>4. Tasa de conversión</h2>
-        <p>De cada 100 personas que llegan a tu tienda o web, ¿cuántas compran? Subir del 2% al 3% puede significar un 50% más de ventas sin gastar un peso adicional en publicidad.</p>
-        <h2>5. Flujo de caja proyectado</h2>
-        <p>El 60% de las pymes que quiebran eran rentables en el papel — murieron por falta de liquidez. Proyecta tu caja a 90 días y anticipa los meses difíciles.</p>
-        <h2>6. Ticket promedio</h2>
-        <p>Cuánto gasta en promedio cada cliente por compra. Pequeñas mejoras (ventas cruzadas, paquetes) impactan directo en tus ingresos.</p>
-        <h2>7. Rotación de inventario</h2>
-        <p>Si vendes productos, el inventario parado es dinero congelado. Mide cuántas veces vendes y repones tu stock al año.</p>
-        <h2>El siguiente paso</h2>
-        <p>Medir estos siete indicadores en una hoja de cálculo es agotador y propenso a errores. Con NexaPy, los conectas una vez y los ves actualizados en tiempo real en un dashboard. <a href="signup.html">Pruébalo gratis 14 días</a>.</p>
-      `,
-    },
-    {
-      slug: 'excel-a-dashboards',
-      tag: 'Tutorial',
-      title: 'De Excel a dashboards en vivo: la guía definitiva',
-      excerpt:
-        'Excel es genial para empezar, pero llega un punto en que te frena. Te mostramos cómo dar el salto sin perder tus datos.',
-      author: 'Valentina Mora',
-      date: '2026-05-12',
       read: 6,
-      emoji: '🚀',
+      emoji: '🧱',
       body: `
-        <p>Casi todas las empresas empiezan con Excel, y está bien. Pero cuando tu archivo tiene 12 pestañas, fórmulas que solo entiende una persona y se rompe cada vez que alguien lo abre, es hora de evolucionar.</p>
-        <h2>Señales de que superaste Excel</h2>
-        <ul>
-          <li>Varias personas editan el mismo archivo y se pisan los cambios.</li>
-          <li>Pasas más tiempo armando el reporte que analizándolo.</li>
-          <li>Los datos llegan tarde: para cuando el reporte está listo, ya no sirve.</li>
-          <li>Una fórmula mal copiada arruina todo el análisis.</li>
-        </ul>
-        <h2>Paso 1: identifica tus fuentes</h2>
-        <p>Haz una lista de dónde viven tus datos: el software contable, la tienda en línea, el CRM, las hojas de cálculo. NexaPy se conecta a más de 200 fuentes, así que probablemente las tuyas ya estén soportadas.</p>
-        <h2>Paso 2: conecta, no copies</h2>
-        <p>El error clásico es seguir exportando y pegando. En su lugar, conecta la fuente una sola vez. A partir de ahí los datos fluyen solos y se actualizan en tiempo real.</p>
-        <h2>Paso 3: construye tu primer dashboard</h2>
-        <p>Empieza simple: ventas del mes, comparado con el anterior. Agrega un gráfico de tendencia y tus tres productos más vendidos. Con arrastrar y soltar, lo tienes en minutos.</p>
-        <h2>Paso 4: comparte y automatiza</h2>
-        <p>Invita a tu equipo con permisos por rol y programa que el reporte llegue cada lunes a las 8 a.m. al correo de la gerencia. Sin que nadie mueva un dedo.</p>
-        <p>¿Listo para dejar atrás el caos de las hojas de cálculo? <a href="signup.html">Empieza gratis</a>.</p>
+        <p>Cuando empecé este portal tenía la tentación de montar React, un bundler y diez dependencias antes de escribir una sola línea de contenido. En vez de eso, abrí un <code>index.html</code> en blanco y empecé a escribir. Esta es mi defensa de hacerlo así.</p>
+        <h2>Entiendes lo que escribes</h2>
+        <p>Sin una capa de abstracción encima, cada cosa que pasa en la pantalla la programé yo. Si una animación falla, sé exactamente dónde mirar. No hay magia escondida en <code>node_modules</code>.</p>
+        <h2>Carga instantánea</h2>
+        <p>El sitio entero son tres archivos: un HTML, un CSS y un puñado de JS. No hay JavaScript de 300 KB que descargar antes de ver el primer texto. En móvil con datos lentos, eso se nota muchísimo.</p>
+        <h2>Cero mantenimiento de dependencias</h2>
+        <p>No tengo que actualizar paquetes cada semana ni preocuparme por vulnerabilidades en librerías que ni uso. El código de hoy va a funcionar igual dentro de cinco años.</p>
+        <h2>¿Cuándo SÍ usar un framework?</h2>
+        <p>Para un portal personal, vanilla sobra. Pero si mañana construyo algo con estado complejo, formularios encadenados o cientos de componentes, ahí un framework gana. La herramienta correcta depende del problema.</p>
+        <h2>El consejo</h2>
+        <p>Antes de instalar algo, pregúntate si lo necesitas de verdad. Aprender los fundamentos de HTML, CSS y JS te hace mejor developer pase lo que pase con las modas. <a href="proyectos.html">Mira cómo está hecho este portal</a>.</p>
       `,
     },
     {
-      slug: 'flujo-caja-ia',
-      tag: 'IA',
-      title: 'Predice tu flujo de caja con inteligencia artificial',
+      slug: 'logica-blackjack',
+      tag: 'Tutorial',
+      title: 'Cómo programé la lógica del dealer en mi Blackjack',
       excerpt:
-        'Anticipar los meses difíciles deja de ser adivinanza. Así funcionan los modelos predictivos aplicados a tu liquidez.',
-      author: 'Mateo Gil',
+        'Barajar cartas, repartir, decidir cuándo el dealer pide… La lógica de un casino cabe en menos código del que crees.',
+      author: 'Omar',
+      date: '2026-05-12',
+      read: 8,
+      emoji: '🃏',
+      body: `
+        <p>El primer juego del portal es un Blackjack completo. Detrás de las animaciones bonitas hay reglas muy claras que se traducen directo a código. Te cuento cómo lo armé.</p>
+        <h2>Paso 1: la baraja</h2>
+        <p>Una baraja son 52 cartas: cuatro palos por trece valores. Las genero con dos bucles anidados y luego las mezclo con el algoritmo de <strong>Fisher-Yates</strong>, que reordena el array en una sola pasada sin sesgos.</p>
+        <h2>Paso 2: contar la mano</h2>
+        <p>Aquí está el truco: el As vale 1 u 11. Sumo todas las cartas tratando los Ases como 11 y, si me paso de 21, voy bajando Ases a 1 hasta que la mano vuelva a ser válida. Unas pocas líneas y queda resuelto.</p>
+        <h2>Paso 3: la lógica del dealer</h2>
+        <p>El dealer no piensa: obedece una regla fija. Pide carta mientras su mano sume menos de 17 y se planta en 17 o más. Es un simple <code>while</code> — la "inteligencia" del casino es pura disciplina.</p>
+        <h2>Paso 4: resolver la ronda</h2>
+        <p>Comparo las manos: si el jugador se pasó, pierde; si el dealer se pasa, gana el jugador; si no, gana quien esté más cerca de 21. El Blackjack natural (As + figura) paga 3 a 2.</p>
+        <h2>Lo que aprendí</h2>
+        <p>Un juego se siente complejo, pero casi siempre es un conjunto de reglas pequeñas y claras encadenadas. Empieza por las reglas, no por los gráficos. <a href="juego.html">Juega el resultado final aquí</a>.</p>
+      `,
+    },
+    {
+      slug: 'animaciones-css-puro',
+      tag: 'CSS',
+      title: 'Animaciones suaves con CSS puro (sin librerías)',
+      excerpt:
+        'Las cartas que vuelan, los reveals al hacer scroll, los botones magnéticos: todo con CSS y un poquito de JS.',
+      author: 'Omar',
       date: '2026-05-03',
-      read: 10,
-      emoji: '🤖',
-      body: `
-        <p>"¿Tendré con qué pagar la nómina en tres meses?" Es la pregunta que quita el sueño a todo dueño de empresa. La inteligencia artificial no tiene una bola de cristal, pero sí puede darte una respuesta sorprendentemente precisa.</p>
-        <h2>Qué es la predicción de flujo de caja</h2>
-        <p>Es usar tu historial de ingresos y gastos para estimar, con un margen de confianza, cómo se verá tu caja en las próximas semanas o meses. Los modelos detectan patrones que el ojo humano no ve: estacionalidad, ciclos de cobro, tendencias.</p>
-        <h2>Qué necesitas para empezar</h2>
-        <ul>
-          <li><strong>Historial:</strong> al menos 6-12 meses de movimientos.</li>
-          <li><strong>Consistencia:</strong> que los datos estén categorizados (ventas, nómina, proveedores).</li>
-          <li><strong>Una herramienta:</strong> NexaPy trae los modelos pre-entrenados, no necesitas saber de ciencia de datos.</li>
-        </ul>
-        <h2>Cómo lo lee la IA</h2>
-        <p>El modelo aprende, por ejemplo, que en diciembre tus ventas suben un 40% pero tus clientes pagan a 60 días, así que el ingreso real llega en febrero. Con eso, te avisa con anticipación de un posible bache de liquidez en enero.</p>
-        <h2>De la predicción a la acción</h2>
-        <p>Saber no basta; hay que actuar. Con una alerta temprana puedes negociar plazos con proveedores, adelantar cobros o asegurar una línea de crédito antes de necesitarla con urgencia.</p>
-        <h2>Un ejemplo real</h2>
-        <p>Una distribuidora en Barranquilla usó las predicciones de NexaPy y detectó que cada inicio de trimestre tenía déficit. Ajustaron sus ciclos de cobro y eliminaron por completo los sobregiros bancarios, ahorrando millones en intereses.</p>
-        <p>La IA predictiva viene incluida desde el plan Professional. <a href="signup.html">Actívala gratis</a>.</p>
-      `,
-    },
-    {
-      slug: 'caso-retailpro',
-      tag: 'Caso de éxito',
-      title: 'Cómo RetailPro aumentó sus ventas un 23% en seis meses',
-      excerpt:
-        'La historia de una cadena de tiendas que pasó de reportes mensuales a decisiones diarias basadas en datos.',
-      author: 'Laura Patiño',
-      date: '2026-04-22',
-      read: 5,
-      emoji: '🏆',
-      body: `
-        <p>RetailPro opera 14 tiendas de ropa en cinco ciudades de Colombia. Hasta 2025, su gerencia tomaba decisiones con reportes que llegaban a mitad del mes siguiente. Para cuando veían un problema, ya era tarde.</p>
-        <h2>El reto</h2>
-        <p>Cada tienda enviaba su Excel los primeros días del mes. El equipo central consolidaba todo a mano — un proceso de cinco días lleno de errores. Las decisiones de inventario y promociones siempre iban un mes atrasadas.</p>
-        <h2>La solución</h2>
-        <p>Conectaron sus puntos de venta a NexaPy. En una semana tenían un dashboard único con las ventas de las 14 tiendas <strong>actualizándose cada hora</strong>.</p>
-        <h2>Los resultados en seis meses</h2>
-        <ul>
-          <li><strong>+23%</strong> en ventas totales.</li>
-          <li><strong>-31%</strong> en inventario estancado, al detectar productos de baja rotación a tiempo.</li>
-          <li><strong>5 días → 0</strong>: la consolidación manual desapareció.</li>
-          <li>Las promociones ahora se lanzan según lo que vende cada ciudad, no por corazonada.</li>
-        </ul>
-        <h2>En palabras de su Head of Data</h2>
-        <blockquote class="article-quote">"Antes discutíamos sobre qué había pasado el mes pasado. Ahora discutimos qué vamos a hacer mañana. Ese cambio lo es todo."</blockquote>
-        <p>¿Quieres resultados parecidos? <a href="signup.html">Empieza tu prueba gratuita</a> o <a href="index.html#contact">habla con nuestro equipo</a>.</p>
-      `,
-    },
-    {
-      slug: 'seguridad-datos-empresa',
-      tag: 'Seguridad',
-      title: 'Seguridad de datos: lo que toda empresa colombiana debe saber',
-      excerpt:
-        'La Ley 1581 de Habeas Data no es opcional. Te explicamos en simple cómo proteger los datos de tus clientes.',
-      author: 'Andrés Ramírez',
-      date: '2026-04-10',
       read: 7,
-      emoji: '🔒',
-      body: `
-        <p>Manejar datos de clientes en Colombia conlleva una responsabilidad legal real. La Ley 1581 de 2012 (Habeas Data) establece cómo debes tratar la información personal, y las multas por incumplir pueden ser severas.</p>
-        <h2>Tus obligaciones básicas</h2>
-        <ul>
-          <li><strong>Autorización:</strong> necesitas permiso explícito para usar los datos de una persona.</li>
-          <li><strong>Finalidad:</strong> solo puedes usarlos para lo que informaste.</li>
-          <li><strong>Seguridad:</strong> debes protegerlos contra accesos no autorizados.</li>
-          <li><strong>Derechos:</strong> la persona puede pedir conocer, actualizar o eliminar sus datos.</li>
-        </ul>
-        <h2>Buenas prácticas mínimas</h2>
-        <p>Cifra la información sensible, limita quién accede a qué (permisos por rol), mantén un registro de accesos y nunca compartas datos con terceros sin autorización.</p>
-        <h2>Cómo ayuda una plataforma seria</h2>
-        <p>NexaPy cifra tus datos en reposo (AES-256) y en tránsito (TLS 1.3), está certificada bajo ISO 27001 y SOC 2, y te da control granular de permisos. Cumplir la ley deja de ser una carga manual.</p>
-        <p>Lee más en nuestro <a href="legal.html#gdpr">centro legal</a> o <a href="signup.html">crea tu cuenta segura</a>.</p>
-      `,
-    },
-    {
-      slug: 'novedades-mayo',
-      tag: 'Changelog',
-      title: 'Novedades de NexaPy: edición de mayo',
-      excerpt:
-        'Nuevos tipos de gráficos, un 40% más de velocidad en consultas y mejoras en el editor visual.',
-      author: 'Equipo de Producto',
-      date: '2026-05-28',
-      read: 4,
       emoji: '✨',
       body: `
-        <p>Cada semana mejoramos NexaPy escuchando a nuestros clientes. Este es el resumen de lo que lanzamos en mayo.</p>
-        <h2>🎨 Nuevos gráficos</h2>
-        <p>Agregamos gráficos de embudo (funnel) y de dona (donut) al panel. Perfectos para visualizar conversiones y distribuciones de un vistazo.</p>
-        <h2>⚡ 40% más rápido</h2>
-        <p>Optimizamos nuestro motor de consultas. Los dashboards con millones de filas ahora cargan notablemente más rápido.</p>
-        <h2>🤝 Mejoras de colaboración</h2>
-        <p>Ahora puedes mencionar a un compañero con @ directamente en un comentario sobre los datos, y le llega una notificación.</p>
-        <h2>🔌 Nuevas integraciones</h2>
-        <p>Sumamos conectores nativos para Siigo, Alegra y World Office — los favoritos de la contabilidad en Colombia.</p>
-        <h2>🌗 Modo claro</h2>
-        <p>Por pedido popular, toda la plataforma ahora tiene modo claro además del oscuro. Cámbialo con un clic.</p>
-        <p>¿Tienes una idea para mejorar NexaPy? Escríbenos a <a href="mailto:hola@nexapy.co">hola@nexapy.co</a>.</p>
+        <p>No necesitas una librería de animaciones para que un sitio se sienta vivo. Casi todo lo de este portal se mueve con <code>@keyframes</code> y <code>transition</code>. Estos son mis trucos favoritos.</p>
+        <h2>Anima transform y opacity, nada más</h2>
+        <p>El navegador puede animar <code>transform</code> y <code>opacity</code> en la GPU sin recalcular el layout. Animar <code>width</code> o <code>top</code> en cambio provoca reflows y se ve a tirones. Esta única regla resuelve el 90% del rendimiento.</p>
+        <h2>Reveal al hacer scroll</h2>
+        <p>Con un <code>IntersectionObserver</code> detecto cuándo un elemento entra en pantalla y le agrego una clase. El CSS hace el resto: pasa de <code>opacity:0; translateY(20px)</code> a su posición final. Cero librerías.</p>
+        <h2>El detalle que lo cambia todo</h2>
+        <p>La curva de easing. Un <code>cubic-bezier</code> con un pequeño rebote hace que un movimiento se sienta natural en vez de robótico. Vale la pena jugar con los valores hasta que "se sienta bien".</p>
+        <h2>Respeta a quien no quiere movimiento</h2>
+        <p>Siempre envuelvo las animaciones grandes en <code>@media (prefers-reduced-motion: reduce)</code>. Accesibilidad no es opcional: hay gente a la que el movimiento le marea.</p>
+        <p>Abre las herramientas de desarrollo y curiosea el CSS del sitio — está todo a la vista.</p>
+      `,
+    },
+    {
+      slug: 'modo-oscuro-sin-parpadeo',
+      tag: 'Tutorial',
+      title: 'Modo oscuro sin el molesto parpadeo blanco',
+      excerpt:
+        '¿Te ha pasado que la página carga en blanco y un segundo después salta a oscuro? Así eliminé ese flash para siempre.',
+      author: 'Omar',
+      date: '2026-04-22',
+      read: 5,
+      emoji: '🌗',
+      body: `
+        <p>El modo oscuro está de moda, pero hay un bug clásico: la página aparece en claro durante un instante y luego "salta" a oscuro. Feo y evitable. Aquí va la solución.</p>
+        <h2>La causa del parpadeo</h2>
+        <p>Si aplicas el tema con un script que carga al final, el navegador ya pintó la página en claro antes de que tu código corra. Ese medio segundo es el flash.</p>
+        <h2>La solución: un script bloqueante en el head</h2>
+        <p>Pongo un script pequeñito en el <code>&lt;head&gt;</code>, <strong>sin defer</strong>, que lee la preferencia de <code>localStorage</code> y pone el atributo <code>data-theme</code> en el <code>&lt;html&gt;</code> antes del primer pintado. El navegador ya pinta con el tema correcto.</p>
+        <h2>Persistir la elección</h2>
+        <p>Cuando el usuario cambia de tema, guardo su elección en <code>localStorage</code>. La próxima visita arranca exactamente como la dejó, sin pedir nada al servidor.</p>
+        <h2>Y si nunca eligió</h2>
+        <p>Respeto su sistema operativo con <code>prefers-color-scheme</code>. Si tiene el móvil en oscuro, el sitio arranca oscuro. Detalles así hacen que algo se sienta cuidado.</p>
+        <p>Prueba el botón de tema arriba: el sitio entero cambia sin recargar y sin parpadear.</p>
+      `,
+    },
+    {
+      slug: 'localstorage-sin-backend',
+      tag: 'JavaScript',
+      title: 'Cuentas de usuario sin servidor con localStorage',
+      excerpt:
+        'Login, registro y sesiones en un sitio 100% estático en GitHub Pages. Spoiler: localStorage da para mucho.',
+      author: 'Omar',
+      date: '2026-04-10',
+      read: 7,
+      emoji: '🔐',
+      body: `
+        <p>Este portal vive en GitHub Pages, que solo sirve archivos estáticos — no hay base de datos ni servidor. Aun así tiene registro, login y sesión persistente. El secreto es <code>localStorage</code>.</p>
+        <h2>Qué es localStorage</h2>
+        <p>Es un almacén clave-valor que el navegador guarda por dominio y conserva entre visitas. Guardas un string, lo recuperas más tarde. Perfecto para preferencias y datos pequeños.</p>
+        <h2>Guardar "usuarios"</h2>
+        <p>Mantengo un array de usuarios serializado con <code>JSON.stringify</code>. Al registrarse, agrego un usuario; al iniciar sesión, busco por correo y comparo. Todo en el navegador del visitante.</p>
+        <h2>Importante: esto es una demo</h2>
+        <p>Sé honesto con sus límites: <strong>no es seguro para datos reales</strong>. Cualquiera puede leer su propio <code>localStorage</code>. Sirve para guardar progreso de un juego o un tema, no para contraseñas de verdad. En producción, eso va en un servidor con hashing serio.</p>
+        <h2>Cuándo es la herramienta correcta</h2>
+        <p>Para un portafolio, un juego o una app personal sin datos sensibles, es ideal: cero costo, cero infraestructura, despliegue gratis. Conoce sus límites y te rinde muchísimo.</p>
+        <p>Si te interesa el detalle, todo el código está en el <a href="proyectos.html">proyecto del portal</a>.</p>
+      `,
+    },
+    {
+      slug: 'que-viene-despues',
+      tag: 'Bitácora',
+      title: 'Qué viene después del Blackjack',
+      excerpt:
+        'El primer juego ya está en vivo. Estos son los proyectos que tengo en la mira para los próximos meses.',
+      author: 'Omar',
+      date: '2026-05-28',
+      read: 4,
+      emoji: '🚀',
+      body: `
+        <p>El Blackjack fue el arranque del portal y ya es completamente jugable. Pero la idea nunca fue quedarme en un solo juego. Esto es lo que hay en el horizonte.</p>
+        <h2>🎲 Un juego de dados</h2>
+        <p>El segundo juego del portal. Algo con dados y decisiones de estrategia. Estoy en la fase de diseñar las reglas — la parte más divertida y la que más cuesta.</p>
+        <h2>🧩 Un puzzle de lógica</h2>
+        <p>Quiero construir algo más cerebral, de resolver pasos en vez de apostar. Todavía es una idea en el cuaderno, pero me ronda hace rato.</p>
+        <h2>🧰 Una herramienta web</h2>
+        <p>No todo tienen que ser juegos. Tengo ganas de hacer una utilidad pequeña y útil, de esas que usas a diario, hecha desde cero como el resto del sitio.</p>
+        <h2>🤖 Un experimento con IA</h2>
+        <p>El campo me fascina. En algún momento quiero conectar una API de inteligencia artificial a un proyecto del portal y ver hasta dónde llega.</p>
+        <h2>Sin prisa, pero sin pausa</h2>
+        <p>Cada cosa toma su tiempo cuando se hace bien y en ratos libres. Lo importante es que siempre hay algo nuevo cocinándose. <a href="proyectos.html">Sigue el avance en la página de proyectos</a>.</p>
       `,
     },
   ];

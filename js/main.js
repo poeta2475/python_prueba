@@ -1,4 +1,4 @@
-/* NexaPy Analytics — Interacciones de la landing */
+/* OmarDev — Interacciones del portal (navbar, menú, animaciones) */
 (function () {
   'use strict';
   const { toast, Validate, setFieldError, clearFieldError } = window.NexaUI;

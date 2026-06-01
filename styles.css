@@ -1,5 +1,5 @@
 /* ============================================================
-   NexaPy Analytics — Professional Stylesheet
+   OmarDev — Hoja de estilos del portal
    ============================================================ */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -359,6 +359,10 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 1px 0 var(--border);
+}
+:root[data-theme="light"] .navbar.scrolled {
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 1px 0 var(--border), 0 4px 24px rgba(15,23,42,0.06);
 }
 .nav-container {
   max-width: 1200px;
@@ -1009,7 +1013,11 @@ body.no-scroll { overflow: hidden; }
 }
 
 /* Nav link activo */
-.nav-links a.active { color: var(--text-primary); background: var(--surface); }
+.nav-links a.active {
+  color: var(--primary-light);
+  background: rgba(99,102,241,0.10);
+  font-weight: 600;
+}
 
 .btn-sm { font-size: 13px; padding: 8px 16px; }
 .btn-success { background: linear-gradient(135deg, var(--success), #059669) !important; }
@@ -2248,7 +2256,7 @@ body.no-scroll { overflow: hidden; }
 }
 .stack-card:hover { border-color: rgba(99,102,241,0.3); transform: translateY(-3px); }
 .stack-icon { font-size: 36px; display: block; margin-bottom: 16px; }
-.stack-card h4 { font-size: 18px; font-weight: 800; color: var(--text-primary); margin-bottom: 16px; letter-spacing: -0.01em; }
+.stack-card h3, .stack-card h4 { font-size: 18px; font-weight: 800; color: var(--text-primary); margin-bottom: 16px; letter-spacing: -0.01em; }
 .stack-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .stack-card li { font-size: 14px; color: var(--text-secondary); padding-left: 18px; position: relative; }
 .stack-card li::before { content: '·'; position: absolute; left: 0; color: var(--primary-light); font-weight: 700; }

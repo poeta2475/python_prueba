@@ -1,4 +1,4 @@
-/* NexaPy Analytics — Control de tema (claro/oscuro)
+/* OmarDev — Control de tema (claro/oscuro)
  * Se carga en <head> (sin defer) para aplicar el tema antes del primer
  * pintado y evitar el "flash" de tema incorrecto.
  */

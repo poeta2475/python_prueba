@@ -1,4 +1,4 @@
-/* NexaPy Analytics — utilidades de UI compartidas: toasts + validación */
+/* OmarDev — utilidades de UI compartidas: toasts + validación */
 (function (global) {
   'use strict';
 
