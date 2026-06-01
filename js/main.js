@@ -71,7 +71,7 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const revealEls = document.querySelectorAll(
-    '.feature-card, .stat-card, .testimonial-card, .pricing-card, .step, .cta-box, .faq-item'
+    '[data-reveal], .feature-card, .stat-card, .testimonial-card, .pricing-card, .step, .cta-box, .faq-item'
   );
   if (reduceMotion || !('IntersectionObserver' in window)) {
     revealEls.forEach((el) => el.classList.add('visible'));
@@ -80,12 +80,12 @@
       (entries) => {
         entries.forEach((entry, i) => {
           if (entry.isIntersecting) {
-            setTimeout(() => entry.target.classList.add('visible'), Math.min(i, 6) * 70);
+            setTimeout(() => entry.target.classList.add('visible'), Math.min(i, 6) * 80);
             revealObserver.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0.08 }
     );
     revealEls.forEach((el) => {
       el.classList.add('reveal');
