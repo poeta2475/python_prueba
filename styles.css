@@ -1741,3 +1741,9 @@ body.no-scroll { overflow: hidden; }
 .related-emoji { font-size: 28px; flex-shrink: 0; }
 .related-card .r-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary-light); }
 .related-card h4 { font-size: 15px; font-weight: 700; color: var(--text-primary); line-height: 1.35; margin-top: 4px; }
+
+/* Pestaña destacada del Juego */
+.nav-game { color: var(--gold, #f0c040) !important; font-weight: 700 !important; }
+.nav-links a.nav-game { background: rgba(240,192,64,0.10); }
+.nav-links a.nav-game:hover { background: rgba(240,192,64,0.18); color: #f0c040 !important; }
+.mobile-menu a.nav-game { color: #f0c040 !important; }
