@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iniciar sesión | NexaPy Analytics</title>
-  <meta name="description" content="Accede a tu panel de NexaPy Analytics." />
+  <title>Iniciar sesión | OmarDev</title>
+  <meta name="description" content="Accede a tu cuenta en el portal de Omar." />
   <meta name="theme-color" content="#0a0b0f" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
@@ -13,36 +13,51 @@
   <script src="js/theme.js"></script>
 </head>
 <body class="auth-body">
-  <button class="theme-toggle auth-theme-toggle" data-theme-toggle aria-label="Cambiar tema claro/oscuro">
+  <button class="theme-toggle auth-theme-toggle" data-theme-toggle aria-label="Cambiar tema">
     <span class="icon-moon">🌙</span><span class="icon-sun">☀️</span>
   </button>
   <div class="auth-wrap">
     <div class="auth-aside">
       <a href="index.html" class="nav-logo">
-        <span class="logo-icon">⬡</span>
-        <span class="logo-text">NexaPy<span class="logo-accent">Analytics</span></span>
+        <span class="logo-icon">🎮</span>
+        <span class="logo-text">Omar<span class="logo-accent">Dev</span></span>
       </a>
       <div class="auth-aside-content">
         <h2>Bienvenido de nuevo</h2>
-        <p>Accede a tus dashboards, reportes y modelos predictivos. Tus datos, siempre en tiempo real.</p>
+        <p>Inicia sesión para guardar tu progreso en los juegos y llevar un historial de partidas.</p>
         <ul class="auth-points">
-          <li>✓ Más de 3,500 empresas confían en NexaPy</li>
-          <li>✓ 99.98% de uptime garantizado</li>
-          <li>✓ Soporte en español 24/7</li>
+          <li>🃏 Acceso completo al Blackjack</li>
+          <li>📊 Historial de partidas</li>
+          <li>🏆 Récords personales</li>
         </ul>
       </div>
-      <p class="auth-aside-foot">"El ROI fue evidente en el primer mes." — María A., CFO</p>
+      <p class="auth-aside-foot">Tu primer juego: Blackjack. Los demás vienen en camino.</p>
     </div>
 
     <div class="auth-main">
       <div class="auth-card">
         <h1>Iniciar sesión</h1>
-        <p class="auth-sub">¿No tienes cuenta? <a href="signup.html">Crea una gratis</a></p>
+        <p class="auth-sub">¿No tienes cuenta? <a href="signup.html">Regístrate gratis</a></p>
+
+        <!-- Google -->
+        <div class="auth-google-wrap">
+          <button class="btn-google btn-full" id="googleSignInBtn" type="button">
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/>
+              <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
+              <path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/>
+              <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/>
+            </svg>
+            Continuar con Google
+          </button>
+        </div>
+
+        <div class="auth-divider"><span>o con tu correo</span></div>
 
         <form id="loginForm" novalidate>
           <div class="form-group">
             <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" placeholder="tu@empresa.com" autocomplete="email" required />
+            <input type="email" id="email" name="email" placeholder="tu@correo.com" autocomplete="email" required />
           </div>
           <div class="form-group">
             <label for="password">Contraseña</label>
@@ -58,7 +73,6 @@
           <button type="submit" class="btn-primary btn-full btn-lg">Entrar</button>
         </form>
 
-        <p class="auth-demo-hint">¿Solo quieres probar? Crea una cuenta en 10 segundos — los datos se guardan en tu navegador.</p>
         <a href="index.html" class="auth-back">← Volver al inicio</a>
       </div>
     </div>

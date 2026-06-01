@@ -3,57 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NexaPy Analytics | Plataforma de Análisis de Datos en Tiempo Real</title>
-  <meta name="description" content="NexaPy Analytics convierte tus datos crudos en dashboards interactivos, reportes automáticos e insights predictivos en tiempo real. 14 días gratis." />
+  <title>OmarDev · Juegos & Proyectos</title>
+  <meta name="description" content="Portal personal de Omar: juegos interactivos y proyectos de programación. Primer juego: Blackjack." />
   <meta name="theme-color" content="#0a0b0f" />
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="canonical" href="https://poeta2475.github.io/python_prueba/" />
+  <meta property="og:title" content="OmarDev · Juegos & Proyectos" />
+  <meta property="og:description" content="Juegos y proyectos hechos desde Colombia." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="NexaPy Analytics | Análisis de datos en tiempo real" />
-  <meta property="og:description" content="Transforma tus datos en decisiones inteligentes. Dashboards, IA predictiva y reportes automáticos. Hecho en Colombia." />
-  <meta property="og:url" content="https://poeta2475.github.io/python_prueba/" />
-  <meta property="og:image" content="https://poeta2475.github.io/python_prueba/assets/og-image.svg" />
-  <meta property="og:locale" content="es_CO" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://poeta2475.github.io/python_prueba/assets/og-image.svg" />
+  <link rel="canonical" href="https://poeta2475.github.io/python_prueba/" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <!-- Tema: sin defer para evitar flash -->
   <script src="js/theme.js"></script>
 </head>
 <body>
-
-  <a href="#features" class="skip-link">Saltar al contenido</a>
-
-  <!-- Aurora de fondo -->
+  <a href="#main" class="skip-link">Saltar al contenido</a>
   <div class="aurora-bg" aria-hidden="true"><span></span></div>
-  <!-- Barra de progreso -->
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <!-- ===== NAVBAR ===== -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">
-        <span class="logo-icon">⬡</span>
-        <span class="logo-text">NexaPy<span class="logo-accent">Analytics</span></span>
+        <span class="logo-icon">🎮</span>
+        <span class="logo-text">Omar<span class="logo-accent">Dev</span></span>
       </a>
       <ul class="nav-links">
-        <li><a href="#features">Características</a></li>
-        <li><a href="#pricing">Planes</a></li>
+        <li><a href="#games">Juegos</a></li>
+        <li><a href="#projects">Proyectos</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="juego.html" class="nav-game">🎰 Juego Omar</a></li>
+        <li><a href="nosotros.html">Sobre mí</a></li>
+        <li><a href="juego.html" class="nav-game">🃏 Blackjack</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="theme-toggle" data-theme-toggle aria-label="Cambiar tema claro/oscuro">
+        <button class="theme-toggle" data-theme-toggle aria-label="Cambiar tema">
           <span class="icon-moon">🌙</span><span class="icon-sun">☀️</span>
         </button>
         <a href="login.html" class="btn-outline" data-auth="guest">Iniciar sesión</a>
-        <a href="signup.html" class="btn-primary magnetic" data-auth="guest">Prueba gratis</a>
-        <a href="dashboard.html" class="btn-primary magnetic" data-auth="user">
-          Ir al panel · <span data-user-name>Usuario</span>
-        </a>
+        <a href="signup.html" class="btn-primary" data-auth="guest">Registrarse</a>
+        <a href="index.html" class="btn-primary" data-auth="user" id="userGreet">Mi cuenta</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
@@ -61,706 +47,306 @@
     </div>
   </nav>
 
-  <!-- Menú móvil -->
   <div class="menu-backdrop" id="menuBackdrop"></div>
   <aside class="mobile-menu" id="mobileMenu" aria-label="Menú de navegación">
-    <a href="#features">Características</a>
-    <a href="#roi">Calculadora ROI</a>
-    <a href="#pricing">Planes</a>
+    <a href="#games">Juegos</a>
+    <a href="#projects">Proyectos</a>
     <a href="blog.html">Blog</a>
-    <a href="nosotros.html">Nosotros</a>
-    <a href="juego.html" class="nav-game">🎰 Juego Omar</a>
-    <a href="#contact">Contacto</a>
+    <a href="nosotros.html">Sobre mí</a>
+    <a href="juego.html" class="nav-game">🃏 Blackjack</a>
     <div class="mobile-menu-actions">
       <button class="btn-outline btn-full" data-theme-toggle>Cambiar tema 🌗</button>
       <a href="login.html" class="btn-outline btn-full" data-auth="guest">Iniciar sesión</a>
-      <a href="signup.html" class="btn-primary btn-full" data-auth="guest">Prueba gratis</a>
-      <a href="dashboard.html" class="btn-primary btn-full" data-auth="user">Ir al panel</a>
+      <a href="signup.html" class="btn-primary btn-full" data-auth="guest">Registrarse</a>
+      <a href="index.html" class="btn-primary btn-full" data-auth="user">Mi cuenta</a>
     </div>
   </aside>
 
-  <!-- ===== HERO ===== -->
-  <header class="hero" id="home">
-    <div class="hero-bg">
-      <div class="grid-overlay"></div>
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-    </div>
-    <div class="hero-container">
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        Nuevo: Integración con IA Generativa disponible
-      </div>
-      <h1 class="hero-title">
-        Transforma tus datos<br />en <span class="gradient-text">decisiones inteligentes</span>
-      </h1>
-      <p class="hero-subtitle">
-        NexaPy Analytics es la plataforma todo-en-uno que convierte terabytes de datos crudos
-        en dashboards interactivos, reportes automáticos e insights accionables en tiempo real.
-      </p>
-      <div class="hero-cta">
-        <a href="signup.html" class="btn-primary btn-lg magnetic">
-          Comenzar gratis <span class="btn-arrow">→</span>
-        </a>
-        <a href="dashboard.html" class="btn-ghost btn-lg">
-          <span class="play-icon">▶</span> Ver demostración en vivo
-        </a>
-      </div>
-      <p class="hero-note">Sin tarjeta de crédito · 14 días gratis · Cancela cuando quieras</p>
+  <main id="main">
 
-      <div class="hero-dashboard">
-        <div class="dashboard-card main-card tilt">
-          <div class="tilt-inner">
-            <div class="card-header">
-              <span class="card-dot green"></span>
-              <span class="card-dot yellow"></span>
-              <span class="card-dot red"></span>
-              <span class="card-title">Panel principal · Tiempo real</span>
+    <!-- HERO -->
+    <section class="portal-hero" id="hero">
+      <div class="section-container">
+        <div class="portal-hero-inner">
+
+          <div class="portal-hero-text" data-reveal>
+            <span class="hero-badge">🎮 Portal Personal</span>
+            <h1>Hola, soy <span class="gradient-text">Omar</span></h1>
+            <p class="hero-sub">Construyo juegos interactivos y proyectos de código desde Colombia.<br>Aquí vivo mis ideas — desde un blackjack hasta lo que venga.</p>
+            <div class="hero-cta-group">
+              <a href="juego.html" class="btn-primary btn-lg magnetic">🃏 Jugar Blackjack</a>
+              <a href="#projects" class="btn-outline btn-lg">Ver proyectos ↓</a>
             </div>
-            <div class="card-body">
-              <div class="metric-row">
-                <div class="metric">
-                  <span class="metric-label">Ingresos hoy</span>
-                  <span class="metric-value">$84,320</span>
-                  <span class="metric-change positive">+12.4%</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-label">Usuarios activos</span>
-                  <span class="metric-value">12,847</span>
-                  <span class="metric-change positive">+8.1%</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-label">Conversión</span>
-                  <span class="metric-value">4.73%</span>
-                  <span class="metric-change negative">-0.3%</span>
-                </div>
+            <div class="hero-stats">
+              <div class="hstat">
+                <span class="hstat-num">1</span>
+                <span class="hstat-label">Juego activo</span>
               </div>
-              <div class="chart-area">
-                <svg viewBox="0 0 400 120" class="line-chart" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.4"/>
-                      <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
-                    </linearGradient>
-                  </defs>
-                  <path d="M0,90 C40,80 80,40 120,50 C160,60 200,20 240,30 C280,40 320,10 400,5"
-                        fill="none" stroke="#6366f1" stroke-width="2.5"/>
-                  <path d="M0,90 C40,80 80,40 120,50 C160,60 200,20 240,30 C280,40 320,10 400,5 L400,120 L0,120 Z"
-                        fill="url(#chartGrad)"/>
-                </svg>
+              <div class="hstat-sep"></div>
+              <div class="hstat">
+                <span class="hstat-num">∞</span>
+                <span class="hstat-label">Ideas</span>
+              </div>
+              <div class="hstat-sep"></div>
+              <div class="hstat">
+                <span class="hstat-num">🇨🇴</span>
+                <span class="hstat-label">Colombia</span>
               </div>
             </div>
           </div>
+
+          <div class="portal-hero-visual" data-reveal>
+            <a href="juego.html" class="game-hero-card magnetic">
+              <div class="ghc-badge">⭐ Juego destacado</div>
+              <div class="ghc-preview">
+                <div class="ghc-table">
+                  <div class="ghc-cards">
+                    <div class="ghc-card ghc-card-back"></div>
+                    <div class="ghc-card ghc-card-a">A<span>♠</span></div>
+                    <div class="ghc-card ghc-card-k">K<span>♥</span></div>
+                  </div>
+                  <div class="ghc-chips-row">
+                    <div class="ghc-chip ghc-chip-r"></div>
+                    <div class="ghc-chip ghc-chip-b"></div>
+                    <div class="ghc-chip ghc-chip-g"></div>
+                    <div class="ghc-chip ghc-chip-r"></div>
+                  </div>
+                  <div class="ghc-score">21 🏆</div>
+                </div>
+              </div>
+              <div class="ghc-info">
+                <h3>🃏 Blackjack</h3>
+                <p>El clásico casino. Supera al dealer sin pasarte de 21.</p>
+                <span class="ghc-cta">Jugar ahora →</span>
+              </div>
+            </a>
+          </div>
+
         </div>
       </div>
+    </section>
 
-      <div class="hero-stats">
-        <div class="hero-stat"><strong class="stat-number" data-target="3500">0</strong><span>Empresas activas</span></div>
-        <div class="hero-stat"><strong>99.98%</strong><span>Uptime</span></div>
-        <div class="hero-stat"><strong class="stat-number" data-target="32">0</strong><span>Departamentos</span></div>
-        <div class="hero-stat"><strong>4.9★</strong><span>8,000+ reseñas</span></div>
-      </div>
-    </div>
-  </header>
+    <!-- JUEGOS -->
+    <section class="content-section" id="games">
+      <div class="section-container">
+        <div class="section-head" data-reveal>
+          <p class="section-eyebrow">🎮 Colección</p>
+          <h2>Mis <span class="gradient-text">Juegos</span></h2>
+          <p>Cada juego construido desde cero con HTML, CSS y JavaScript puro.</p>
+        </div>
+        <div class="games-grid" data-reveal>
 
-  <!-- ===== LOGOS ===== -->
-  <section class="logos-section" aria-label="Empresas que confían en nosotros">
-    <p class="logos-label">Empresas que confían en nosotros</p>
-    <div class="logos-track">
-      <div class="logos-inner">
-        <span class="logo-pill">Banco Central</span>
-        <span class="logo-pill">TechCorp SA</span>
-        <span class="logo-pill">Finnovatix</span>
-        <span class="logo-pill">MedAnalytica</span>
-        <span class="logo-pill">RetailPro</span>
-        <span class="logo-pill">LogiStream</span>
-        <span class="logo-pill">EduInsight</span>
-        <span class="logo-pill">CloudMatrix</span>
-        <span class="logo-pill" aria-hidden="true">Banco Central</span>
-        <span class="logo-pill" aria-hidden="true">TechCorp SA</span>
-        <span class="logo-pill" aria-hidden="true">Finnovatix</span>
-        <span class="logo-pill" aria-hidden="true">MedAnalytica</span>
-        <span class="logo-pill" aria-hidden="true">RetailPro</span>
-        <span class="logo-pill" aria-hidden="true">LogiStream</span>
-        <span class="logo-pill" aria-hidden="true">EduInsight</span>
-        <span class="logo-pill" aria-hidden="true">CloudMatrix</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES (con tabs) ===== -->
-  <section class="features" id="features">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Características</span>
-        <h2 class="section-title">Una plataforma, todo el ciclo del dato</h2>
-        <p class="section-subtitle">Explora cómo NexaPy cubre cada etapa: desde la ingestión hasta la predicción.</p>
-      </div>
-
-      <div class="feature-tabs" role="tablist">
-        <button class="tab-btn active" data-tab="viz" role="tab">📊 Visualización</button>
-        <button class="tab-btn" data-tab="ai" role="tab">🤖 IA Predictiva</button>
-        <button class="tab-btn" data-tab="auto" role="tab">⚡ Automatización</button>
-        <button class="tab-btn" data-tab="sec" role="tab">🔒 Seguridad</button>
-      </div>
-
-      <div class="tab-panels">
-        <div class="tab-panel active" data-panel="viz">
-          <div class="tab-panel-grid spotlight">
-            <div>
-              <h3>Dashboards en tiempo real</h3>
-              <p>Crea visualizaciones interactivas con drag &amp; drop. Conecta más de 200 fuentes y actualiza tus métricas al instante, sin escribir código.</p>
-              <ul class="tab-checklist">
-                <li>Más de 50 tipos de gráficos personalizables</li>
-                <li>Actualización en tiempo real en menos de 1 segundo</li>
-                <li>Filtros, drill-downs y alertas automáticas</li>
-                <li>Compartible público o privado con un clic</li>
-              </ul>
+          <a href="juego.html" class="game-card">
+            <div class="gc-thumb">🃏</div>
+            <div class="gc-body">
+              <span class="gc-tag">Cartas · Casino</span>
+              <h3>Blackjack</h3>
+              <p>Juega contra el dealer. Gestiona tu bankroll, usa split y doble. Estrategia básica incluida.</p>
+              <div class="gc-footer">
+                <span class="gc-live">● En vivo</span>
+                <span class="gc-play">Jugar →</span>
+              </div>
             </div>
-            <div class="tab-visual">📊</div>
-          </div>
-        </div>
-        <div class="tab-panel" data-panel="ai">
-          <div class="tab-panel-grid spotlight">
-            <div>
-              <h3>Modelos predictivos sin fricción</h3>
-              <p>Machine learning pre-entrenado que se adapta a tus datos para predecir tendencias, detectar anomalías y segmentar automáticamente.</p>
-              <ul class="tab-checklist">
-                <li>Predicción de ventas, churn y demanda</li>
-                <li>Detección de anomalías en tiempo real</li>
-                <li>Segmentación y clustering automático</li>
-                <li>Asistente de IA generativa para consultas en lenguaje natural</li>
-              </ul>
-            </div>
-            <div class="tab-visual">🤖</div>
-          </div>
-        </div>
-        <div class="tab-panel" data-panel="auto">
-          <div class="tab-panel-grid spotlight">
-            <div>
-              <h3>Pipelines que se ejecutan solos</h3>
-              <p>Automatiza limpieza, transformación y carga con flujos visuales. Programa ejecuciones o dispáralas por eventos.</p>
-              <ul class="tab-checklist">
-                <li>Editor visual de flujos ETL/ELT</li>
-                <li>Reportes automáticos por correo, Slack o WhatsApp</li>
-                <li>Disparadores por evento o programados</li>
-                <li>Reintentos y registro de auditoría incluidos</li>
-              </ul>
-            </div>
-            <div class="tab-visual">⚡</div>
-          </div>
-        </div>
-        <div class="tab-panel" data-panel="sec">
-          <div class="tab-panel-grid spotlight">
-            <div>
-              <h3>Seguridad de nivel empresarial</h3>
-              <p>Tus datos protegidos con los estándares más exigentes de la industria.</p>
-              <ul class="tab-checklist">
-                <li>Cifrado AES-256 en reposo y TLS 1.3 en tránsito</li>
-                <li>SSO/SAML, LDAP y permisos granulares por rol</li>
-                <li>Auditoría completa de accesos</li>
-                <li>ISO 27001 · SOC 2 Type II · GDPR</li>
-              </ul>
-            </div>
-            <div class="tab-visual">🔒</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== BENTO GRID ===== -->
-  <section class="features" aria-label="Capacidades destacadas" style="padding-top:0">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Capacidades</span>
-        <h2 class="section-title">Diseñado para equipos que van en serio</h2>
-      </div>
-      <div class="bento">
-        <div class="bento-card bento-big bento-glow tilt spotlight">
-          <span class="bento-tag">Rendimiento</span>
-          <span class="bento-emoji">⚡</span>
-          <div class="tilt-inner">
-            <span class="bento-number">4×</span>
-            <h3>Consultas más rápidas</h3>
-            <p>Motor columnar optimizado que procesa miles de millones de filas en segundos.</p>
-          </div>
-        </div>
-        <div class="bento-card bento-wide spotlight">
-          <span class="bento-tag">Conectividad</span>
-          <span class="bento-emoji">🔌</span>
-          <h3>+200 integraciones nativas</h3>
-          <p>Bases de datos, CRMs, hojas de cálculo, data warehouses y APIs.</p>
-        </div>
-        <div class="bento-card spotlight">
-          <span class="bento-emoji">🌎</span>
-          <h3>Multi-región</h3>
-          <p>Datos donde los necesites.</p>
-        </div>
-        <div class="bento-card spotlight">
-          <span class="bento-emoji">👥</span>
-          <h3>Colaboración</h3>
-          <p>Comentarios sobre los datos.</p>
-        </div>
-        <div class="bento-card bento-wide bento-glow spotlight">
-          <span class="bento-tag">Confianza</span>
-          <span class="bento-emoji">🛡️</span>
-          <h3>99.98% de uptime con SLA</h3>
-          <p>Infraestructura redundante y monitoreo 24/7 con compensación garantizada.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== STATS ===== -->
-  <section class="stats-section" id="stats">
-    <div class="stats-bg"><div class="blob blob-3"></div></div>
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Métricas</span>
-        <h2 class="section-title">Resultados que hablan por sí solos</h2>
-      </div>
-      <div class="stats-grid">
-        <div class="stat-card spotlight">
-          <span class="stat-number" data-target="3500">0</span><span class="stat-suffix">+</span>
-          <span class="stat-label">Empresas activas</span><span class="stat-desc">en los 32 departamentos de Colombia</span>
-        </div>
-        <div class="stat-card spotlight">
-          <span class="stat-number" data-target="99.98" data-decimals="2">0</span><span class="stat-suffix">%</span>
-          <span class="stat-label">Uptime garantizado</span><span class="stat-desc">SLA con compensación</span>
-        </div>
-        <div class="stat-card spotlight">
-          <span class="stat-number" data-target="12">0</span><span class="stat-suffix">B+</span>
-          <span class="stat-label">Registros procesados</span><span class="stat-desc">cada día en nuestra plataforma</span>
-        </div>
-        <div class="stat-card spotlight">
-          <span class="stat-number" data-target="4">0</span><span class="stat-suffix">x</span>
-          <span class="stat-label">Más rápido</span><span class="stat-desc">que la competencia en consultas</span>
-        </div>
-      </div>
-      <div class="trust-bar">
-        <div class="trust-item"><span class="trust-icon">🏆</span><span>Mejor plataforma BI 2025 · G2 Crowd</span></div>
-        <div class="trust-item"><span class="trust-icon">🛡️</span><span>ISO 27001 · SOC 2 Type II · GDPR</span></div>
-        <div class="trust-item"><span class="trust-icon">⭐</span><span>4.9/5 en más de 8,000 reseñas</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== HOW IT WORKS ===== -->
-  <section class="how-it-works">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Proceso</span>
-        <h2 class="section-title">Empieza a ver resultados en minutos</h2>
-        <p class="section-subtitle">No se requiere conocimiento técnico. Sigue estos pasos y tendrás tu primer dashboard funcionando hoy mismo.</p>
-      </div>
-      <div class="steps-container">
-        <div class="step-line"></div>
-        <div class="step">
-          <div class="step-number">01</div>
-          <div class="step-content"><h3>Conecta tus fuentes de datos</h3>
-            <p>Selecciona entre más de 200 conectores nativos o usa nuestra API REST/GraphQL. La configuración toma menos de 5 minutos.</p></div>
-        </div>
-        <div class="step">
-          <div class="step-number">02</div>
-          <div class="step-content"><h3>Define tu modelo de datos</h3>
-            <p>NexaPy detecta automáticamente el esquema y sugiere relaciones. Ajusta con nuestro editor visual sin SQL.</p></div>
-        </div>
-        <div class="step">
-          <div class="step-number">03</div>
-          <div class="step-content"><h3>Crea dashboards con drag &amp; drop</h3>
-            <p>Elige entre más de 50 widgets o diseña los tuyos. Añade filtros, drill-downs y alertas en segundos.</p></div>
-        </div>
-        <div class="step">
-          <div class="step-number">04</div>
-          <div class="step-content"><h3>Comparte y colabora</h3>
-            <p>Invita a tu equipo, define permisos por rol y comparte dashboards. Comenta directamente sobre los datos.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ROI CALCULATOR ===== -->
-  <section class="roi-section" id="roi">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Calculadora</span>
-        <h2 class="section-title">¿Cuánto ahorrarías con NexaPy?</h2>
-        <p class="section-subtitle">Ajusta los valores a tu equipo y descubre tu retorno de inversión estimado.</p>
-      </div>
-      <div class="roi-card" id="roiCalc">
-        <div class="roi-inputs">
-          <h3>Tu equipo de datos</h3>
-          <div class="roi-field">
-            <label>Personas en el equipo <output id="outTeam">8</output></label>
-            <input type="range" id="roiTeam" min="1" max="100" value="8" />
-          </div>
-          <div class="roi-field">
-            <label>Horas/semana en reportes manuales <output id="outHours">12 h</output></label>
-            <input type="range" id="roiHours" min="1" max="40" value="12" />
-          </div>
-          <div class="roi-field">
-            <label>Costo por hora del equipo (COP) <output id="outCost">$35.000</output></label>
-            <input type="range" id="roiCost" min="15000" max="200000" step="5000" value="35000" />
-          </div>
-        </div>
-        <div class="roi-results">
-          <div class="roi-metric">
-            <span>Ahorro estimado mensual</span>
-            <strong id="roiSaved">$0</strong>
-          </div>
-          <div class="roi-metric muted">
-            <span>Horas recuperadas</span>
-            <strong id="roiHoursSaved">0 h/mes</strong>
-          </div>
-          <div class="roi-metric">
-            <span>Retorno de inversión (ROI)</span>
-            <strong id="roiPercent">0%</strong>
-          </div>
-          <p class="roi-disclaimer">Estimación basada en automatizar ~70% del tiempo de reportería. Resultados reales varían según el caso.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PRICING ===== -->
-  <section class="pricing" id="pricing">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Planes</span>
-        <h2 class="section-title">Precios transparentes sin sorpresas</h2>
-        <p class="section-subtitle">Escala según tus necesidades. Todos los planes incluyen soporte prioritario y actualizaciones gratuitas.</p>
-      </div>
-      <div class="pricing-toggle">
-        <span class="toggle-label active" id="monthly-label">Mensual</span>
-        <label class="toggle-switch">
-          <input type="checkbox" id="billing-toggle" aria-label="Cambiar entre facturación mensual y anual" />
-          <span class="toggle-slider"></span>
-        </label>
-        <span class="toggle-label" id="annual-label">Anual <span class="save-badge">Ahorra 20%</span></span>
-      </div>
-      <div class="pricing-grid">
-        <div class="pricing-card spotlight">
-          <div class="plan-header">
-            <span class="plan-name">Starter</span>
-            <div class="plan-price"><span class="price-amount" data-monthly="99.000" data-annual="79.000">$99.000</span><span class="price-period">COP/mes</span></div>
-            <p class="plan-desc">Perfecto para emprendedores y equipos pequeños que comienzan con análisis de datos.</p>
-          </div>
-          <ul class="plan-features">
-            <li><span class="check">✓</span> 3 fuentes de datos</li>
-            <li><span class="check">✓</span> 5 dashboards</li>
-            <li><span class="check">✓</span> 10 GB de almacenamiento</li>
-            <li><span class="check">✓</span> Actualización cada hora</li>
-            <li><span class="check">✓</span> Soporte por correo</li>
-            <li><span class="muted">✗</span> IA predictiva</li>
-            <li><span class="muted">✗</span> API acceso</li>
-          </ul>
-          <a href="signup.html?plan=starter" class="btn-outline btn-full">Comenzar gratis</a>
-        </div>
-        <div class="pricing-card pricing-popular spotlight">
-          <div class="popular-badge">Más popular</div>
-          <div class="plan-header">
-            <span class="plan-name">Professional</span>
-            <div class="plan-price"><span class="price-amount" data-monthly="279.000" data-annual="223.000">$279.000</span><span class="price-period">COP/mes</span></div>
-            <p class="plan-desc">Para equipos en crecimiento que necesitan análisis avanzado y colaboración.</p>
-          </div>
-          <ul class="plan-features">
-            <li><span class="check">✓</span> 25 fuentes de datos</li>
-            <li><span class="check">✓</span> Dashboards ilimitados</li>
-            <li><span class="check">✓</span> 100 GB de almacenamiento</li>
-            <li><span class="check">✓</span> Tiempo real (&lt;1 min)</li>
-            <li><span class="check">✓</span> Soporte prioritario 24/7</li>
-            <li><span class="check">✓</span> IA predictiva básica</li>
-            <li><span class="check">✓</span> API REST completa</li>
-          </ul>
-          <a href="signup.html?plan=professional" class="btn-primary btn-full magnetic">Comenzar gratis</a>
-        </div>
-        <div class="pricing-card spotlight">
-          <div class="plan-header">
-            <span class="plan-name">Enterprise</span>
-            <div class="plan-price"><span class="price-amount" data-lock="1">A medida</span></div>
-            <p class="plan-desc">Para grandes organizaciones con necesidades de seguridad y escala avanzadas.</p>
-          </div>
-          <ul class="plan-features">
-            <li><span class="check">✓</span> Fuentes ilimitadas</li>
-            <li><span class="check">✓</span> Almacenamiento ilimitado</li>
-            <li><span class="check">✓</span> Tiempo real (instantáneo)</li>
-            <li><span class="check">✓</span> Gerente de cuenta dedicado</li>
-            <li><span class="check">✓</span> SSO/SAML + LDAP</li>
-            <li><span class="check">✓</span> IA predictiva avanzada</li>
-            <li><span class="check">✓</span> On-premise disponible</li>
-          </ul>
-          <a href="#contact" class="btn-outline btn-full">Hablar con ventas</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== COMPARATIVA ===== -->
-  <section class="compare-section">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Comparativa</span>
-        <h2 class="section-title">Por qué los equipos eligen NexaPy</h2>
-        <p class="section-subtitle">Frente a herramientas tradicionales de BI y hojas de cálculo.</p>
-      </div>
-      <div class="compare-wrap">
-        <table class="compare-table">
-          <thead>
-            <tr>
-              <th>Característica</th>
-              <th class="col-us">NexaPy</th>
-              <th>BI tradicional</th>
-              <th>Hojas de cálculo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Tiempo de configuración</td><td class="col-us">Minutos</td><td>Semanas</td><td>Horas</td></tr>
-            <tr><td>Datos en tiempo real</td><td class="col-us"><span class="compare-yes">✓</span></td><td><span class="compare-partial">Parcial</span></td><td><span class="compare-no">✗</span></td></tr>
-            <tr><td>IA predictiva integrada</td><td class="col-us"><span class="compare-yes">✓</span></td><td><span class="compare-no">✗</span></td><td><span class="compare-no">✗</span></td></tr>
-            <tr><td>Sin necesidad de código</td><td class="col-us"><span class="compare-yes">✓</span></td><td><span class="compare-partial">Parcial</span></td><td><span class="compare-yes">✓</span></td></tr>
-            <tr><td>Colaboración en vivo</td><td class="col-us"><span class="compare-yes">✓</span></td><td><span class="compare-partial">Parcial</span></td><td><span class="compare-no">✗</span></td></tr>
-            <tr><td>+200 integraciones</td><td class="col-us"><span class="compare-yes">✓</span></td><td><span class="compare-partial">Limitadas</span></td><td><span class="compare-no">✗</span></td></tr>
-            <tr><td>Seguridad empresarial</td><td class="col-us"><span class="compare-yes">✓</span></td><td><span class="compare-yes">✓</span></td><td><span class="compare-no">✗</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== INTEGRACIONES ===== -->
-  <section class="integrations-section" id="integrations">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Integraciones</span>
-        <h2 class="section-title">Conecta con tu stack en minutos</h2>
-        <p class="section-subtitle">Más de 200 conectores nativos. Estos son algunos de los favoritos.</p>
-      </div>
-      <div class="integrations-cloud">
-        <div class="integration-chip"><span class="ic-logo">🐘</span> PostgreSQL</div>
-        <div class="integration-chip"><span class="ic-logo">🍃</span> MongoDB</div>
-        <div class="integration-chip"><span class="ic-logo">☁️</span> Snowflake</div>
-        <div class="integration-chip"><span class="ic-logo">🔷</span> BigQuery</div>
-        <div class="integration-chip"><span class="ic-logo">📊</span> Google Sheets</div>
-        <div class="integration-chip"><span class="ic-logo">⚡</span> Salesforce</div>
-        <div class="integration-chip"><span class="ic-logo">🟠</span> HubSpot</div>
-        <div class="integration-chip"><span class="ic-logo">💬</span> Slack</div>
-        <div class="integration-chip"><span class="ic-logo">🅰️</span> Airtable</div>
-        <div class="integration-chip"><span class="ic-logo">🟦</span> Stripe</div>
-        <div class="integration-chip"><span class="ic-logo">📦</span> Shopify</div>
-        <div class="integration-chip"><span class="ic-logo">➕</span> +193 más</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA ===== -->
-  <section class="cta-section">
-    <div class="cta-bg"><div class="blob blob-4"></div></div>
-    <div class="section-container">
-      <div class="cta-box">
-        <h2>¿Listo para transformar tus datos?</h2>
-        <p>Únete a más de 3,500 empresas que ya toman decisiones más inteligentes con NexaPy Analytics. 14 días gratis, sin tarjeta de crédito.</p>
-        <div class="cta-actions">
-          <a href="signup.html" class="btn-primary btn-lg magnetic">Empezar ahora — es gratis</a>
-          <a href="#contact" class="btn-ghost-white btn-lg">Hablar con un experto</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== TESTIMONIALS (carrusel) ===== -->
-  <section class="testimonials" id="testimonials">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Testimonios</span>
-        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
-      </div>
-      <div class="testi-carousel" id="testiCarousel">
-        <div class="testi-viewport">
-          <div class="testi-track">
-            <figure class="testimonial-card">
-              <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
-              <blockquote class="testimonial-text">"NexaPy transformó completamente cómo tomamos decisiones. Pasamos de reportes semanales a dashboards en tiempo real. El ROI fue evidente en el primer mes."</blockquote>
-              <figcaption class="testimonial-author">
-                <div class="author-avatar" style="background:linear-gradient(135deg,#6366f1,#8b5cf6)">MA</div>
-                <div><strong>María Alvarado</strong><span>CFO · Finnovatix S.A.</span></div>
-              </figcaption>
-            </figure>
-            <figure class="testimonial-card">
-              <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
-              <blockquote class="testimonial-text">"La integración con nuestro data warehouse fue inmediata. El soporte resolvió nuestra consulta técnica en menos de 20 minutos. Increíble."</blockquote>
-              <figcaption class="testimonial-author">
-                <div class="author-avatar" style="background:linear-gradient(135deg,#10b981,#059669)">CR</div>
-                <div><strong>Carlos Rivas</strong><span>CTO · LogiStream</span></div>
-              </figcaption>
-            </figure>
-            <figure class="testimonial-card">
-              <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
-              <blockquote class="testimonial-text">"Evaluamos 6 plataformas y NexaPy ganó en todos los criterios. Nuestro equipo de 80 personas lo adoptó en menos de una semana."</blockquote>
-              <figcaption class="testimonial-author">
-                <div class="author-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706)">LG</div>
-                <div><strong>Laura Gómez</strong><span>Head of Data · RetailPro</span></div>
-              </figcaption>
-            </figure>
-            <figure class="testimonial-card">
-              <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
-              <blockquote class="testimonial-text">"Reducimos el tiempo de generación de reportes en un 80%. Ahora el equipo dedica ese tiempo a analizar, no a recopilar datos."</blockquote>
-              <figcaption class="testimonial-author">
-                <div class="author-avatar" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">JT</div>
-                <div><strong>Javier Torres</strong><span>Director de Operaciones · CloudMatrix</span></div>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-        <div class="testi-controls">
-          <button class="testi-arrow" id="testiPrev" aria-label="Anterior">←</button>
-          <div class="testi-dots" id="testiDots"></div>
-          <button class="testi-arrow" id="testiNext" aria-label="Siguiente">→</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FAQ ===== -->
-  <section class="faq" id="faq">
-    <div class="section-container section-narrow">
-      <div class="section-header">
-        <span class="section-tag">FAQ</span>
-        <h2 class="section-title">Preguntas frecuentes</h2>
-        <p class="section-subtitle">¿No encuentras lo que buscas? Escríbenos en la sección de contacto.</p>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false"><span>¿Necesito conocimientos técnicos para usar NexaPy?</span><span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>No. NexaPy está diseñado para usuarios de negocio. Conectas tus fuentes y construyes dashboards con drag &amp; drop. Para casos avanzados, ofrecemos API REST/GraphQL y editor SQL opcionales.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false"><span>¿Cómo funciona la prueba gratuita de 14 días?</span><span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Acceso completo al plan Professional sin tarjeta de crédito. Al terminar, eliges un plan o tu cuenta pasa al modo gratuito limitado. Nunca te cobramos sin avisar.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false"><span>¿Mis datos están seguros?</span><span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Sí. Ciframos en reposo (AES-256) y en tránsito (TLS 1.3), con certificaciones ISO 27001 y SOC 2 Type II. Cumplimos GDPR y nunca compartimos tus datos con terceros.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false"><span>¿Puedo cambiar de plan o cancelar cuando quiera?</span><span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Por supuesto. Cambias de plan al instante desde tu panel y el cobro se prorratea. Puedes cancelar en cualquier momento sin penalizaciones ni permanencia.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false"><span>¿Ofrecen soporte en español?</span><span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Sí, soporte nativo en español por chat, correo y videollamada. Los planes Enterprise incluyen un gerente de cuenta dedicado y SLA de respuesta garantizado.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section class="contact" id="contact">
-    <div class="section-container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <span class="section-tag">Contacto</span>
-          <h2>Hablemos de tu proyecto</h2>
-          <p>Nuestro equipo de expertos está disponible para ayudarte a diseñar la solución perfecta para tu organización.</p>
-          <div class="contact-details">
-            <div class="contact-item"><span class="contact-icon">📧</span><div><strong>Email</strong><span><a href="mailto:hola@nexapy.co">hola@nexapy.co</a></span></div></div>
-            <div class="contact-item"><span class="contact-icon">📞</span><div><strong>Teléfono</strong><span><a href="tel:+576017440000">+57 (601) 744 0000</a></span></div></div>
-            <div class="contact-item"><span class="contact-icon">📍</span><div><strong>Oficina</strong><span>Calle 100 #7-33, Torre 1, Bogotá D.C., Colombia</span></div></div>
-            <div class="contact-item"><span class="contact-icon">🕐</span><div><strong>Horario de soporte</strong><span>24/7 para Enterprise · Lun–Vie 8h–18h (COT) para otros planes</span></div></div>
-          </div>
-        </div>
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-row">
-            <div class="form-group"><label for="name">Nombre completo</label><input type="text" id="name" name="name" placeholder="Juan Pérez" autocomplete="name" required /></div>
-            <div class="form-group"><label for="company">Empresa</label><input type="text" id="company" name="company" placeholder="Mi Empresa S.A." autocomplete="organization" /></div>
-          </div>
-          <div class="form-group"><label for="email">Correo electrónico</label><input type="email" id="email" name="email" placeholder="juan@empresa.com" autocomplete="email" required /></div>
-          <div class="form-group"><label for="plan">Plan de interés</label>
-            <select id="plan" name="plan">
-              <option value="">Selecciona un plan</option>
-              <option value="starter">Starter - $99.000 COP/mes</option>
-              <option value="professional">Professional - $279.000 COP/mes</option>
-              <option value="enterprise">Enterprise - A medida</option>
-            </select>
-          </div>
-          <div class="form-group"><label for="message">Mensaje</label><textarea id="message" name="message" rows="4" placeholder="Cuéntanos sobre tu proyecto y necesidades..." required></textarea></div>
-          <button type="submit" class="btn-primary btn-full">Enviar mensaje <span class="btn-arrow">→</span></button>
-          <p class="form-note">Al enviar aceptas nuestra <a href="legal.html#privacidad">Política de Privacidad</a>. Te respondemos en menos de 2 horas hábiles.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-newsletter">
-        <div>
-          <h3>Suscríbete al boletín</h3>
-          <p>Tendencias de datos, casos de uso y novedades del producto. Un correo al mes, sin spam.</p>
-        </div>
-        <form class="newsletter-form" id="newsletterForm" novalidate>
-          <div class="form-group"><input type="email" placeholder="tu@correo.com" aria-label="Correo electrónico" required /></div>
-          <button type="submit" class="btn-primary">Suscribirme</button>
-        </form>
-      </div>
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a href="index.html" class="nav-logo">
-            <span class="logo-icon">⬡</span>
-            <span class="logo-text">NexaPy<span class="logo-accent">Analytics</span></span>
           </a>
-          <p>La plataforma de análisis de datos más completa para empresas que quieren crecer basándose en información real.</p>
-          <div class="social-links">
-            <a href="https://twitter.com" class="social-link" aria-label="X (Twitter)" target="_blank" rel="noopener">𝕏</a>
-            <a href="https://linkedin.com" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
-            <a href="https://github.com" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">𝔾</a>
-            <a href="https://youtube.com" class="social-link" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+
+          <div class="game-card game-card-soon">
+            <div class="gc-thumb">🎲</div>
+            <div class="gc-body">
+              <span class="gc-tag">Dados · Próximo</span>
+              <h3>En construcción</h3>
+              <p>El siguiente juego está en desarrollo. Algo con dados y estrategia. Pronto disponible.</p>
+              <div class="gc-footer">
+                <span class="gc-coming">⏳ Pronto</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="footer-links-grid">
-          <div class="footer-col"><h4>Producto</h4><ul>
-            <li><a href="#features">Características</a></li>
-            <li><a href="#integrations">Integraciones</a></li>
-            <li><a href="#pricing">Precios</a></li>
-            <li><a href="dashboard.html">Demo en vivo</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          </ul></div>
-          <div class="footer-col"><h4>Recursos</h4><ul>
-            <li><a href="recursos.html">Documentación</a></li>
-            <li><a href="recursos.html">Tutoriales</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="recursos.html">Webinars</a></li>
-            <li><a href="recursos.html">Centro de ayuda</a></li>
-          </ul></div>
-          <div class="footer-col"><h4>Empresa</h4><ul>
-            <li><a href="nosotros.html">Sobre nosotros</a></li>
-            <li><a href="#testimonials">Clientes</a></li>
-            <li><a href="nosotros.html">Nuestro equipo</a></li>
-            <li><a href="nosotros.html">Valores</a></li>
-            <li><a href="#contact">Contacto</a></li>
-          </ul></div>
-          <div class="footer-col"><h4>Legal</h4><ul>
-            <li><a href="legal.html#terminos">Términos de uso</a></li>
-            <li><a href="legal.html#privacidad">Privacidad</a></li>
-            <li><a href="legal.html#cookies">Cookies</a></li>
-            <li><a href="legal.html#gdpr">Habeas Data</a></li>
-            <li><a href="legal.html#sla">SLA</a></li>
-          </ul></div>
+
+          <div class="game-card game-card-soon">
+            <div class="gc-thumb">🧩</div>
+            <div class="gc-body">
+              <span class="gc-tag">Puzzle · Ideas</span>
+              <h3>En lista de espera</h3>
+              <p>Un juego de lógica y puzzle está en la lista. Cada idea lleva su tiempo.</p>
+              <div class="gc-footer">
+                <span class="gc-coming">⏳ Próximamente</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© <span id="year">2025</span> NexaPy Analytics S.A.S. · Bogotá, Colombia. Todos los derechos reservados.</p>
-        <p>Hecho con ❤️ en Colombia para equipos data-driven</p>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="content-section section-alt" id="projects">
+      <div class="section-container">
+        <div class="section-head" data-reveal>
+          <p class="section-eyebrow">💻 Código</p>
+          <h2>Proyectos de <span class="gradient-text">programación</span></h2>
+          <p>Experimentos, herramientas y cosas que aprendo construyendo.</p>
+        </div>
+        <div class="projects-grid" data-reveal>
+
+          <div class="project-card">
+            <div class="pc-header">
+              <span class="pc-icon">🌐</span>
+              <span class="gc-tag">Web · Vanilla</span>
+            </div>
+            <h3>Este portal</h3>
+            <p>Portal personal sin frameworks. HTML semántico, CSS con variables, JS puro. Dark mode, animaciones y auth local.</p>
+            <div class="pc-stack">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="pc-header">
+              <span class="pc-icon">🃏</span>
+              <span class="gc-tag">Juego · Motor</span>
+            </div>
+            <h3>Blackjack Engine</h3>
+            <p>Motor de Blackjack completo: baraja, lógica de dealer, splits, doble apuesta, seguro y sistema de fichas.</p>
+            <div class="pc-stack">
+              <span>JavaScript</span>
+              <span>DOM</span>
+              <span>CSS Animations</span>
+            </div>
+          </div>
+
+          <div class="project-card pc-coming">
+            <div class="pc-header">
+              <span class="pc-icon">🔜</span>
+              <span class="gc-tag">Próximo</span>
+            </div>
+            <h3>En construcción</h3>
+            <p>Más proyectos están en camino. Cada semana aprendo algo nuevo y lo convierto en código.</p>
+            <div class="pc-stack">
+              <span>?</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA AUTH (solo visitantes) -->
+    <section class="portal-cta" id="join" data-auth="guest">
+      <div class="section-container">
+        <div class="cta-card" data-reveal>
+          <div class="cta-icon">🔐</div>
+          <h2>Únete al portal</h2>
+          <p>Crea tu cuenta para guardar el progreso en los juegos y llevar historial de partidas.</p>
+          <div class="cta-methods">
+            <a href="signup.html?g=1" class="btn-google">
+              <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+                <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/>
+                <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
+                <path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/>
+                <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/>
+              </svg>
+              Continuar con Google
+            </a>
+            <a href="signup.html" class="btn-primary btn-lg">Crear cuenta con correo</a>
+            <a href="login.html" class="btn-link-muted">Ya tengo cuenta →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG RECIENTE -->
+    <section class="content-section" id="blog-preview">
+      <div class="section-container">
+        <div class="section-head" data-reveal>
+          <p class="section-eyebrow">✍️ Blog</p>
+          <h2>Últimas <span class="gradient-text">entradas</span></h2>
+          <p>Notas sobre lo que aprendo: código, juegos y proyectos.</p>
+        </div>
+        <div class="blog-grid" id="blogPreview" data-reveal></div>
+        <div style="text-align:center;margin-top:32px" data-reveal>
+          <a href="blog.html" class="btn-outline btn-lg">Ver todas las entradas</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="portal-footer">
+    <div class="section-container">
+      <div class="pf-content">
+        <div class="pf-brand">
+          <a href="index.html" class="nav-logo">
+            <span class="logo-icon">🎮</span>
+            <span class="logo-text">Omar<span class="logo-accent">Dev</span></span>
+          </a>
+          <p>Portal personal de juegos y proyectos.<br>Hecho con ❤️ desde Colombia 🇨🇴</p>
+        </div>
+        <div class="pf-links">
+          <div class="pfl-group">
+            <h4>Juegos</h4>
+            <a href="juego.html">Blackjack</a>
+            <a href="#games">Ver todos</a>
+          </div>
+          <div class="pfl-group">
+            <h4>Personal</h4>
+            <a href="nosotros.html">Sobre mí</a>
+            <a href="blog.html">Blog</a>
+          </div>
+          <div class="pfl-group">
+            <h4>Cuenta</h4>
+            <a href="login.html">Iniciar sesión</a>
+            <a href="signup.html">Registrarse</a>
+          </div>
+          <div class="pfl-group">
+            <h4>Legal</h4>
+            <a href="legal.html">Términos</a>
+            <a href="legal.html#privacidad">Privacidad</a>
+          </div>
+        </div>
+      </div>
+      <div class="pf-bottom">
+        <p>© <span id="year">2025</span> Omar · Colombia · <a href="legal.html">Legal</a></p>
+        <button class="theme-toggle" data-theme-toggle aria-label="Cambiar tema">
+          <span class="icon-moon">🌙</span><span class="icon-sun">☀️</span>
+        </button>
       </div>
     </div>
   </footer>
 
-  <!-- Volver arriba -->
   <button class="back-to-top" id="backToTop" aria-label="Volver arriba">↑</button>
 
   <script src="js/store.js"></script>
   <script src="js/ui.js"></script>
+  <script src="js/blog-data.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    (function () {
+      // Blog preview (3 entradas)
+      var grid = document.getElementById('blogPreview');
+      if (grid && window.NexaBlog) {
+        grid.innerHTML = window.NexaBlog.all().slice(0, 3).map(function (a) {
+          return '<a class="blog-card" href="articulo.html?post=' + a.slug + '">' +
+            '<div class="blog-thumb">' + a.emoji + '</div>' +
+            '<div class="blog-body">' +
+            '<span class="r-tag">' + a.tag + '</span>' +
+            '<h3>' + a.title + '</h3>' +
+            '<p>' + a.excerpt + '</p>' +
+            '<p class="r-meta">' + window.NexaBlog.formatDate(a.date) + ' · ' + a.read + ' min · ' + a.author + '</p>' +
+            '</div></a>';
+        }).join('');
+      }
+      // Saludo de usuario
+      var greet = document.getElementById('userGreet');
+      if (greet && window.NexaStore) {
+        var s = window.NexaStore.getSession();
+        if (s) greet.textContent = 'Hola, ' + s.name.split(' ')[0];
+      }
+      // Año en footer
+      var yr = document.getElementById('year');
+      if (yr) yr.textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>

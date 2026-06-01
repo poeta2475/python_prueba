@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Artículo | NexaPy Analytics</title>
-  <meta name="description" content="Artículo del blog de NexaPy Analytics." />
+  <title>Artículo | OmarDev</title>
+  <meta name="description" content="Artículo del blog de OmarDev." />
   <meta name="theme-color" content="#0a0b0f" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
@@ -18,19 +18,19 @@
 
   <nav class="navbar scrolled" id="navbar">
     <div class="nav-container">
-      <a href="index.html" class="nav-logo"><span class="logo-icon">⬡</span><span class="logo-text">NexaPy<span class="logo-accent">Analytics</span></span></a>
+      <a href="index.html" class="nav-logo"><span class="logo-icon">🎮</span><span class="logo-text">Omar<span class="logo-accent">Dev</span></span></a>
       <ul class="nav-links">
-        <li><a href="index.html#features">Características</a></li>
-        <li><a href="index.html#pricing">Planes</a></li>
+        <li><a href="index.html#games">Juegos</a></li>
+        <li><a href="index.html#projects">Proyectos</a></li>
         <li><a href="blog.html" class="active">Blog</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="juego.html" class="nav-game">🎰 Juego Omar</a></li>
+        <li><a href="nosotros.html">Sobre mí</a></li>
+        <li><a href="juego.html" class="nav-game">🃏 Blackjack</a></li>
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" data-theme-toggle aria-label="Cambiar tema"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
         <a href="login.html" class="btn-outline" data-auth="guest">Iniciar sesión</a>
-        <a href="signup.html" class="btn-primary" data-auth="guest">Prueba gratis</a>
-        <a href="dashboard.html" class="btn-primary" data-auth="user">Ir al panel</a>
+        <a href="signup.html" class="btn-primary" data-auth="guest">Registrarse</a>
+        <a href="index.html" class="btn-primary" data-auth="user">Mi cuenta</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
@@ -40,17 +40,16 @@
 
   <div class="menu-backdrop" id="menuBackdrop"></div>
   <aside class="mobile-menu" id="mobileMenu" aria-label="Menú de navegación">
-    <a href="index.html#features">Características</a>
-    <a href="index.html#pricing">Planes</a>
+    <a href="index.html#games">Juegos</a>
+    <a href="index.html#projects">Proyectos</a>
     <a href="blog.html">Blog</a>
-    <a href="nosotros.html">Nosotros</a>
-    <a href="juego.html" class="nav-game">🎰 Juego Omar</a>
-    <a href="index.html#contact">Contacto</a>
+    <a href="nosotros.html">Sobre mí</a>
+    <a href="juego.html" class="nav-game">🃏 Blackjack</a>
     <div class="mobile-menu-actions">
       <button class="btn-outline btn-full" data-theme-toggle>Cambiar tema 🌗</button>
       <a href="login.html" class="btn-outline btn-full" data-auth="guest">Iniciar sesión</a>
-      <a href="signup.html" class="btn-primary btn-full" data-auth="guest">Prueba gratis</a>
-      <a href="dashboard.html" class="btn-primary btn-full" data-auth="user">Ir al panel</a>
+      <a href="signup.html" class="btn-primary btn-full" data-auth="guest">Registrarse</a>
+      <a href="index.html" class="btn-primary btn-full" data-auth="user">Mi cuenta</a>
     </div>
   </aside>
 
@@ -61,7 +60,7 @@
   </main>
 
   <footer class="mini-footer">
-    <p>© <span id="year">2025</span> NexaPy Analytics S.A.S. · Bogotá, Colombia · <a href="legal.html">Legal</a> · <a href="blog.html">Volver al blog</a></p>
+    <p>© <span id="year">2025</span> Omar · Bogotá, Colombia · <a href="legal.html">Legal</a> · <a href="blog.html">Volver al blog</a></p>
   </footer>
 
   <script src="js/store.js"></script>
@@ -84,7 +83,7 @@
         return;
       }
 
-      document.title = post.title + ' | NexaPy Analytics';
+      document.title = post.title + ' | OmarDev';
       var metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.setAttribute('content', post.excerpt);
 
@@ -109,7 +108,7 @@
         '<div class="article-body content-prose">' + post.body + '</div>' +
         '<div class="article-cta">' +
         '<h3>¿Te gustó este artículo?</h3>' +
-        '<p>Empieza a aplicar estas ideas con NexaPy. 14 días gratis, sin tarjeta.</p>' +
+        '<p>Explora los juegos y proyectos del portal.</p>' +
         '<a href="signup.html" class="btn-primary btn-lg magnetic">Crear cuenta gratis</a>' +
         '</div>' +
         '<div class="article-related"><h3>Sigue leyendo</h3><div class="related-grid">' + relatedHtml + '</div></div>';
