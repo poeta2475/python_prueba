@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyectos | OmarDev</title>
+  <meta name="description" content="Proyectos de programación de Omar: portal web, motor de Blackjack y más ideas en construcción." />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="canonical" href="https://poeta2475.github.io/python_prueba/proyectos.html" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="js/theme.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+  <div class="aurora-bg" aria-hidden="true"><span></span></div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🎮</span>
+        <span class="logo-text">Omar<span class="logo-accent">Dev</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="juegos.html">Juegos</a></li>
+        <li><a href="proyectos.html" class="active">Proyectos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="nosotros.html">Sobre mí</a></li>
+        <li><a href="juego.html" class="nav-game">🃏 Blackjack</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Cambiar tema"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+        <a href="login.html" class="btn-outline" data-auth="guest">Iniciar sesión</a>
+        <a href="signup.html" class="btn-primary" data-auth="guest">Registrarse</a>
+        <a href="index.html" class="btn-primary" data-auth="user">Mi cuenta</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Menú de navegación">
+    <a href="juegos.html">Juegos</a>
+    <a href="proyectos.html">Proyectos</a>
+    <a href="blog.html">Blog</a>
+    <a href="nosotros.html">Sobre mí</a>
+    <a href="juego.html" class="nav-game">🃏 Blackjack</a>
+    <div class="mobile-menu-actions">
+      <button class="btn-outline btn-full" data-theme-toggle>Cambiar tema 🌗</button>
+      <a href="login.html" class="btn-outline btn-full" data-auth="guest">Iniciar sesión</a>
+      <a href="signup.html" class="btn-primary btn-full" data-auth="guest">Registrarse</a>
+      <a href="index.html" class="btn-primary btn-full" data-auth="user">Mi cuenta</a>
+    </div>
+  </aside>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <header class="page-hero">
+      <div class="section-container">
+        <p class="page-breadcrumb"><a href="index.html">Inicio</a> / Proyectos</p>
+        <h1>Mis <span class="gradient-text">Proyectos</span> 💻</h1>
+        <p>Cosas que construyo con código: desde herramientas web hasta motores de juegos. Todo hecho con HTML, CSS y JavaScript vanilla.</p>
+        <div class="page-hero-stats">
+          <div class="phs-item"><span class="phs-num">2</span><span class="phs-label">Completados</span></div>
+          <div class="phs-sep"></div>
+          <div class="phs-item"><span class="phs-num">3+</span><span class="phs-label">En camino</span></div>
+          <div class="phs-sep"></div>
+          <div class="phs-item"><span class="phs-num">0</span><span class="phs-label">Frameworks</span></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Proyectos completados -->
+    <section class="content-section" id="completados">
+      <div class="section-container">
+        <div class="section-head" data-reveal>
+          <p class="section-eyebrow">✅ Terminados</p>
+          <h2>Proyectos <span class="gradient-text">completados</span></h2>
+          <p>En producción y disponibles para explorar.</p>
+        </div>
+
+        <div class="proj-list" data-reveal>
+
+          <!-- Proyecto 1: Portal -->
+          <div class="proj-item">
+            <div class="pi-icon-wrap" style="background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.12))">
+              <span class="pi-icon">🌐</span>
+            </div>
+            <div class="pi-body">
+              <div class="pi-header">
+                <h3>OmarDev Portal</h3>
+                <span class="pi-badge pi-live">En vivo</span>
+              </div>
+              <p>Portal personal construido completamente sin frameworks. Incluye sistema de autenticación local, modo claro/oscuro sin parpadeo, blog con artículos dinámicos, animaciones de scroll, menú móvil y múltiples páginas.</p>
+              <div class="pi-stack">
+                <span>HTML5</span>
+                <span>CSS Variables</span>
+                <span>JavaScript ES6</span>
+                <span>localStorage</span>
+                <span>GitHub Pages</span>
+              </div>
+              <div class="pi-actions">
+                <a href="index.html" class="btn-primary">Ver sitio →</a>
+                <span class="pi-meta">2024–2025 · Web · Personal</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 2: Blackjack -->
+          <div class="proj-item">
+            <div class="pi-icon-wrap" style="background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(16,185,129,0.10))">
+              <span class="pi-icon">🃏</span>
+            </div>
+            <div class="pi-body">
+              <div class="pi-header">
+                <h3>Blackjack Engine</h3>
+                <span class="pi-badge pi-live">Jugable</span>
+              </div>
+              <p>Motor completo de Blackjack con lógica fiel al casino: baraja de 6 decks barajados, acciones de hit/stand/double/split/insurance, lógica del dealer (pega hasta 17), sistema de fichas con animaciones y modo claro/oscuro.</p>
+              <div class="pi-stack">
+                <span>JavaScript</span>
+                <span>DOM API</span>
+                <span>CSS Animations</span>
+                <span>Responsive Design</span>
+              </div>
+              <div class="pi-actions">
+                <a href="juego.html" class="btn-primary">Jugar →</a>
+                <span class="pi-meta">2024 · Juego · Cartas</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- En desarrollo -->
+    <section class="content-section section-alt" id="desarrollo">
+      <div class="section-container">
+        <div class="section-head" data-reveal>
+          <p class="section-eyebrow">🔧 En progreso</p>
+          <h2>En <span class="gradient-text">construcción</span></h2>
+          <p>Proyectos que están tomando forma. Cada uno en su propio tiempo.</p>
+        </div>
+
+        <div class="coming-grid" data-reveal>
+
+          <div class="coming-card">
+            <div class="cc-icon">🎲</div>
+            <div class="cc-body">
+              <h3>Juego de dados</h3>
+              <p>Segundo juego del portal. Motor de dados con mecánicas de estrategia. En fase de diseño de reglas.</p>
+              <div class="cc-progress">
+                <div class="cc-progress-bar" style="width: 15%"></div>
+              </div>
+              <span class="cc-status">Diseño · 15%</span>
+            </div>
+          </div>
+
+          <div class="coming-card">
+            <div class="cc-icon">🧰</div>
+            <div class="cc-body">
+              <h3>Herramienta web</h3>
+              <p>Una utilidad de uso diario construida desde cero. Todavía definiendo qué problema resolver.</p>
+              <div class="cc-progress">
+                <div class="cc-progress-bar" style="width: 8%"></div>
+              </div>
+              <span class="cc-status">Concepto · 8%</span>
+            </div>
+          </div>
+
+          <div class="coming-card">
+            <div class="cc-icon">🤖</div>
+            <div class="cc-body">
+              <h3>Experimento con IA</h3>
+              <p>Integrando alguna API de inteligencia artificial en un proyecto. El campo me parece fascinante.</p>
+              <div class="cc-progress">
+                <div class="cc-progress-bar" style="width: 3%"></div>
+              </div>
+              <span class="cc-status">Exploración · 3%</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Stack tecnológico -->
+    <section class="content-section" id="stack">
+      <div class="section-container">
+        <div class="section-head" data-reveal>
+          <p class="section-eyebrow">⚙️ Tecnologías</p>
+          <h2>Mi <span class="gradient-text">stack</span></h2>
+          <p>Las herramientas con las que trabajo actualmente.</p>
+        </div>
+
+        <div class="stack-grid" data-reveal>
+
+          <div class="stack-card">
+            <span class="stack-icon">🌐</span>
+            <h4>Frontend</h4>
+            <ul>
+              <li>HTML5 semántico</li>
+              <li>CSS3 + Custom Properties</li>
+              <li>JavaScript ES6+</li>
+              <li>DOM API nativo</li>
+            </ul>
+          </div>
+
+          <div class="stack-card">
+            <span class="stack-icon">🎨</span>
+            <h4>Diseño & UX</h4>
+            <ul>
+              <li>Responsive design</li>
+              <li>Dark / Light mode</li>
+              <li>CSS Animations</li>
+              <li>Accesibilidad (ARIA)</li>
+            </ul>
+          </div>
+
+          <div class="stack-card">
+            <span class="stack-icon">🔧</span>
+            <h4>Herramientas</h4>
+            <ul>
+              <li>Git &amp; GitHub</li>
+              <li>GitHub Pages</li>
+              <li>VS Code</li>
+              <li>Chrome DevTools</li>
+            </ul>
+          </div>
+
+          <div class="stack-card">
+            <span class="stack-icon">📚</span>
+            <h4>Aprendiendo</h4>
+            <ul>
+              <li>Python</li>
+              <li>Node.js</li>
+              <li>APIs REST</li>
+              <li>Inteligencia Artificial</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="mini-footer">
+    <p>© <span id="year">2026</span> Omar · Bogotá, Colombia · <a href="legal.html">Legal</a> · <a href="index.html">Inicio</a></p>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>

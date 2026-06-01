@@ -6,19 +6,34 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://poeta2475.github.io/python_prueba/juegos.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://poeta2475.github.io/python_prueba/juego.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://poeta2475.github.io/python_prueba/nosotros.html</loc>
+    <loc>https://poeta2475.github.io/python_prueba/proyectos.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://poeta2475.github.io/python_prueba/blog.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://poeta2475.github.io/python_prueba/nosotros.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://poeta2475.github.io/python_prueba/recursos.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://poeta2475.github.io/python_prueba/legal.html</loc>
@@ -33,6 +48,6 @@
   <url>
     <loc>https://poeta2475.github.io/python_prueba/signup.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
 </urlset>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juegos | OmarDev</title>
+  <meta name="description" content="Colección de juegos interactivos creados por Omar. Blackjack y más juegos en camino." />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="canonical" href="https://poeta2475.github.io/python_prueba/juegos.html" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="js/theme.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+  <div class="aurora-bg" aria-hidden="true"><span></span></div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🎮</span>
+        <span class="logo-text">Omar<span class="logo-accent">Dev</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="juegos.html" class="active">Juegos</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="nosotros.html">Sobre mí</a></li>
+        <li><a href="juego.html" class="nav-game">🃏 Blackjack</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Cambiar tema"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+        <a href="login.html" class="btn-outline" data-auth="guest">Iniciar sesión</a>
+        <a href="signup.html" class="btn-primary" data-auth="guest">Registrarse</a>
+        <a href="index.html" class="btn-primary" data-auth="user">Mi cuenta</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Menú de navegación">
+    <a href="juegos.html">Juegos</a>
+    <a href="proyectos.html">Proyectos</a>
+    <a href="blog.html">Blog</a>
+    <a href="nosotros.html">Sobre mí</a>
+    <a href="juego.html" class="nav-game">🃏 Blackjack</a>
+    <div class="mobile-menu-actions">
+      <button class="btn-outline btn-full" data-theme-toggle>Cambiar tema 🌗</button>
+      <a href="login.html" class="btn-outline btn-full" data-auth="guest">Iniciar sesión</a>
+      <a href="signup.html" class="btn-primary btn-full" data-auth="guest">Registrarse</a>
+      <a href="index.html" class="btn-primary btn-full" data-auth="user">Mi cuenta</a>
+    </div>
+  </aside>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <header class="page-hero games-page-hero">
+      <div class="section-container">
+        <p class="page-breadcrumb"><a href="index.html">Inicio</a> / Juegos</p>
+        <h1>Mis <span class="gradient-text">Juegos</span> 🎮</h1>
+        <p>Juegos interactivos construidos desde cero con JavaScript puro. Sin librerías, sin motores externos — solo código.</p>
+        <div class="page-hero-stats">
+          <div class="phs-item"><span class="phs-num">1</span><span class="phs-label">En vivo</span></div>
+          <div class="phs-sep"></div>
+          <div class="phs-item"><span class="phs-num">2+</span><span class="phs-label">En desarrollo</span></div>
+          <div class="phs-sep"></div>
+          <div class="phs-item"><span class="phs-num">JS</span><span class="phs-label">Vanilla puro</span></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Juego destacado -->
+    <section class="content-section" id="featured">
+      <div class="section-container">
+        <div class="section-head" data-reveal>
+          <p class="section-eyebrow">⭐ Destacado</p>
+          <h2>El juego <span class="gradient-text">activo</span></h2>
+          <p>El primer juego del portal — completamente funcional.</p>
+        </div>
+
+        <div class="featured-game-card" data-reveal>
+          <div class="fgc-visual">
+            <div class="fgc-table-preview">
+              <div class="fgc-felt">
+                <div class="fgc-cards-row">
+                  <div class="fgc-card fgc-back"></div>
+                  <div class="fgc-card fgc-white">A<span class="fgc-suit black">♠</span></div>
+                  <div class="fgc-card fgc-white">K<span class="fgc-suit red">♥</span></div>
+                </div>
+                <div class="fgc-vs">VS</div>
+                <div class="fgc-cards-row fgc-dealer">
+                  <div class="fgc-card fgc-white">Q<span class="fgc-suit black">♣</span></div>
+                  <div class="fgc-card fgc-back fgc-hidden"></div>
+                </div>
+                <div class="fgc-chips-row">
+                  <div class="fgc-chip" style="background:#ef4444"></div>
+                  <div class="fgc-chip" style="background:#3b82f6"></div>
+                  <div class="fgc-chip" style="background:#22c55e"></div>
+                  <div class="fgc-chip" style="background:#f59e0b"></div>
+                  <div class="fgc-chip" style="background:#ef4444"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fgc-info">
+            <div class="fgc-tags">
+              <span class="fgc-live-badge">● En vivo</span>
+              <span class="gc-tag">Cartas · Casino</span>
+            </div>
+            <h2>🃏 Blackjack</h2>
+            <p class="fgc-desc">El clásico juego de casino. Enfrenta al dealer, gestiona tu bankroll y aplica la estrategia básica. Con sistema completo de fichas, split, doble apuesta y seguro.</p>
+            <ul class="fgc-features">
+              <li>✓ Estrategia básica completa</li>
+              <li>✓ Split, doble apuesta y seguro</li>
+              <li>✓ Múltiples decks barajados</li>
+              <li>✓ Modo claro y oscuro</li>
+              <li>✓ Funciona en móvil</li>
+            </ul>
+            <div class="fgc-actions">
+              <a href="juego.html" class="btn-primary btn-lg magnetic">🃏 Jugar ahora</a>
+              <span class="fgc-tech">JavaScript · DOM · CSS Animations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Próximos juegos -->
+    <section class="content-section section-alt" id="coming-soon">
+      <div class="section-container">
+        <div class="section-head" data-reveal>
+          <p class="section-eyebrow">🔜 En desarrollo</p>
+          <h2>Próximos <span class="gradient-text">juegos</span></h2>
+          <p>Ideas que están tomando forma. Cada juego toma su tiempo cuando se construye bien.</p>
+        </div>
+
+        <div class="coming-grid" data-reveal>
+
+          <div class="coming-card">
+            <div class="cc-icon">🎲</div>
+            <div class="cc-body">
+              <h3>Dados · Por definir</h3>
+              <p>Un juego de estrategia con dados. La mecánica exacta todavía está en diseño.</p>
+              <div class="cc-progress">
+                <div class="cc-progress-bar" style="width: 15%"></div>
+              </div>
+              <span class="cc-status">Concepto · 15% completado</span>
+            </div>
+          </div>
+
+          <div class="coming-card">
+            <div class="cc-icon">🧩</div>
+            <div class="cc-body">
+              <h3>Puzzle · Por definir</h3>
+              <p>Un juego de lógica y resolución de puzzles. El cerebro también necesita ejercicio.</p>
+              <div class="cc-progress">
+                <div class="cc-progress-bar" style="width: 5%"></div>
+              </div>
+              <span class="cc-status">Idea · 5% completado</span>
+            </div>
+          </div>
+
+          <div class="coming-card">
+            <div class="cc-icon">❓</div>
+            <div class="cc-body">
+              <h3>Sorpresa</h3>
+              <p>Hay otra idea que todavía no revelo. Algo diferente a lo esperado.</p>
+              <div class="cc-progress">
+                <div class="cc-progress-bar" style="width: 0%"></div>
+              </div>
+              <span class="cc-status">Secreto por ahora</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA registro -->
+    <section class="portal-cta" data-auth="guest">
+      <div class="section-container">
+        <div class="cta-card" data-reveal>
+          <div class="cta-icon">🏆</div>
+          <h2>Guarda tus récords</h2>
+          <p>Crea una cuenta para llevar el historial de tus partidas y tus mejores puntuaciones en todos los juegos.</p>
+          <div class="cta-methods">
+            <a href="signup.html?g=1" class="btn-google">
+              <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/></svg>
+              Continuar con Google
+            </a>
+            <a href="signup.html" class="btn-primary btn-lg">Crear cuenta con correo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="mini-footer">
+    <p>© <span id="year">2026</span> Omar · Bogotá, Colombia · <a href="legal.html">Legal</a> · <a href="index.html">Inicio</a></p>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
