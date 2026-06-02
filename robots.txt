@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /dashboard.html
 
 Sitemap: https://poeta2475.github.io/python_prueba/sitemap.xml

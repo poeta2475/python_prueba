@@ -1707,11 +1707,53 @@ body.no-scroll { overflow: hidden; }
 @media (max-width: 768px) {
   .legal-layout { grid-template-columns: 1fr; gap: 24px; }
   .legal-nav { position: static; flex-direction: row; flex-wrap: wrap; }
+  .blog-toolbar { flex-direction: column; align-items: stretch; }
+  .blog-search { flex-basis: auto; }
 }
 
 /* ============================================================
    BLOG (índice de artículos)
    ============================================================ */
+/* Barra de filtros + buscador */
+.blog-toolbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap; margin-bottom: 40px;
+}
+.blog-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.blog-chip {
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text-secondary); font-family: inherit; font-size: 13px; font-weight: 600;
+  padding: 8px 16px; border-radius: 100px; cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+}
+.blog-chip:hover { color: var(--text-primary); border-color: var(--border-light); transform: translateY(-1px); }
+.blog-chip.active {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff; border-color: transparent; box-shadow: 0 4px 16px rgba(99,102,241,0.32);
+}
+.blog-search {
+  position: relative; display: flex; align-items: center;
+  flex: 0 1 280px; min-width: 200px;
+}
+.blog-search-icon { position: absolute; left: 14px; font-size: 14px; pointer-events: none; opacity: 0.7; }
+.blog-search input {
+  width: 100%; background: var(--surface); border: 1px solid var(--border-light);
+  border-radius: 100px; padding: 11px 18px 11px 38px;
+  color: var(--text-primary); font-family: inherit; font-size: 14px; outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.blog-search input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99,102,241,0.15); }
+.blog-search input::-webkit-search-cancel-button { cursor: pointer; }
+.blog-empty {
+  text-align: center; color: var(--text-secondary); font-size: 16px;
+  padding: 48px 0; margin: 0;
+}
+.blog-clear {
+  background: none; border: none; color: var(--primary-light); font-family: inherit;
+  font-size: 16px; font-weight: 600; cursor: pointer; text-decoration: underline;
+  padding: 0; margin-left: 4px;
+}
+
 .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
 .blog-card {
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
@@ -2279,4 +2321,64 @@ body.no-scroll { overflow: hidden; }
   .pi-icon { font-size: 28px; }
   .coming-card { padding: 24px; }
   .cc-icon { font-size: 34px; }
+}
+
+/* ============================================================
+   MICRO-INTERACCIONES (toques modernos)
+   ============================================================ */
+
+/* Degradado de los títulos con un suave desplazamiento vivo */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+.gradient-text {
+  background-size: 200% auto;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+/* Barrido de brillo al pasar el cursor por los botones primarios */
+.btn-primary { position: relative; overflow: hidden; isolation: isolate; }
+.btn-primary::after {
+  content: '';
+  position: absolute; top: 0; bottom: 0; left: -130%;
+  width: 55%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.28), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s var(--ease);
+  pointer-events: none; z-index: -1;
+}
+.btn-primary:hover::after { left: 140%; }
+
+/* Zoom sutil del emoji/thumb al pasar sobre la tarjeta */
+.blog-card .blog-thumb,
+.game-card .gc-thumb,
+.resource-card,
+.game-hero-card .ghc-preview {
+  transition: transform 0.35s var(--ease);
+}
+.blog-card:hover .blog-thumb,
+.game-card:not(.game-card-soon):hover .gc-thumb {
+  transform: scale(1.06);
+}
+
+/* Entrada escalonada de las tarjetas del blog (también al filtrar) */
+@keyframes blog-card-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+.blog-grid .blog-card { animation: blog-card-in 0.45s var(--ease) both; }
+.blog-grid .blog-card:nth-child(2) { animation-delay: 0.05s; }
+.blog-grid .blog-card:nth-child(3) { animation-delay: 0.10s; }
+.blog-grid .blog-card:nth-child(4) { animation-delay: 0.15s; }
+.blog-grid .blog-card:nth-child(5) { animation-delay: 0.20s; }
+.blog-grid .blog-card:nth-child(n+6) { animation-delay: 0.25s; }
+
+/* Realce del foco para navegación por teclado en tarjetas-enlace */
+.blog-card:focus-visible,
+.game-card:focus-visible,
+.resource-card:focus-visible,
+.game-hero-card:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 3px;
 }

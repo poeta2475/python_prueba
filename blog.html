@@ -64,7 +64,15 @@
 
   <section class="content-section">
     <div class="section-container">
+      <div class="blog-toolbar">
+        <div class="blog-filters" id="blogFilters" role="tablist" aria-label="Filtrar por categoría"></div>
+        <div class="blog-search">
+          <span class="blog-search-icon" aria-hidden="true">🔍</span>
+          <input type="search" id="blogSearch" placeholder="Buscar artículos…" aria-label="Buscar artículos" autocomplete="off" />
+        </div>
+      </div>
       <div class="blog-grid" id="blogGrid"></div>
+      <p class="blog-empty" id="blogEmpty" hidden>No encontré artículos con ese filtro. <button type="button" class="blog-clear" id="blogClear">Ver todos</button></p>
     </div>
   </section>
 
@@ -79,8 +87,24 @@
   <script>
     (function () {
       var grid = document.getElementById('blogGrid');
+      var filtersEl = document.getElementById('blogFilters');
+      var searchEl = document.getElementById('blogSearch');
+      var emptyEl = document.getElementById('blogEmpty');
+      var clearBtn = document.getElementById('blogClear');
       if (!grid || !window.NexaBlog) return;
-      grid.innerHTML = window.NexaBlog.all().map(function (a) {
+
+      var all = window.NexaBlog.all();
+      var activeTag = 'Todos';
+      var query = '';
+
+      // Construir chips de categoría a partir de los tags reales
+      var tags = ['Todos'].concat(all.map(function (a) { return a.tag; }).filter(function (t, i, arr) { return arr.indexOf(t) === i; }));
+      filtersEl.innerHTML = tags.map(function (t) {
+        return '<button type="button" class="blog-chip' + (t === 'Todos' ? ' active' : '') +
+          '" role="tab" aria-selected="' + (t === 'Todos') + '" data-tag="' + t + '">' + t + '</button>';
+      }).join('');
+
+      function cardHTML(a) {
         return '<a class="blog-card" href="articulo.html?post=' + a.slug + '">' +
           '<div class="blog-thumb">' + a.emoji + '</div>' +
           '<div class="blog-body">' +
@@ -89,7 +113,44 @@
           '<p>' + a.excerpt + '</p>' +
           '<p class="r-meta">' + window.NexaBlog.formatDate(a.date) + ' · ' + a.read + ' min · ' + a.author + '</p>' +
           '</div></a>';
-      }).join('');
+      }
+
+      function render() {
+        var q = query.trim().toLowerCase();
+        var list = all.filter(function (a) {
+          var matchTag = activeTag === 'Todos' || a.tag === activeTag;
+          var matchText = !q || (a.title + ' ' + a.excerpt + ' ' + a.tag).toLowerCase().indexOf(q) !== -1;
+          return matchTag && matchText;
+        });
+        grid.innerHTML = list.map(cardHTML).join('');
+        emptyEl.hidden = list.length !== 0;
+      }
+
+      filtersEl.addEventListener('click', function (e) {
+        var btn = e.target.closest('.blog-chip');
+        if (!btn) return;
+        activeTag = btn.dataset.tag;
+        filtersEl.querySelectorAll('.blog-chip').forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle('active', on);
+          b.setAttribute('aria-selected', on);
+        });
+        render();
+      });
+
+      searchEl.addEventListener('input', function () { query = searchEl.value; render(); });
+
+      if (clearBtn) clearBtn.addEventListener('click', function () {
+        activeTag = 'Todos'; query = ''; searchEl.value = '';
+        filtersEl.querySelectorAll('.blog-chip').forEach(function (b) {
+          var on = b.dataset.tag === 'Todos';
+          b.classList.toggle('active', on);
+          b.setAttribute('aria-selected', on);
+        });
+        render();
+      });
+
+      render();
     })();
   </script>
 </body>
