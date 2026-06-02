@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Proyectos | OmarDev</title>
-  <meta name="description" content="Proyectos de programación de Omar: portal web, motor de Blackjack y más ideas en construcción." />
+  <meta name="description" content="Proyectos de programación de Omar: portal web, motor de Blackjack, herramientas web y más ideas en construcción desde Bogotá, Colombia." />
   <meta name="theme-color" content="#0a0b0f" />
   <link rel="canonical" href="https://poeta2475.github.io/python_prueba/proyectos.html" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -64,13 +64,15 @@
       <div class="section-container">
         <p class="page-breadcrumb"><a href="index.html">Inicio</a> / Proyectos</p>
         <h1>Mis <span class="gradient-text">Proyectos</span> 💻</h1>
-        <p>Cosas que construyo con código: desde herramientas web hasta motores de juegos. Todo hecho con HTML, CSS y JavaScript vanilla.</p>
+        <p>Todo lo que construyo con código: desde portales web hasta motores de juego completos. Sin frameworks, sin atajos — solo HTML, CSS y JavaScript puro, hecho a mano desde Bogotá.</p>
         <div class="page-hero-stats">
-          <div class="phs-item"><span class="phs-num">2</span><span class="phs-label">Completados</span></div>
+          <div class="phs-item"><span class="phs-num">2</span><span class="phs-label">En producción</span></div>
           <div class="phs-sep"></div>
           <div class="phs-item"><span class="phs-num">3+</span><span class="phs-label">En camino</span></div>
           <div class="phs-sep"></div>
-          <div class="phs-item"><span class="phs-num">0</span><span class="phs-label">Frameworks</span></div>
+          <div class="phs-item"><span class="phs-num">0</span><span class="phs-label">Dependencias</span></div>
+          <div class="phs-sep"></div>
+          <div class="phs-item"><span class="phs-num">3</span><span class="phs-label">Colegas</span></div>
         </div>
       </div>
     </header>
@@ -79,9 +81,9 @@
     <section class="content-section" id="completados">
       <div class="section-container">
         <div class="section-head" data-reveal>
-          <p class="section-eyebrow">✅ Terminados</p>
+          <p class="section-eyebrow">✅ En producción</p>
           <h2>Proyectos <span class="gradient-text">completados</span></h2>
-          <p>En producción y disponibles para explorar.</p>
+          <p>Disponibles en vivo para explorar, jugar y revisar su código.</p>
         </div>
 
         <div class="proj-list" data-reveal>
@@ -96,16 +98,23 @@
                 <h3>OmarDev Portal</h3>
                 <span class="pi-badge pi-live">En vivo</span>
               </div>
-              <p>Portal personal construido completamente sin frameworks. Incluye sistema de autenticación local, modo claro/oscuro sin parpadeo, blog con artículos dinámicos, animaciones de scroll, menú móvil y múltiples páginas.</p>
+              <p>Portal personal de múltiples páginas construido completamente desde cero, sin un solo framework ni librería de terceros. Cada línea de código tiene un propósito: demostrar que se puede construir algo sólido, rápido y accesible con los fundamentos del web.</p>
+
+              <p style="font-size:14px; color:var(--text-secondary); line-height:1.75; margin-bottom:20px;">
+                El portal incluye <strong style="color:var(--text-primary)">sistema de autenticación client-side</strong> (registro, login y sesión persistente sin servidor), <strong style="color:var(--text-primary)">modo oscuro/claro sin parpadeo</strong> mediante un script bloqueante que actúa antes del primer pintado del navegador, y un <strong style="color:var(--text-primary)">blog con 6 artículos originales</strong> con filtros por categoría y búsqueda en tiempo real. Todo el sitio carga sin JavaScript de 300 KB antes de mostrar la primera palabra.
+              </p>
+
               <div class="pi-stack">
-                <span>HTML5</span>
-                <span>CSS Variables</span>
-                <span>JavaScript ES6</span>
+                <span>HTML5 semántico</span>
+                <span>CSS Custom Properties</span>
+                <span>JavaScript ES6+</span>
+                <span>IntersectionObserver API</span>
                 <span>localStorage</span>
                 <span>GitHub Pages</span>
+                <span>ARIA / Accesibilidad</span>
               </div>
               <div class="pi-actions">
-                <a href="index.html" class="btn-primary">Ver sitio →</a>
+                <a href="index.html" class="btn-primary">Ver el portal →</a>
                 <span class="pi-meta">2024–2026 · Web · Personal</span>
               </div>
             </div>
@@ -121,15 +130,23 @@
                 <h3>Blackjack Engine</h3>
                 <span class="pi-badge pi-live">Jugable</span>
               </div>
-              <p>Motor completo de Blackjack con lógica fiel al casino: baraja de 6 decks barajados, acciones de hit/stand/double/split/insurance, lógica del dealer (pega hasta 17), sistema de fichas con animaciones y modo claro/oscuro.</p>
+              <p>Motor de Blackjack completo con lógica fiel a las reglas de casino. No es un demo simplificado: el juego implementa barajas de 6 mazos, mezcla Fisher-Yates sin sesgo estadístico, dealer H17 real (pide con soft 17), y side bet Lucky Ladies con sus pagos correctos.</p>
+
+              <p style="font-size:14px; color:var(--text-secondary); line-height:1.75; margin-bottom:20px;">
+                Las acciones disponibles — <strong style="color:var(--text-primary)">hit, stand, double down, split e insurance</strong> — funcionan según las reglas estándar. El sistema de fichas acepta denominaciones de $10, $25, $50 y $100. La <strong style="color:var(--text-primary)">side bet Lucky Ladies</strong> paga 4:1 / 9:1 / 19:1 / 125:1 según la combinación. Completamente accesible con teclado, operable sin mouse, y con soporte para <strong style="color:var(--text-primary)">prefers-reduced-motion</strong>.
+              </p>
+
               <div class="pi-stack">
-                <span>JavaScript</span>
+                <span>JavaScript puro</span>
                 <span>DOM API</span>
                 <span>CSS Animations</span>
+                <span>Fisher-Yates Shuffle</span>
                 <span>Responsive Design</span>
+                <span>ARIA / Accesibilidad</span>
               </div>
               <div class="pi-actions">
-                <a href="juego.html" class="btn-primary">Jugar →</a>
+                <a href="juego.html" class="btn-primary">Jugar ahora →</a>
+                <a href="blog.html?tag=Tutorial" class="btn-outline">Leer cómo se hizo</a>
                 <span class="pi-meta">2024 · Juego · Cartas</span>
               </div>
             </div>
@@ -145,7 +162,7 @@
         <div class="section-head" data-reveal>
           <p class="section-eyebrow">🔧 En progreso</p>
           <h2>En <span class="gradient-text">construcción</span></h2>
-          <p>Proyectos que están tomando forma. Cada uno en su propio tiempo.</p>
+          <p>Proyectos que están tomando forma. No hay fechas fijas — cada cosa se hace bien o no se hace.</p>
         </div>
 
         <div class="coming-grid" data-reveal>
@@ -154,11 +171,23 @@
             <div class="cc-icon">🎲</div>
             <div class="cc-body">
               <h3>Juego de dados</h3>
-              <p>Segundo juego del portal. Motor de dados con mecánicas de estrategia. En fase de diseño de reglas.</p>
+              <p>Segundo juego del portal. Motor de dados con mecánicas de estrategia y decisiones en cada turno. Actualmente en fase de diseño de reglas — la parte más importante antes de escribir una línea de código.</p>
               <div class="cc-progress">
                 <div class="cc-progress-bar" style="width: 15%"></div>
               </div>
-              <span class="cc-status">Diseño · 15%</span>
+              <span class="cc-status">Diseño de mecánicas · 15%</span>
+            </div>
+          </div>
+
+          <div class="coming-card">
+            <div class="cc-icon">🧩</div>
+            <div class="cc-body">
+              <h3>Puzzle de lógica</h3>
+              <p>Algo más cerebral que el Blackjack. Un juego de pasos y deducciones donde el jugador resuelve rompecabezas en vez de apostar. La idea tiene buena pinta — falta ejecutarla.</p>
+              <div class="cc-progress">
+                <div class="cc-progress-bar" style="width: 5%"></div>
+              </div>
+              <span class="cc-status">Concepto · 5%</span>
             </div>
           </div>
 
@@ -166,11 +195,11 @@
             <div class="cc-icon">🧰</div>
             <div class="cc-body">
               <h3>Herramienta web</h3>
-              <p>Una utilidad de uso diario construida desde cero. Todavía definiendo qué problema resolver.</p>
+              <p>No todo tienen que ser juegos. Una utilidad pequeña, práctica y de uso diario construida con el mismo enfoque: sin dependencias, carga instantánea, funciona en cualquier dispositivo.</p>
               <div class="cc-progress">
                 <div class="cc-progress-bar" style="width: 8%"></div>
               </div>
-              <span class="cc-status">Concepto · 8%</span>
+              <span class="cc-status">Definición del problema · 8%</span>
             </div>
           </div>
 
@@ -178,7 +207,7 @@
             <div class="cc-icon">🤖</div>
             <div class="cc-body">
               <h3>Experimento con IA</h3>
-              <p>Integrando alguna API de inteligencia artificial en un proyecto. El campo me parece fascinante.</p>
+              <p>El campo me fascina. La idea es conectar una API de inteligencia artificial a un proyecto del portal y documentar todo el proceso: qué funciona, qué no, y qué aprendí.</p>
               <div class="cc-progress">
                 <div class="cc-progress-bar" style="width: 3%"></div>
               </div>
@@ -196,7 +225,7 @@
         <div class="section-head" data-reveal>
           <p class="section-eyebrow">⚙️ Tecnologías</p>
           <h2>Mi <span class="gradient-text">stack</span></h2>
-          <p>Las herramientas con las que trabajo actualmente.</p>
+          <p>Las herramientas con las que trabajo. Todo elegido por razones concretas, no por moda.</p>
         </div>
 
         <div class="stack-grid" data-reveal>
@@ -209,6 +238,7 @@
               <li>CSS3 + Custom Properties</li>
               <li>JavaScript ES6+</li>
               <li>DOM API nativo</li>
+              <li>Fetch / async-await</li>
             </ul>
           </div>
 
@@ -216,10 +246,11 @@
             <span class="stack-icon">🎨</span>
             <h3>Diseño & UX</h3>
             <ul>
-              <li>Responsive design</li>
+              <li>Responsive desde 360 px</li>
               <li>Dark / Light mode</li>
-              <li>CSS Animations</li>
+              <li>CSS Animations & Keyframes</li>
               <li>Accesibilidad (ARIA)</li>
+              <li>prefers-reduced-motion</li>
             </ul>
           </div>
 
@@ -231,6 +262,7 @@
               <li>GitHub Pages</li>
               <li>VS Code</li>
               <li>Chrome DevTools</li>
+              <li>Lighthouse / Axe</li>
             </ul>
           </div>
 
@@ -238,14 +270,59 @@
             <span class="stack-icon">📚</span>
             <h3>Aprendiendo</h3>
             <ul>
-              <li>Python</li>
+              <li>Python 3</li>
               <li>Node.js</li>
               <li>APIs REST</li>
               <li>Inteligencia Artificial</li>
+              <li>Algoritmos y estructuras</li>
             </ul>
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <!-- Créditos & Equipo -->
+    <section class="content-section section-alt" id="equipo">
+      <div class="section-container">
+        <div class="section-head" data-reveal>
+          <p class="section-eyebrow">🤝 Créditos</p>
+          <h2>El <span class="gradient-text">equipo</span> detrás</h2>
+          <p>Este portal no llegó solo. Tres personas de Bogotá poniéndole ganas a cada detalle.</p>
+        </div>
+
+        <div class="team-grid" data-reveal>
+
+          <!-- Omar -->
+          <div class="team-card">
+            <span class="team-lead-badge">Creador</span>
+            <div class="team-avatar" style="background: linear-gradient(135deg, #6366f1, #8b5cf6)">O</div>
+            <h3>Omar</h3>
+            <span class="team-role">Desarrollador principal</span>
+            <p>Diseño, arquitectura, código y contenido del portal completo. Autor de todos los proyectos y artículos del blog.</p>
+          </div>
+
+          <!-- Juan Esteban -->
+          <div class="team-card">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #10b981, #06b6d4)">JE</div>
+            <h3>Juan Esteban Figueroa Uran</h3>
+            <span class="team-role">Colega & colaborador</span>
+            <p>Compañero clave en el desarrollo y publicación del portal. Ideas, retroalimentación y apoyo a lo largo del proyecto.</p>
+          </div>
+
+          <!-- Juan David -->
+          <div class="team-card">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444)">JD</div>
+            <h3>Juan David Figueroa Uran</h3>
+            <span class="team-role">Colega & colaborador</span>
+            <p>Parte del equipo desde el inicio. Aporta pruebas, perspectiva fresca y motivación para seguir construyendo.</p>
+          </div>
+
+        </div>
+
+        <p style="text-align:center; color:var(--text-muted); font-size:14px; margin-top:40px; line-height:1.8;">
+          Hecho con 💜 desde <strong style="color:var(--text-secondary)">Bogotá, Colombia</strong> · Sin frameworks, sin atajos, con mucha dedicación.
+        </p>
       </div>
     </section>
 
