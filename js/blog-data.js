@@ -1,4 +1,4 @@
-/* OmarDev — Contenido del blog (datos)
+/* TresDev — Contenido del blog (datos)
  * Notas personales sobre código, juegos y proyectos. Cada artículo
  * tiene su cuerpo en HTML simple y se sirve client-side.
  */
@@ -60,7 +60,7 @@
       title: 'Animaciones suaves con CSS puro (sin librerías)',
       excerpt:
         'Las cartas que vuelan, los reveals al hacer scroll, los botones magnéticos: todo con CSS y un poquito de JS.',
-      author: 'Omar',
+      author: 'Juan Esteban',
       date: '2026-05-03',
       read: 7,
       emoji: '✨',
@@ -83,7 +83,7 @@
       title: 'Modo oscuro sin el molesto parpadeo blanco',
       excerpt:
         '¿Te ha pasado que la página carga en blanco y un segundo después salta a oscuro? Así eliminé ese flash para siempre.',
-      author: 'Omar',
+      author: 'Juan David',
       date: '2026-04-22',
       read: 5,
       emoji: '🌗',
@@ -129,7 +129,7 @@
       title: 'Qué viene después del Blackjack',
       excerpt:
         'El primer juego ya está en vivo. Estos son los proyectos que tengo en la mira para los próximos meses.',
-      author: 'Omar',
+      author: 'Juan Esteban',
       date: '2026-05-28',
       read: 4,
       emoji: '🚀',

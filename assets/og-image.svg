@@ -26,11 +26,11 @@
     <path d="M120 0V630M240 0V630M360 0V630M480 0V630M600 0V630M720 0V630M840 0V630M960 0V630M1080 0V630"/>
   </g>
   <!-- brand row -->
-  <text x="96" y="150" font-family="Inter, sans-serif" font-size="40" font-weight="800" fill="#f1f5f9">🎮 Omar<tspan fill="#818cf8">Dev</tspan></text>
+  <text x="96" y="150" font-family="Inter, sans-serif" font-size="40" font-weight="800" fill="#f1f5f9">🎮 Tres<tspan fill="#818cf8">Dev</tspan></text>
   <!-- headline -->
   <text x="96" y="330" font-family="Inter, sans-serif" font-size="72" font-weight="900" fill="#f1f5f9">Juegos &amp; proyectos</text>
   <text x="96" y="415" font-family="Inter, sans-serif" font-size="72" font-weight="900" fill="url(#grad)">hechos desde cero</text>
-  <text x="96" y="490" font-family="Inter, sans-serif" font-size="28" font-weight="500" fill="#94a3b8">Portal personal de Omar · HTML, CSS y JS puro · Colombia 🇨🇴</text>
+  <text x="96" y="490" font-family="Inter, sans-serif" font-size="28" font-weight="500" fill="#94a3b8">Omar · Juan Esteban · Juan David · Medellín, Colombia 🇨🇴</text>
   <!-- decorative playing cards (blackjack nod) -->
   <g transform="translate(880,210) rotate(-12)">
     <rect width="150" height="210" rx="16" fill="url(#card)" stroke="#cbd5e1" stroke-width="2"/>

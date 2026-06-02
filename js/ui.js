@@ -1,4 +1,4 @@
-/* OmarDev — utilidades de UI compartidas: toasts + validación */
+/* TresDev — utilidades de UI compartidas: toasts + validación */
 (function (global) {
   'use strict';
 

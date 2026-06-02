@@ -1,4 +1,4 @@
-/* OmarDev — Capa de datos cliente (localStorage) */
+/* TresDev — Capa de datos cliente (localStorage) */
 (function (global) {
   'use strict';
 

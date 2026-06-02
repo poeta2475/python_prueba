@@ -1,4 +1,4 @@
-/* OmarDev — Lógica de autenticación (login / signup + Google OAuth) */
+/* TresDev — Lógica de autenticación (login / signup + Google OAuth) */
 (function () {
   'use strict';
   const { toast, Validate, setFieldError, clearFieldError } = window.NexaUI;
