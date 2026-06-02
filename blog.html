@@ -94,14 +94,18 @@
       if (!grid || !window.NexaBlog) return;
 
       var all = window.NexaBlog.all();
-      var activeTag = 'Todos';
+
+      // Leer ?tag= de la URL si viene desde otro enlace
+      var urlTag = new URLSearchParams(window.location.search).get('tag') || 'Todos';
+      var validTags = ['Todos'].concat(all.map(function (a) { return a.tag; }).filter(function (t, i, arr) { return arr.indexOf(t) === i; }));
+      var activeTag = validTags.indexOf(urlTag) !== -1 ? urlTag : 'Todos';
       var query = '';
 
-      // Construir chips de categoría a partir de los tags reales
-      var tags = ['Todos'].concat(all.map(function (a) { return a.tag; }).filter(function (t, i, arr) { return arr.indexOf(t) === i; }));
-      filtersEl.innerHTML = tags.map(function (t) {
-        return '<button type="button" class="blog-chip' + (t === 'Todos' ? ' active' : '') +
-          '" role="tab" aria-selected="' + (t === 'Todos') + '" data-tag="' + t + '">' + t + '</button>';
+      // Construir chips de categoría marcando el activo correctamente
+      filtersEl.innerHTML = validTags.map(function (t) {
+        var isActive = t === activeTag;
+        return '<button type="button" class="blog-chip' + (isActive ? ' active' : '') +
+          '" role="tab" aria-selected="' + isActive + '" data-tag="' + t + '">' + t + '</button>';
       }).join('');
 
       function cardHTML(a) {
