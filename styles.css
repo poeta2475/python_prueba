@@ -2388,12 +2388,15 @@ body.no-scroll { overflow: hidden; }
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: none; }
 }
-.blog-grid .blog-card { animation: blog-card-in 0.45s var(--ease) both; }
+.blog-grid .blog-card { animation: blog-card-in 0.45s var(--ease) forwards; }
 .blog-grid .blog-card:nth-child(2) { animation-delay: 0.05s; }
 .blog-grid .blog-card:nth-child(3) { animation-delay: 0.10s; }
 .blog-grid .blog-card:nth-child(4) { animation-delay: 0.15s; }
 .blog-grid .blog-card:nth-child(5) { animation-delay: 0.20s; }
 .blog-grid .blog-card:nth-child(n+6) { animation-delay: 0.25s; }
+@media (prefers-reduced-motion: reduce) {
+  .blog-grid .blog-card { animation: none; opacity: 1; transform: none; }
+}
 
 /* Realce del foco para navegación por teclado en tarjetas-enlace */
 .blog-card:focus-visible,
