@@ -38,11 +38,48 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 :root[data-theme="light"] .top-bar{background:linear-gradient(180deg,#ffffff,#f1f3f9);border-bottom-color:rgba(99,102,241,.25);}
 :root[data-theme="light"] .dealer-area{background:linear-gradient(180deg,#e7ebf6,#eef1f8 60%,#f4f6fb);}
 :root[data-theme="light"] .bottom-bar{background:linear-gradient(0deg,#f1f3f9,#ffffff);}
-:root[data-theme="light"] .hand-panel,
-:root[data-theme="light"] .modal{background:#ffffff;color:var(--text);}
+:root[data-theme="light"] .hand-panel{background:#ffffff;color:var(--text);}
+:root[data-theme="light"] .modal{background:linear-gradient(160deg,#ffffff,#eef1f8);color:var(--text);border-color:rgba(99,102,241,.3);}
 :root[data-theme="light"] .card.back{background:linear-gradient(145deg,#6366f1,#4338ca);}
 :root[data-theme="light"] .top-subtitle,
 :root[data-theme="light"] .balance-lbl{color:#64708a;}
+/* Felt table + zones */
+:root[data-theme="light"] .play-area{background:radial-gradient(ellipse at 50% 40%,#dfe5f4,#e7ebf6 60%,#eef1f8);}
+:root[data-theme="light"] .play-area::before{border-color:rgba(99,102,241,.16);}
+:root[data-theme="light"] .dealer-area::after{color:rgba(99,102,241,.4);}
+:root[data-theme="light"] .side-strip{background:rgba(255,255,255,.6);border-color:rgba(99,102,241,.15);}
+:root[data-theme="light"] .sbc{background:rgba(99,102,241,.05);border-color:rgba(99,102,241,.18);}
+/* Score badge: dark pill is unreadable on light felt */
+:root[data-theme="light"] .score-badge{background:#ffffff;border-color:rgba(99,102,241,.4);box-shadow:0 1px 4px rgba(40,50,90,.12);}
+/* Card faces keep white bg; ensure shadow reads on light felt (exclude glow states so win/BJ glow still shows) */
+:root[data-theme="light"] .card:not(.win-glow):not(.bj-glow){box-shadow:0 3px 10px rgba(40,50,90,.22),0 0 0 1px rgba(40,50,90,.08);}
+/* Dark action button needs light styling */
+:root[data-theme="light"] .abtn-dark{background:rgba(99,102,241,.1);color:#1e2230;border-color:rgba(99,102,241,.3);}
+:root[data-theme="light"] .abtn-dark:hover:not(:disabled){background:rgba(99,102,241,.18);}
+/* Messages readable on light felt */
+:root[data-theme="light"] .msg.info{color:#3a4256;text-shadow:none;}
+:root[data-theme="light"] .msg.push{color:#4338ca;}
+:root[data-theme="light"] .msg.win{color:#15923f;}
+:root[data-theme="light"] .msg.bj{color:#b8860b;text-shadow:0 0 12px rgba(184,134,11,.4);}
+:root[data-theme="light"] .net-val.pos,
+:root[data-theme="light"] .stat-val.pos,
+:root[data-theme="light"] .modal-net.pos{color:#15923f;}
+:root[data-theme="light"] .balance-val,
+:root[data-theme="light"] .top-title,
+:root[data-theme="light"] .bet-display-val{color:#4338ca;}
+/* Chip selector + toast + win toast */
+:root[data-theme="light"] .chip-selector{background:linear-gradient(160deg,#ffffff,#eef1f8);}
+:root[data-theme="light"] .chip-sel-title,
+:root[data-theme="light"] .chip-hint{color:#64708a;}
+:root[data-theme="light"] #toast{background:rgba(255,255,255,.96);color:#4338ca;border-color:rgba(99,102,241,.4);box-shadow:0 4px 16px rgba(40,50,90,.2);}
+:root[data-theme="light"] .modal p,
+:root[data-theme="light"] #stats-body,
+:root[data-theme="light"] .rule-section{color:var(--text);}
+:root[data-theme="light"] .menu-item{background:rgba(99,102,241,.06);color:var(--text);}
+:root[data-theme="light"] .center-chip{outline-color:rgba(99,102,241,.4);}
+:root[data-theme="light"] #backToSite{background:rgba(255,255,255,.9);color:#4338ca;border-color:rgba(99,102,241,.5);}
+:root[data-theme="light"] .modal input,
+:root[data-theme="light"] #import-input{background:#f1f3f9;color:#4338ca;border-color:rgba(99,102,241,.35);}
 html,body{width:100%;height:100%;overflow:hidden;}
 body{font-family:'Roboto',sans-serif;background:#0a0a0a;display:flex;flex-direction:column;
   color:var(--text);-webkit-font-smoothing:antialiased;position:fixed;inset:0;}
@@ -300,6 +337,14 @@ body{font-family:'Roboto',sans-serif;background:#0a0a0a;display:flex;flex-direct
   box-shadow:0 2px 8px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1);}
 .abtn:active{transform:scale(.91)!important;transition:transform .04s;}
 .abtn:focus-visible{outline:2px solid var(--gold-l);outline-offset:2px;}
+/* Global keyboard focus visibility for all interactive controls */
+.deal-btn:focus-visible,.bet-ctrl-btn:focus-visible,.bet-double-btn:focus-visible,
+.center-chip:focus-visible,.chip:focus-visible,.sb-circle:focus-visible,
+.sbc:focus-visible,.add-chips-btn:focus-visible,.preset:focus-visible,
+#btn-menu:focus-visible,#btn-theme:focus-visible,#backToSite:focus-visible,
+.menu-item:focus-visible,[role="button"]:focus-visible{
+  outline:2px solid var(--gold-l);outline-offset:2px;border-radius:6px;
+}
 .abtn.confirm-pending{
   background:linear-gradient(160deg,#ffaa00,#cc6600)!important;
   color:#000!important;
@@ -411,6 +456,25 @@ body{font-family:'Roboto',sans-serif;background:#0a0a0a;display:flex;flex-direct
   .abtn{padding:6px 10px;font-size:10px;}
   .bottom-bar{padding:3px 10px 5px;}
   .chip-wheel-wrap{margin-bottom:10px;}}
+/* Very narrow phones (375px and below): keep action buttons on one row, chips fit */
+@media(max-width:360px){
+  .abtn{padding:7px 9px;font-size:10px;letter-spacing:.5px;}
+  .action-row{gap:4px;}
+  .top-title{font-size:12px;letter-spacing:1px;}
+}
+/* ===== REDUCED MOTION ===== */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.001ms!important;
+    scroll-behavior:auto!important;
+  }
+  /* Cards still appear, just without the fly-in/flip motion */
+  .card.dealing,.card.flipping{animation:none!important;opacity:1!important;transform:none!important;}
+  .cp,.win-toast{display:none!important;}
+  .abtn.confirm-pending{animation:none!important;}
+}
 </style>
 </head>
 <body>
@@ -479,9 +543,9 @@ body{font-family:'Roboto',sans-serif;background:#0a0a0a;display:flex;flex-direct
 
   <div class="side-strip">
     <div class="side-strip-label">LATERALES</div>
-    <div class="sbc" id="sbc-pp"><div class="sbc-name">PERFECT PAIRS</div><div class="sbc-amt" id="pp-amt">0</div><div class="sbc-clr" id="clr-pp">✕ limpiar</div></div>
-    <div class="sbc" id="sbc-tf"><div class="sbc-name">21 + 3</div><div class="sbc-amt" id="tf-amt">0</div><div class="sbc-clr" id="clr-tf">✕ limpiar</div></div>
-    <div class="sbc" id="sbc-ll"><div class="sbc-name">LUCKY LADIES</div><div class="sbc-amt" id="ll-amt">0</div><div class="sbc-clr" id="clr-ll">✕ limpiar</div></div>
+    <div class="sbc" id="sbc-pp" role="button" tabindex="0" aria-label="Apuesta lateral Perfect Pairs"><div class="sbc-name">PERFECT PAIRS</div><div class="sbc-amt" id="pp-amt">0</div><div class="sbc-clr" id="clr-pp" role="button" tabindex="0" aria-label="Limpiar Perfect Pairs">✕ limpiar</div></div>
+    <div class="sbc" id="sbc-tf" role="button" tabindex="0" aria-label="Apuesta lateral 21 más 3"><div class="sbc-name">21 + 3</div><div class="sbc-amt" id="tf-amt">0</div><div class="sbc-clr" id="clr-tf" role="button" tabindex="0" aria-label="Limpiar 21 más 3">✕ limpiar</div></div>
+    <div class="sbc" id="sbc-ll" role="button" tabindex="0" aria-label="Apuesta lateral Lucky Ladies"><div class="sbc-name">LUCKY LADIES</div><div class="sbc-amt" id="ll-amt">0</div><div class="sbc-clr" id="clr-ll" role="button" tabindex="0" aria-label="Limpiar Lucky Ladies">✕ limpiar</div></div>
     <button class="add-chips-btn" id="btn-addchips">➕ Fichas</button>
   </div>
 
@@ -495,7 +559,7 @@ body{font-family:'Roboto',sans-serif;background:#0a0a0a;display:flex;flex-direct
       <div class="sb-circle" id="sb-pp" style="margin-right:-4px">PERFECT<br>PAIRS</div>
       <div class="sb-circle" id="sb-tf" style="margin-right:-4px">21+3</div>
       <div class="center-chip-wrap">
-        <div class="center-chip c-200k" id="center-chip">200K</div>
+        <div class="center-chip c-200k" id="center-chip" role="button" tabindex="0" aria-label="Elegir y apostar ficha">200K</div>
         <div class="chip-hint">▲ elegir ficha</div>
       </div>
       <div class="sb-circle" id="sb-ll" style="margin-left:-4px">LUCKY<br>LADIES</div>
@@ -611,9 +675,9 @@ body{font-family:'Roboto',sans-serif;background:#0a0a0a;display:flex;flex-direct
     <div class="menu-list">
       <button class="menu-item" id="menu-stats" aria-label="Ver estadísticas"><span class="menu-icon">📊</span>Estadísticas</button>
       <button class="menu-item" id="menu-rules" aria-label="Ver reglas del juego"><span class="menu-icon">📖</span>Reglas y pagos</button>
-      <button class="menu-item" id="menu-sound" aria-label="Cambiar sonido"><span class="menu-icon" id="menu-sound-ico">🔊</span><span id="menu-sound-txt">Sonido: Encendido</span></button>
-      <button class="menu-item" id="menu-haptic" aria-label="Cambiar vibración"><span class="menu-icon" id="menu-haptic-ico">📳</span><span id="menu-haptic-txt">Vibración: Encendida</span></button>
-      <button class="menu-item" id="menu-hints" aria-label="Cambiar consejos"><span class="menu-icon" id="menu-hints-ico">💡</span><span id="menu-hints-txt">Estrategia: Apagada</span></button>
+      <button class="menu-item" id="menu-sound" aria-label="Cambiar sonido" aria-pressed="true"><span class="menu-icon" id="menu-sound-ico">🔊</span><span id="menu-sound-txt">Sonido: Encendido</span></button>
+      <button class="menu-item" id="menu-haptic" aria-label="Cambiar vibración" aria-pressed="true"><span class="menu-icon" id="menu-haptic-ico">📳</span><span id="menu-haptic-txt">Vibración: Encendida</span></button>
+      <button class="menu-item" id="menu-hints" aria-label="Cambiar consejos" aria-pressed="false"><span class="menu-icon" id="menu-hints-ico">💡</span><span id="menu-hints-txt">Estrategia: Apagada</span></button>
       <button class="menu-item" id="menu-export" aria-label="Exportar sesión"><span class="menu-icon">💾</span>Copiar sesión</button>
       <button class="menu-item" id="menu-import" aria-label="Importar sesión"><span class="menu-icon">📥</span>Importar sesión</button>
     </div>
@@ -650,9 +714,9 @@ body{font-family:'Roboto',sans-serif;background:#0a0a0a;display:flex;flex-direct
       <div class="rule-section"><strong style="color:var(--gold-l);">21+3</strong>
       Tus 2 cartas + 1ª del crupier:<br>• Trío del mismo palo: 100:1<br>• Escalera de Color: 40:1<br>• Trío: 30:1<br>• Escalera: 10:1<br>• Color: 5:1</div>
       <div class="rule-section"><strong style="color:var(--gold-l);">LUCKY LADIES</strong>
-      Tus 2 primeras cartas:<br>• Q♥+Q♥: 125:1<br>• Par de reinas: 19:1<br>• Mismo palo y 20: 10:1<br>• Cualquier par: 8:1<br>• Total 20: 4:1</div>
+      Tus 2 primeras cartas (deben sumar 20, salvo Q♥Q♥):<br>• Q♥+Q♥: 125:1<br>• Par igual y suited (20): 19:1<br>• Par igual (20): 9:1<br>• Total 20: 4:1</div>
       <div class="rule-section"><strong style="color:var(--gold-l);">REGLAS DEL CRUPIER</strong>
-      • Pide carta hasta 17+<br>• Si muestra As o 10/J/Q/K, revisa BJ<br>• 6 mazos, baraja a 25%</div>
+      • Pide hasta 16; se planta en 17 duro<br>• Pide en 17 suave (regla H17)<br>• Si muestra As o 10/J/Q/K, revisa BJ<br>• 6 mazos, baraja a 25%</div>
       <div class="rule-section"><strong style="color:var(--gold-l);">CONFIRMACIÓN AUTOMÁTICA</strong>
       Al PEDIR con 19 o 20, o DOBLAR con 17+, el botón pide doble toque para evitar errores.</div>
       <div class="rule-section"><strong style="color:var(--gold-l);">ESTRATEGIA BÁSICA</strong>
@@ -886,9 +950,21 @@ async function animateRevealDealer(){
   if(bi>=0){const c=dealerHand[bi],cl=isRed(c.s)?'red':'black',ctr=ROYALS[c.r]?`<div class="cf">${ROYALS[c.r]}</div>`:`<div class="cm">${c.s}</div>`;const el=document.createElement('div');el.className=`card ${cl} flipping`;el.style.zIndex=++cardZ;el.innerHTML=`<div class="cc"><span class="r">${c.r}</span><span class="s">${c.s}</span></div>${ctr}<div class="cc cb"><span class="r">${c.r}</span><span class="s">${c.s}</span></div>`;cards[bi].replaceWith(el);sndFlip();await sleep(320);}
   updDS();
 }
+// True if hand totals 17 *with* an Ace counted as 11 (soft 17)
+function isSoft17(hand){
+  let t=0,a=0;
+  for(const c of hand){if(c.hidden)continue;t+=cv(c);if(c.r==='A')a++;}
+  while(t>21&&a>0){t-=10;a--;}
+  return t===17&&a>0; // an Ace still counts as 11 → soft
+}
 async function animateDealerDraw(){
   let s=score(dealerHand);
-  while(s<17){const c=dealCard();dealerHand.push(c);document.getElementById('dc').insertAdjacentHTML('beforeend',mkCard(c,'dealing'));sndDeal();await sleep(460);s=score(dealerHand);}
+  // Dealer hits on all 16 and below, and also on SOFT 17 (H17 rule — matches advisor/rules)
+  while(s<17||(s===17&&isSoft17(dealerHand))){
+    const c=dealCard();dealerHand.push(c);
+    document.getElementById('dc').insertAdjacentHTML('beforeend',mkCard(c,'dealing'));sndDeal();await sleep(460);
+    s=score(dealerHand);
+  }
   updDS();
 }
 
@@ -1485,6 +1561,9 @@ function openMenu(){
   document.getElementById('menu-haptic-ico').textContent=hapticOn?'📳':'📴';
   document.getElementById('menu-haptic-txt').textContent='Vibración: '+(hapticOn?'Encendida':'Apagada');
   document.getElementById('menu-hints-txt').textContent='Estrategia: '+(hintsOn?'Encendida':'Apagada');
+  document.getElementById('menu-sound').setAttribute('aria-pressed',String(soundOn));
+  document.getElementById('menu-haptic').setAttribute('aria-pressed',String(hapticOn));
+  document.getElementById('menu-hints').setAttribute('aria-pressed',String(hintsOn));
   openModalById('menu-overlay');
 }
 function openStats(){
@@ -1509,10 +1588,9 @@ function openStats(){
   openModalById('stats-overlay');
 }
 function openRules(){closeOverlay('menu-overlay');openModalById('rules-overlay');}
-function toggleSound(){soundOn=!soundOn;saveSession();document.getElementById('menu-sound-ico').textContent=soundOn?'🔊':'🔇';document.getElementById('menu-sound-txt').textContent='Sonido: '+(soundOn?'Encendido':'Apagado');showToast('Sonido '+(soundOn?'encendido':'apagado'));if(soundOn)sndChip();}
-function toggleHints(){hintsOn=!hintsOn;saveSession();document.getElementById('menu-hints-txt').textContent='Estrategia: '+(hintsOn?'Encendida':'Apagada');showToast('Consejos de estrategia '+(hintsOn?'encendidos':'apagados'));if(hintsOn&&gameActive)showStrategyHint();else hideStrategyHint();}
-function toggleHaptic(){hapticOn=!hapticOn;saveSession();document.getElementById('menu-haptic-ico').textContent=hapticOn?'📳':'📴';document.getElementById('menu-haptic-txt').textContent='Vibración: '+(hapticOn?'Encendida':'Apagada');
-  document.getElementById('menu-hints-txt').textContent='Estrategia: '+(hintsOn?'Encendida':'Apagada');showToast('Vibración '+(hapticOn?'encendida':'apagada'));if(hapticOn)vib(40);}
+function toggleSound(){soundOn=!soundOn;saveSession();document.getElementById('menu-sound-ico').textContent=soundOn?'🔊':'🔇';document.getElementById('menu-sound-txt').textContent='Sonido: '+(soundOn?'Encendido':'Apagado');document.getElementById('menu-sound').setAttribute('aria-pressed',String(soundOn));showToast('Sonido '+(soundOn?'encendido':'apagado'));if(soundOn)sndChip();}
+function toggleHints(){hintsOn=!hintsOn;saveSession();document.getElementById('menu-hints-txt').textContent='Estrategia: '+(hintsOn?'Encendida':'Apagada');document.getElementById('menu-hints').setAttribute('aria-pressed',String(hintsOn));showToast('Consejos de estrategia '+(hintsOn?'encendidos':'apagados'));if(hintsOn&&gameActive)showStrategyHint();else hideStrategyHint();}
+function toggleHaptic(){hapticOn=!hapticOn;saveSession();document.getElementById('menu-haptic-ico').textContent=hapticOn?'📳':'📴';document.getElementById('menu-haptic-txt').textContent='Vibración: '+(hapticOn?'Encendida':'Apagada');document.getElementById('menu-haptic').setAttribute('aria-pressed',String(hapticOn));showToast('Vibración '+(hapticOn?'encendida':'apagada'));if(hapticOn)vib(40);}
 async function exportSession(){
   const data={totalNet,resets,chips,lastBet,lastSideBets,rHist,streak,streakType,soundOn,hapticOn,stats,version:3};
   const json=JSON.stringify(data);
@@ -1653,6 +1731,17 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Enter'){if(document.getElementById('custom-overlay').classList.contains('show'))confirmCustomChip();if(document.getElementById('addchips-overlay').classList.contains('show'))confirmAddChips();}
   if(e.key==='Escape'){document.querySelectorAll('.overlay.show').forEach(o=>closeOverlay(o.id));closeChipSelector();}
 });
+// Make all custom role="button" elements operable via Enter / Space
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Enter'&&e.key!==' ')return;
+  const el=e.target;
+  if(el&&el.getAttribute&&el.getAttribute('role')==='button'&&el.tagName!=='BUTTON'){
+    // Avoid hijacking keystrokes inside inputs/textareas
+    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')return;
+    e.preventDefault();
+    el.click();
+  }
+});
 
 // Restore history UI on page load
 if(rHist.length){
@@ -1675,11 +1764,22 @@ buildDeck();updateStats();
 (function(){
   var b=document.getElementById('btn-theme');
   if(!b)return;
+  function syncLabel(){
+    var isLight=document.documentElement.getAttribute('data-theme')==='light';
+    b.setAttribute('aria-label',isLight?'Cambiar a tema oscuro':'Cambiar a tema claro');
+    b.setAttribute('aria-pressed',String(isLight));
+    b.textContent=isLight?'☀️':'🌙';
+    // Keep the browser UI chrome in sync with the active theme
+    var meta=document.querySelector('meta[name="theme-color"]');
+    if(meta)meta.setAttribute('content',isLight?'#eef1f8':'#0a0a0a');
+  }
+  syncLabel();
   b.addEventListener('click',function(){
     var cur=document.documentElement.getAttribute('data-theme')==='light'?'light':'dark';
     var next=cur==='light'?'dark':'light';
     document.documentElement.setAttribute('data-theme',next);
     try{localStorage.setItem('nexapy:theme',next);}catch(e){}
+    syncLabel();
   });
 })();
 </script>
