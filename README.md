@@ -1,52 +1,54 @@
-# NexaPy Analytics
+# OmarDev — Portal personal
 
-Landing page + demo funcional de una plataforma SaaS de análisis de datos.
-Sitio estático (HTML/CSS/JS puro, sin dependencias) desplegado en GitHub Pages.
+Portal de juegos y proyectos hecho desde cero con HTML, CSS y JS puro, sin frameworks ni dependencias.
+Desplegado en GitHub Pages.
 
 🔗 **En vivo:** https://poeta2475.github.io/python_prueba/
 
-## Qué incluye
+## Páginas
 
-| Página | Descripción |
+| Archivo | Descripción |
 |---|---|
-| `index.html` | Landing: hero, tabs de características, bento, calculadora ROI, precios, comparativa, integraciones, testimonios, FAQ, contacto |
-| `signup.html` | Registro con validación y medidor de fuerza de contraseña |
-| `login.html` | Inicio de sesión con verificación de credenciales |
+| `index.html` | Home: hero, juego destacado, proyectos, blog preview, CTA |
+| `juegos.html` | Catálogo de juegos disponibles y próximamente |
+| `juego.html` | Blackjack completo con apuestas, side bet Lucky Ladies y modo nocturno |
+| `proyectos.html` | Proyectos personales con stack tecnológico |
+| `blog.html` | Blog con filtros por categoría y búsqueda en tiempo real |
+| `articulo.html` | Lector de artículo individual con artículos relacionados |
+| `recursos.html` | Recursos útiles y herramientas favoritas |
+| `nosotros.html` | Sobre mí, valores y habilidades |
+| `signup.html` | Registro con validación y medidor de contraseña |
+| `login.html` | Inicio de sesión |
 | `recuperar.html` | Recuperación de contraseña |
-| `dashboard.html` | Panel demo: KPIs, gráfico de líneas, barras, **donut** y **embudo**, tabla con búsqueda/orden/paginación/export CSV |
-| `blog.html` / `articulo.html` | Blog con 6 artículos reales (datos en `js/blog-data.js`) y lector con relacionados |
-| `nosotros.html` | Historia, hitos, valores y equipo |
-| `recursos.html` | Blog destacado + centro de ayuda |
-| `legal.html` | Términos, privacidad, cookies, Habeas Data, SLA |
+| `legal.html` | Términos, privacidad y cookies |
 | `404.html` | Página de error personalizada |
 
-Localizado para **Colombia**: precios en COP, contacto y datos colombianos, formato `es-CO`, Ley 1581 de Habeas Data.
+## Lógica
 
-## Lógica real (no es solo maquetación)
-
-- **Autenticación cliente** (`js/store.js`): registro, login, sesión y persistencia en `localStorage`. Las contraseñas se guardan hasheadas (demo; en producción iría en servidor con bcrypt/argon2).
-- **Guard de sesión**: `dashboard.html` redirige a login si no hay sesión; las páginas de auth redirigen al panel si ya la hay.
-- **Dashboard con datos**: generador determinista (PRNG con semilla) produce series temporales; se calculan KPIs reales con comparación periodo-a-periodo, se dibujan gráficos en SVG y se gestiona una tabla interactiva.
-- **Validación de formularios** (`js/ui.js`): email, longitud, requeridos, con mensajes por campo y notificaciones tipo toast.
-- **Contacto y newsletter**: guardan leads/suscripciones en `localStorage`.
+- **Autenticación** (`js/store.js`): registro, login y sesión persistente en `localStorage` (demo).
+- **Blog** (`js/blog-data.js`): 6 artículos sobre código, CSS y juegos. API `NexaBlog` con `.all()`, `.bySlug()` y `.formatDate()`.
+- **Blackjack** (`juego.html`): baraja Fisher-Yates, As 1/11, dealer H17 real, Lucky Ladies, animaciones de cartas.
+- **Tema** (`js/theme.js`): script bloqueante en `<head>` que lee `localStorage` antes del primer pintado — cero flash.
+- **Animaciones**: `IntersectionObserver` para scroll-reveal, botones magnéticos, efecto spotlight, aurora de fondo.
 
 ## Arquitectura
 
 ```
-index / login / signup / dashboard / 404   (HTML)
-styles.css        → estilos globales + componentes
-dashboard.css     → estilos del panel
-js/store.js       → capa de datos (localStorage): usuarios, sesión, leads
-js/ui.js          → toasts + validadores reutilizables
-js/main.js        → interacciones de la landing
-js/auth.js        → login / signup
-js/dashboard.js   → KPIs, gráficos y tabla del panel
+styles.css          → estilos globales, componentes y temas
+js/theme.js         → anti-flash: aplica data-theme antes del primer pintado
+js/store.js         → capa de datos: usuarios, sesión (localStorage)
+js/ui.js            → toasts y validadores reutilizables
+js/main.js          → scroll-reveal, micro-interacciones, navbar
+js/auth.js          → login / signup
+js/blog-data.js     → contenido del blog (6 artículos)
+assets/             → favicon.svg, og-image.svg
 ```
 
-## Accesibilidad y UX
+## Accesibilidad
 
-- Skip-link, `aria-*`, foco visible, soporte de `prefers-reduced-motion`.
-- Menú móvil funcional, navegación con scroll-spy, totalmente responsive.
+- Skip-link, `aria-*` completos, foco visible en todos los controles.
+- `prefers-reduced-motion`: desactiva animaciones de cartas y confetti.
+- Menú móvil funcional, totalmente responsive desde 360 px.
 
 ## Desarrollo local
 
@@ -54,7 +56,3 @@ js/dashboard.js   → KPIs, gráficos y tabla del panel
 python3 -m http.server 8000
 # abre http://localhost:8000
 ```
-
-## Despliegue
-
-Automático vía GitHub Actions (`.github/workflows/deploy-pages.yml`) en cada push a la rama.
